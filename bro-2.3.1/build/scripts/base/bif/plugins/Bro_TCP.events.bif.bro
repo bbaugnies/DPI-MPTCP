@@ -323,5 +323,7 @@ global contents_file_write_failure: event(c: connection , is_orig: bool , msg: s
 
 global mptcp: event(c: connection , len: count , subtype: count , version: count , flags: count , sender_key: count , receiver_key: count , token: count , rand: count , hmac1: count , hmac2: count , hmac3: count , is_orig: bool );
 
+
+global mp_capable: event(c: connection , len: count , version: count , flags: count , sender_key: count , receiver_key: count , is_orig: bool );
 } # end of export section
 module GLOBAL;

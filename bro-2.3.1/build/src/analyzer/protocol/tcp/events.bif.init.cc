@@ -49,6 +49,8 @@ std::list<std::pair<const char*, int> > __bif_events_init()
 	bifs.push_back(std::make_pair("contents_file_write_failure", 2));
 	::mptcp = internal_handler("mptcp");
 	bifs.push_back(std::make_pair("mptcp", 2));
+	::mp_capable = internal_handler("mp_capable");
+	bifs.push_back(std::make_pair("mp_capable", 2));
 
 	return bifs;
 	}

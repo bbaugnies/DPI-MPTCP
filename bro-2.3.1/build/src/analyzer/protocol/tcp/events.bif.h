@@ -46,5 +46,7 @@ extern EventHandlerPtr contents_file_write_failure;
 namespace BifEvent {  void generate_contents_file_write_failure(analyzer::Analyzer* analyzer, Connection* c, int is_orig, StringVal* msg);  } 
 extern EventHandlerPtr mptcp; 
 namespace BifEvent {  void generate_mptcp(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t subtype, bro_uint_t version, bro_uint_t flags, bro_uint_t sender_key, bro_uint_t receiver_key, bro_uint_t token, bro_uint_t rand, bro_uint_t hmac1, bro_uint_t hmac2, bro_uint_t hmac3, int is_orig);  } 
+extern EventHandlerPtr mp_capable; 
+namespace BifEvent {  void generate_mp_capable(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t version, bro_uint_t flags, bro_uint_t sender_key, bro_uint_t receiver_key, int is_orig);  } 
 
 #endif

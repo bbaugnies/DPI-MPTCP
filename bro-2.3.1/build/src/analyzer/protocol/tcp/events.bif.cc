@@ -302,3 +302,23 @@ void BifEvent::generate_mptcp(analyzer::Analyzer* analyzer, Connection* c, bro_u
 
 	mgr.QueueEvent(::mptcp, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
 	} // event generation
+EventHandlerPtr mp_capable; 
+void BifEvent::generate_mp_capable(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t version, bro_uint_t flags, bro_uint_t sender_key, bro_uint_t receiver_key, int is_orig)
+	{
+	// Note that it is intentional that here we do not
+	// check if ::mp_capable is NULL, which should happen *before*
+	// BifEvent::generate_mp_capable is called to avoid unnecessary Val
+	// allocation.
+
+	val_list* vl = new val_list;
+
+	vl->append(c->BuildConnVal());
+	vl->append(new Val(len, TYPE_COUNT));
+	vl->append(new Val(version, TYPE_COUNT));
+	vl->append(new Val(flags, TYPE_COUNT));
+	vl->append(new Val(sender_key, TYPE_COUNT));
+	vl->append(new Val(receiver_key, TYPE_COUNT));
+	vl->append(new Val(is_orig, TYPE_BOOL));
+
+	mgr.QueueEvent(::mp_capable, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
+	} // event generation

@@ -1339,7 +1339,7 @@ void TCP_Analyzer::DeliverPacket(int len, const u_char* data, bool is_orig,
 		ParseTCPOptions(tp, TCPOptionEvent, this, is_orig, 0);
         
         // unlike options, we check all packets (including those with no payload)
-        if ( mptcp )
+        if ( mptcp || mp_capable )
             ParseMPTCP(tp, MPTCPEvent, this, is_orig, 0, flags);
 
 	if ( DEBUG_tcp_data_sent )
@@ -1454,7 +1454,7 @@ int TCP_Analyzer::ParseMPTCP(const struct tcphdr* tcp,
 
                 if (opt == 30) {
                     if ( (*proc)(opt_len, options, analyzer, is_orig, cookie, flags) == -1 ){
-                        printf("got -1 on MPTCP parsing\n");
+                        printf("got -1 on MPTCP parsing %d\n", options[2]>>4);
                         return -1;
                     }
                 }
@@ -1474,7 +1474,7 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
 					TCP_Analyzer* analyzer,
 					bool is_orig, void* cookie, TCP_Flags flags)
 	{
-	if ( mptcp )
+	if ( mptcp || mp_capable )
 		{
 		val_list* vl = new val_list();
                 /*if (option[0] == 30) {
@@ -1484,42 +1484,45 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                     }
                     printf("\n");
                 }*/
-                unsigned int subtype = option[2]>>4;
-                
-                
-                uint64 kA = 0;
-                uint64 kB = 0;
-                
+                unsigned int subtype = option[2]>>4;                
+                                                
                 uint32 token = 0;
                 uint32 rand = 0;
                 uint64 hmac1 = 0;
                 uint64 hmac2 = 0;
-                uint64 hmac3 = 0;
-                
-		vl->append(analyzer->BuildConnVal());
-                vl->append(new Val(optlen, TYPE_COUNT)); // length
-                vl->append(new Val(subtype, TYPE_COUNT)); // subtype (4 bits)
-                vl->append(new Val(option[2]&15, TYPE_COUNT)); // version (4 bits)
-                vl->append(new Val(option[3], TYPE_COUNT)); // flags (8 bits)
+                uint64 hmac3 = 0;             
                 
                 // fill in relevant fields, check if subtypes & lengths match
                 switch(subtype) {
                     case 0: // MP_Capable (sender key and receiver key if len= 20)
-                        if ((flags.SYN() && optlen != 12) || (flags.ACK() && !flags.SYN() && optlen != 20)){
-                            // wrong length for an MP_Capable option
-                            // TODO: generate MP error event
-                            return -1;
-                        }
-                        else {
-                            for (int i = 0; i<8; i++) {
-                                kA += (uint64) option[11-i]<<(i*8);
-                                if (optlen == 20)
-                                    kB += (uint64) option[19-i]<<(i*8);
-                            }                                
+                        if (mp_capable) {
+                            uint64 kA = 0;
+                            uint64 kB = 0;
+                            if ((flags.SYN() && optlen != 12) || (flags.ACK() && !flags.SYN() && optlen != 20)){
+                                // wrong length for an MP_Capable option
+                                // TODO: generate MP error event
+                                return -1;
+                            }
+                            else {
+                                for (int i = 0; i<8; i++) {
+                                    kA += (uint64) option[11-i]<<(i*8);
+                                    if (optlen == 20)
+                                        kB += (uint64) option[19-i]<<(i*8);
+                                }                                
+                            }
+                            vl->append(analyzer->BuildConnVal());
+                            vl->append(new Val(optlen, TYPE_COUNT)); // length
+                            vl->append(new Val(option[2]&15, TYPE_COUNT)); // version (4 bits)
+                            vl->append(new Val(option[3], TYPE_COUNT)); // flags (8 bits)
+                            vl->append(new Val(kA, TYPE_COUNT));
+                            vl->append(new Val(kB, TYPE_COUNT));
+                            vl->append(new Val(is_orig, TYPE_BOOL));
+                            analyzer->ConnectionEvent(mp_capable, vl);
                         }
                         break;
                         
                     case 1: //MP_JOIN (token & random number on SYN, truncated HMAC & random number on SYN+ACK, HMAC on ACK)
+                        // TOFIX: store hmac in u_char (memcopy) and generate event.
                         if (optlen == 12 && flags.SYN() && !flags.ACK()) {
                             for (int i = 0; i < 4; i++) {
                                 token += (uint64) option[7 - i] << (i * 8);
@@ -1533,7 +1536,7 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                                 rand += (uint64) option[15 - i] << (i * 8);
                             }
                         }
-                        else if (optlen == 20 && !flags.SYN() && flags.ACK()){
+                        else if (optlen == 24 && !flags.SYN() && flags.ACK()){
                             for (int i = 0; i < 8; i++) {
                                 hmac1 += (uint64) option[11 - i] << (i * 8);
                                 hmac2 += (uint64) option[19-i]<<(i*8);
@@ -1545,23 +1548,13 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                         else {
                             // bad length for MP_JOIN option
                             // TODO: generate MP_error event
+                            printf("no match for JOIN: syn: %d, ack:%d, len: %d\n", flags.SYN(), flags.ACK(), optlen);
                             return -1;
                         }
                         break;
                 }
-                
-                vl->append(new Val(kA, TYPE_COUNT));
-                vl->append(new Val(kB, TYPE_COUNT));
-                vl->append(new Val(token, TYPE_COUNT));
-                vl->append(new Val(rand, TYPE_COUNT));
-                vl->append(new Val(hmac1, TYPE_COUNT));
-                vl->append(new Val(hmac2, TYPE_COUNT));
-                vl->append(new Val(hmac3, TYPE_COUNT));
-                
-		vl->append(new Val(is_orig, TYPE_BOOL));
-		
-		analyzer->ConnectionEvent(mptcp, vl);
-		}
+
+	}
 
 	return 0;
 	}

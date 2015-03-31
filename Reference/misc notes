@@ -1,0 +1,23 @@
+Things to check in parse:
+	Valid length for:
+		- subtype
+		- SYN/ACK flags (MP_CAP & MP_JOIN)
+		- Option Flags (DSS)
+
+
+Things to check in script:
+	Valid option flags
+	Join non-existing token
+	Join, wrong HMAC
+	Add_ADDR to existing ID:
+		-if diff addr -> error
+		- same addr, diff port -> ignored (but can still flag it)
+	Checksum:
+		-asked and not present -> wrong
+		-not asked and present -> ignored
+
+
+Things to store in script:
+	Map TCP connections to MPTCP Connections
+	Tokens & Connections for each host
+	Negociated options for each Connection

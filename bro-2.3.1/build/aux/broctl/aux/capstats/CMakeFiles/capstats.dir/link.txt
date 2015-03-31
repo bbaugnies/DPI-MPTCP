@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wall -Wno-unused -O2 -g -DNDEBUG    CMakeFiles/capstats.dir/capstats.cc.o CMakeFiles/capstats.dir/version.cc.o  -o capstats -rdynamic -lpcap 

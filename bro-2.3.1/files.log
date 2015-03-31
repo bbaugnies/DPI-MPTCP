@@ -1,0 +1,13 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	files
+#open	2015-03-16-19-56-16
+#fields	ts	fuid	tx_hosts	rx_hosts	conn_uids	source	depth	analyzers	mime_type	filename	duration	local_orig	is_orig	seen_bytes	total_bytes	missing_bytes	overflow_bytes	timedout	parent_fuid	md5	sha1	sha256	extracted
+#types	time	string	set[addr]	set[addr]	set[string]	string	count	set[string]	string	string	interval	bool	bool	count	count	count	count	bool	string	string	string	string	string
+1425968841.525471	FrwPeQ3cCCehovqulk	2604:a880:800:10::74:c001	2a02:a03f:22d9:ee00:c077:89b8:83c3:f44d	CUMyd21Rv3a0eVoasi	HTTP	0	(empty)	text/html	-	0.000000	-	F	193	193	0	0	F	-	-	-	-	-
+1425968841.976854	F9axUr4G9uOQWWNWH9	2604:a880:800:10::74:c001	2a02:a03f:22d9:ee00:c077:89b8:83c3:f44d	C4M1N924QTVzT1rsh4	SSL	0	X509,SHA1,MD5	-	-	0.000000	-	F	1372	-	0	0	F	-	33f3e7a22f586942ec0d30799714bc7f	c38353adc5acd85401bb25417501f5dfd7fec38c	-	-
+1425968841.976854	FCtatU2t4LfG1n9Ltf	2604:a880:800:10::74:c001	2a02:a03f:22d9:ee00:c077:89b8:83c3:f44d	C4M1N924QTVzT1rsh4	SSL	0	X509,SHA1,MD5	-	-	0.000000	-	F	1548	-	0	0	F	-	83e10465b722ef33ff0b6f535e8d996b	339cdd57cfd5b141169b615ff31428782d1da639	-	-
+1425968841.976854	FEpFEg3mAAuQxUvH6f	2604:a880:800:10::74:c001	2a02:a03f:22d9:ee00:c077:89b8:83c3:f44d	C4M1N924QTVzT1rsh4	SSL	0	X509,SHA1,MD5	-	-	0.000000	-	F	1400	-	0	0	F	-	1edaf9ae99ce2920667d0e9a8b3f8c9c	f5ad0bcc1ad56cd150725b1c866c30ad92ef21b0	-	-
+#close	2015-03-16-19-56-16

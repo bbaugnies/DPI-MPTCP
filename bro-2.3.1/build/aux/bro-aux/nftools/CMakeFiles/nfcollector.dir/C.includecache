@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/benjamin/Bro/bro-2.3.1/aux/bro-aux/nftools/nfcollector.c
+unistd.h
+-
+stdio.h
+-
+string.h
+-
+unistd.h
+-
+sys/socket.h
+-
+stdlib.h
+-
+fcntl.h
+-
+sys/time.h
+-
+netinet/in.h
+-
+nfcommon.h
+/home/benjamin/Bro/bro-2.3.1/aux/bro-aux/nftools/nfcommon.h
+
+/home/benjamin/Bro/bro-2.3.1/aux/bro-aux/nftools/nfcommon.h
+

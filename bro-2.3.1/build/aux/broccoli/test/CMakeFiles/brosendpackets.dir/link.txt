@@ -1,0 +1,1 @@
+/usr/bin/cc   -Wall -Wno-unused -O2 -g -DNDEBUG    CMakeFiles/brosendpackets.dir/brosendpackets.c.o  -o brosendpackets -rdynamic ../src/libbroccoli.so.5.1.0 -lpcap -lssl -lcrypto -Wl,-Bstatic -lresolv -Wl,-Bdynamic -Wl,-rpath,/home/benjamin/Bro/bro-2.3.1/build/aux/broccoli/src 

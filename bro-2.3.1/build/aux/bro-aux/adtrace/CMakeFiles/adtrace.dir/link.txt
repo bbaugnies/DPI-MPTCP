@@ -1,0 +1,1 @@
+/usr/bin/cc   -Wall -Wno-unused -O2 -g -DNDEBUG    CMakeFiles/adtrace.dir/adtrace.c.o  -o adtrace -rdynamic -lpcap -Wl,-Bstatic -lresolv -Wl,-Bdynamic 

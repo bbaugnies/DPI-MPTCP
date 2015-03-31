@@ -1,0 +1,12 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	x509
+#open	2015-03-16-19-56-16
+#fields	ts	id	certificate.version	certificate.serial	certificate.subject	certificate.issuer	certificate.not_valid_before	certificate.not_valid_after	certificate.key_alg	certificate.sig_alg	certificate.key_type	certificate.key_length	certificate.exponent	certificate.curve	san.dns	san.uri	san.email	san.ip	basic_constraints.ca	basic_constraints.path_len
+#types	time	string	count	string	string	string	time	time	string	string	string	count	string	string	vector[string]	vector[string]	vector[string]	vector[addr]	bool	count
+1425968841.976854	F9axUr4G9uOQWWNWH9	3	F54CA3946FF98AB384403DD2831A5BC3	CN=amiusingmptcp.com,OU=PositiveSSL,OU=Domain Control Validated	CN=COMODO RSA Domain Validation Secure Server CA,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB	1414450800.000000	1446073199.000000	rsaEncryption	sha256WithRSAEncryption	rsa	2048	65537	-	amiusingmptcp.com,www.amiusingmptcp.com	-	-	-	F	-
+1425968841.976854	FCtatU2t4LfG1n9Ltf	3	2B2E6EEAD975366C148A6EDBA37C8C07	CN=COMODO RSA Domain Validation Secure Server CA,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB	CN=COMODO RSA Certification Authority,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB	1392159600.000000	1865545199.000000	rsaEncryption	sha384WithRSAEncryption	rsa	2048	65537	-	-	-	-	-	T	0
+1425968841.976854	FEpFEg3mAAuQxUvH6f	3	2766EE56EB49F38EABD770A2FC84DE22	CN=COMODO RSA Certification Authority,O=COMODO CA Limited,L=Salford,ST=Greater Manchester,C=GB	CN=AddTrust External CA Root,OU=AddTrust External TTP Network,O=AddTrust AB,C=SE	959676518.000000	1590828518.000000	rsaEncryption	sha384WithRSAEncryption	rsa	4096	65537	-	-	-	-	-	T	-
+#close	2015-03-16-19-56-16

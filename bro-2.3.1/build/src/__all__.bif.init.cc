@@ -1,0 +1,6 @@
+#include "/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/analyzer.bif.init.cc"
+#include "/home/benjamin/Bro/bro-2.3.1/build/src/file_analysis/file_analysis.bif.init.cc"
+#include "/home/benjamin/Bro/bro-2.3.1/build/src/probabilistic/bloom-filter.bif.init.cc"
+#include "/home/benjamin/Bro/bro-2.3.1/build/src/probabilistic/cardinality-counter.bif.init.cc"
+#include "/home/benjamin/Bro/bro-2.3.1/build/src/probabilistic/top-k.bif.init.cc"
+#include "/home/benjamin/Bro/bro-2.3.1/build/src/broxygen/broxygen.bif.init.cc"

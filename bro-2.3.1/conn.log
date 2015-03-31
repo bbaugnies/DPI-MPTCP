@@ -1,0 +1,26 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	conn
+#open	2015-03-16-19-56-16
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	proto	service	duration	orig_bytes	resp_bytes	conn_state	local_orig	missed_bytes	history	orig_pkts	orig_ip_bytes	resp_pkts	resp_ip_bytes	tunnel_parents
+#types	time	string	addr	port	addr	port	enum	string	interval	count	count	string	bool	count	string	count	count	count	count	set[string]
+1425968841.525533	C2D8V54mMp8G9Ssymd	192.168.1.57	55599	104.131.14.231	80	tcp	-	-	-	-	OTH	-	0	C	0	0	0	0	(empty)
+1425968841.826373	CvhagL353wSuNrdNNb	192.168.1.57	60382	104.131.14.231	443	tcp	-	-	-	-	OTH	-	0	C	0	0	0	0	(empty)
+1425968841.525492	CQkmSG2ClpdQedPKAl	192.168.1.57	54136	10.132.248.35	80	tcp	-	-	-	-	OTH	-	0	C	0	0	0	0	(empty)
+1425968841.826359	CNVz98RwkbkGXVY1k	192.168.1.57	55014	10.132.248.35	443	tcp	-	-	-	-	OTH	-	0	C	0	0	0	0	(empty)
+1425968842.522415	CrdHwl2AuPTOFHZjt9	192.168.1.57	54136	10.132.248.35	80	tcp	-	-	-	-	OTH	-	0	C	0	0	0	0	(empty)
+1425968842.822427	Cfwhxm1AH4sgh68af1	192.168.1.57	55014	10.132.248.35	443	tcp	-	-	-	-	OTH	-	0	C	0	0	0	0	(empty)
+1425968841.527845	C4M1N924QTVzT1rsh4	2a02:a03f:22d9:ee00:c077:89b8:83c3:f44d	37198	2604:a880:800:10::74:c001	443	tcp	ssl	0.602210	739	4771	S1	-	0	ShADad	11	1715	9	5567	(empty)
+1425968841.558417	CIvRXoLOj2lzxzqL5	2a02:a03f:22d9:ee00:c077:89b8:83c3:f44d	45874	2a00:1450:400c:c03::8b	80	tcp	-	0.041914	1	0	OTH	-	0	Aa	1	72	1	72	(empty)
+1425968844.826415	CqbRhqdAs7NMc5J87	192.168.1.57	55014	10.132.248.35	443	tcp	-	-	-	-	OTH	-	0	C	0	0	0	0	(empty)
+1425968841.205321	CUMyd21Rv3a0eVoasi	2a02:a03f:22d9:ee00:c077:89b8:83c3:f44d	33927	2604:a880:800:10::74:c001	80	tcp	http	0.320190	295	402	S1	-	0	ShADad	6	847	5	842	(empty)
+1425968841.625841	CRGSYS13vICtAdcz03	192.168.1.57	55599	104.131.14.231	80	tcp	-	0.098721	0	0	OTH	-	0	hCa	0	0	2	136	(empty)
+1425968841.525546	CmYwtv3uy0lnuwaj27	2a02:a03f:22d9:ee00:204:4bff:fe0a:54f9	39871	2604:a880:800:10::74:c001	80	tcp	-	0.301955	0	0	S1	-	0	ShAa	2	188	2	176	(empty)
+1425968841.826393	Cx7HOa3KE0pNC3LYPg	2a02:a03f:22d9:ee00:204:4bff:fe0a:54f9	34792	2604:a880:800:10::74:c001	443	tcp	-	0.297122	0	0	S1	-	0	ShAa	2	188	2	176	(empty)
+1425968841.494421	Cw58Hr4zHPnrwkGlHf	2a02:a03f:22d9:ee00:c077:89b8:83c3:f44d	45873	2a00:1450:400c:c03::8b	80	tcp	-	0.044681	1	0	OTH	-	0	Aa	1	72	1	72	(empty)
+1425968840.534414	CeKsEC170DJ7FzgEs2	2a02:a03f:22d9:ee00:c077:89b8:83c3:f44d	38440	2a00:1450:400b:c02::5e	80	tcp	-	0.047999	1	0	OTH	-	0	Aa	1	72	1	72	(empty)
+1425968844.526416	C50f6M9bJzApLOzn4	192.168.1.57	54136	10.132.248.35	80	tcp	-	-	-	-	OTH	-	0	C	0	0	0	0	(empty)
+1425968841.937026	Chpkl64wU7b5wBGa5e	192.168.1.57	60382	104.131.14.231	443	tcp	-	0.147323	0	1055	OTH	-	0	hCad	0	0	4	1335	(empty)
+#close	2015-03-16-19-56-16

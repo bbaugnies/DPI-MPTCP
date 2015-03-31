@@ -1,0 +1,10 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	ssl
+#open	2015-03-16-19-56-16
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	version	cipher	curve	server_name	session_id	last_alert	established	cert_chain_fuids	client_cert_chain_fuids	subject	issuer	client_subject	client_issuer
+#types	time	string	addr	port	addr	port	string	string	string	string	string	string	bool	vector[string]	vector[string]	string	string	string	string
+1425968841.675953	C4M1N924QTVzT1rsh4	2a02:a03f:22d9:ee00:c077:89b8:83c3:f44d	37198	2604:a880:800:10::74:c001	443	TLSv12	TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA	secp256r1	amiusingmptcp.com	9a7fd90ff05d53280d3a91e6c37a7a514507d191a73b0104ffed7648abd15c1c	-	F	F9axUr4G9uOQWWNWH9,FCtatU2t4LfG1n9Ltf,FEpFEg3mAAuQxUvH6f	(empty)	-	-	-	-
+#close	2015-03-16-19-56-16

@@ -1,0 +1,14 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	weird
+#open	2015-03-16-19-56-16
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	name	addl	notice	peer
+#types	time	string	addr	port	addr	port	string	string	bool	string
+1425968841.525492	CQkmSG2ClpdQedPKAl	192.168.1.57	54136	10.132.248.35	80	bad_TCP_checksum	-	F	bro
+1425968841.625841	C2D8V54mMp8G9Ssymd	192.168.1.57	55599	104.131.14.231	80	active_connection_reuse	-	F	bro
+1425968841.937026	CvhagL353wSuNrdNNb	192.168.1.57	60382	104.131.14.231	443	active_connection_reuse	-	F	bro
+1425968842.522415	CQkmSG2ClpdQedPKAl	192.168.1.57	54136	10.132.248.35	80	active_connection_reuse	-	F	bro
+1425968842.822427	CNVz98RwkbkGXVY1k	192.168.1.57	55014	10.132.248.35	443	active_connection_reuse	-	F	bro
+#close	2015-03-16-19-56-16

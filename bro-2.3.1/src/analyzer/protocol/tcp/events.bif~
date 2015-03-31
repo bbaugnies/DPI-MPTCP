@@ -251,7 +251,7 @@ event tcp_packet%(c: connection, is_orig: bool, flags: string, seq: count, ack: 
 ## .. bro:see:: tcp_packet tcp_contents tcp_rexmit
 ##
 ## .. note:: There is currently no way to get the actual option value, if any.
-event tcp_option%(c: connection, is_orig: bool, opt: count, optlen: count, option: string%);
+event tcp_option%(c: connection, is_orig: bool, opt: count, optlen: count%);
 
 ## Generated for each chunk of reassembled TCP payload. When content delivery is
 ## enabled for a TCP connection (via :bro:id:`tcp_content_delivery_ports_orig`,
@@ -298,3 +298,114 @@ event tcp_rexmit%(c: connection, is_orig: bool, seq: count, len: count, data_in_
 ##
 ## .. bro:see:: set_contents_file get_contents_file
 event contents_file_write_failure%(c: connection, is_orig: bool, msg: string%);
+
+
+
+
+## Generated for each MPTCP option found in a TCP header (kind = 30) 
+## In most cases, this event will be raised at least once for every
+## packet in an MPTCP connection
+##
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## subtype: The numerical subtype of the option as defined by RFC6824
+##
+## 
+event mptcp%(c: connection, len: count, subtype: count, is_orig: bool%);
+
+## Generated for each MPTCP option of MP_Capable subtype
+## found in a TCP header (kind = 30, subtype = 0) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## version: The MPTPC version used (should be 0 according to RFC 6824)
+##
+## flags: the MPTCP flags (refer to RFC 6824)
+##
+## sender_key: the key chosen by the sender
+##
+## receiver_key: the key chosen by the receiver. Should be 0 if len != 20
+##
+## 
+event mp_capable%(c: connection, len: count, version: count, flags: count, sender_key: count, receiver_key: count, is_orig: bool%);
+
+## Generated for each MPTCP option of MP_JOIN subtype
+## found in a TCP header (kind = 30, subtype = 1) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## flags: the MPTCP flags (refer to RFC 6824) should only be 0 or 1 (backup)
+##
+## rand: the random number chosen by the sender. Should be 0 in the last ACK of TCP handshake
+##
+## token: the token corresponding to the connection the sender wants to join. Should be 0
+##			outside of initial SYN
+##
+## hmac: the (possibly truncated) hmac sent for authentication. Should be 0 in initial SYN,
+##			64 bits in SYN + ACK and 160 bits in final ACK (see RFC 6824 for details)
+##
+## 
+event mp_join%(c: connection, len: count, flags: count, rand: count, token: count, hmac: string, is_orig: bool%)
+
+## Generated for each MPTCP option of DSS subtype
+## found in a TCP header (kind = 30, subtype = 2) 
+## most fields are optional in length and presence. See RFC 6824 and flags.
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## flags: the flags used by the MPTCP option. Includes reserved bits that should be 0
+##
+## data_ack: connection-level acknowledgement
+##
+## dsn: data sequence number
+##
+## ssn: subflow sequence number
+##
+## dll: data-level length
+##
+## checksum: 
+##
+## 
+event mp_dss%(c: connection, len: count, flags: count, data_ack: count, dsn: count, ssn: count, dll: count, checksum: count%)
+
+
+## Generated for each MPTCP option of ADD_ADDR subtype
+## found in a TCP header (kind = 30, subtype = 3) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## ipver: the version of IP used by the new address
+##
+## addr_id: the ID to assign to the new address in this connection
+##
+## address: the new address (in 32 or 128 bits)
+##
+## portn: the port number of the address (optional)
+##
+## 
+event mp_add_addr%(c: connection, len: count, ipver: count, addr_id: count, address: addr, portn: count%)

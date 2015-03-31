@@ -1475,16 +1475,18 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
 					bool is_orig, void* cookie, TCP_Flags flags)
 	{
 	if ( mptcp || mp_capable )
-		{
-		val_list* vl = new val_list();
-                /*if (option[0] == 30) {
-                    printf("test:");
-                    for (int i = 0; i< option[1] -2; i++) {
-                        printf(" %x", option[i+2]);
-                    }
-                    printf("\n");
-                }*/
-                unsigned int subtype = option[2]>>4;                
+		{                
+                unsigned int subtype = option[2]>>4;    
+
+				if ( mptcp ) {
+					val_list* vl = new val_list();
+                    vl->append(analyzer->BuildConnVal());
+                    vl->append(new Val(optlen, TYPE_COUNT));
+		            vl->append(new Val(subtype, TYPE_COUNT));     
+					vl->append(new Val(is_orig, TYPE_BOOL));
+					
+					analyzer->ConnectionEvent(mptcp, vl);
+				}            
                                                 
                 uint32 token = 0;
                 uint32 rand = 0;
@@ -1500,7 +1502,7 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                             uint64 kB = 0;
                             if ((flags.SYN() && optlen != 12) || (flags.ACK() && !flags.SYN() && optlen != 20)){
                                 // wrong length for an MP_Capable option
-                                // TODO: generate MP error event
+                                // TODO: generate MP error event, refactor to generate event when correct and fail in else clause
                                 return -1;
                             }
                             else {
@@ -1510,6 +1512,8 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                                         kB += (uint64) option[19-i]<<(i*8);
                                 }                                
                             }
+							val_list* vl = new val_list();
+
                             vl->append(analyzer->BuildConnVal());
                             vl->append(new Val(optlen, TYPE_COUNT)); // length
                             vl->append(new Val(option[2]&15, TYPE_COUNT)); // version (4 bits)

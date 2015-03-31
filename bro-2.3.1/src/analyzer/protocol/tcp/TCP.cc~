@@ -913,6 +913,11 @@ void TCP_Analyzer::GeneratePacketEvent(
 	{
 	char tcp_flags[256];
 	int tcp_flag_len = 0;
+        
+        /*for (int i = 0; i< 80; i++) {
+            printf(" %x", data[i]);
+        }
+        printf("\n");*/
 
 	if ( flags.SYN() ) tcp_flags[tcp_flag_len++] = 'S';
 	if ( flags.FIN() ) tcp_flags[tcp_flag_len++] = 'F';
@@ -1192,7 +1197,6 @@ void TCP_Analyzer::DeliverPacket(int len, const u_char* data, bool is_orig,
 	if ( ! tp )
 		return;
 
-	printf("%d\n", tp.source));
 
 	// We need the min() here because Ethernet frame padding can lead to
 	// caplen > len.
@@ -1330,9 +1334,13 @@ void TCP_Analyzer::DeliverPacket(int len, const u_char* data, bool is_orig,
 		GeneratePacketEvent(rel_seq, rel_ack, data, len, caplen, is_orig,
 		                    flags);
 
-	if ( tcp_option && tcp_hdr_len > sizeof(*tp) &&
-	     tcp_hdr_len <= uint32(caplen) )
+	if ( tcp_option )// && tcp_hdr_len > sizeof(*tp) &&
+	     //tcp_hdr_len <= uint32(caplen) )
 		ParseTCPOptions(tp, TCPOptionEvent, this, is_orig, 0);
+        
+        // unlike options, we check all packets (including those with no payload)
+        if ( mptcp || mp_capable )
+            ParseMPTCP(tp, MPTCPEvent, this, is_orig, 0, flags);
 
 	if ( DEBUG_tcp_data_sent )
 		{
@@ -1411,6 +1419,151 @@ void TCP_Analyzer::UpdateConnVal(RecordVal *conn_val)
 		(*i)->UpdateConnVal(conn_val);
 	}
 
+int TCP_Analyzer::ParseMPTCP(const struct tcphdr* tcp,
+					proc_mptcp_t proc,
+					TCP_Analyzer* analyzer,
+					bool is_orig, void* cookie, TCP_Flags flags)
+	{
+	// Parse TCP options.
+	const u_char* options = (const u_char*) tcp + sizeof(struct tcphdr);
+	const u_char* opt_end = (const u_char*) tcp + tcp->th_off * 4;
+
+        
+	while ( options < opt_end )
+		{
+		unsigned int opt = options[0];
+
+		unsigned int opt_len;
+
+		if ( opt < 2 )
+			opt_len = 1;
+
+		else if ( options + 1 >= opt_end )
+			// We've run off the end, no room for the length.
+			return -1;
+
+		else
+			opt_len = options[1];
+
+		if ( opt_len == 0 )
+			return -1;	// trashed length field
+
+		if ( options + opt_len > opt_end )
+			// No room for rest of option.
+			return -1;
+
+                if (opt == 30) {
+                    if ( (*proc)(opt_len, options, analyzer, is_orig, cookie, flags) == -1 ){
+                        printf("got -1 on MPTCP parsing %d\n", options[2]>>4);
+                        return -1;
+                    }
+                }
+
+		options += opt_len;
+
+		if ( opt == TCPOPT_EOL )
+			// All done - could flag if more junk left over ....
+			break;
+		}
+
+	return 0;
+	}
+
+int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
+					const u_char* option,
+					TCP_Analyzer* analyzer,
+					bool is_orig, void* cookie, TCP_Flags flags)
+	{
+	if ( mptcp || mp_capable )
+		{                
+                unsigned int subtype = option[2]>>4;    
+
+				if ( mptcp ) {
+					val_list* vl = new val_list();
+                    vl->append(analyzer->BuildConnVal());
+                    vl->append(new Val(optlen, TYPE_COUNT)); // length
+		            vl->append(new Val(subtype, TYPE_COUNT));     
+					vl->append(new Val(is_orig, TYPE_BOOL));
+					
+					analyzer->ConnectionEvent(mptcp, vl);
+				}            
+                                                
+                uint32 token = 0;
+                uint32 rand = 0;
+                uint64 hmac1 = 0;
+                uint64 hmac2 = 0;
+                uint64 hmac3 = 0;             
+                
+                // fill in relevant fields, check if subtypes & lengths match
+                switch(subtype) {
+                    case 0: // MP_Capable (sender key and receiver key if len= 20)
+                        if (mp_capable) {
+                            uint64 kA = 0;
+                            uint64 kB = 0;
+                            if ((flags.SYN() && optlen != 12) || (flags.ACK() && !flags.SYN() && optlen != 20)){
+                                // wrong length for an MP_Capable option
+                                // TODO: generate MP error event
+                                return -1;
+                            }
+                            else {
+                                for (int i = 0; i<8; i++) {
+                                    kA += (uint64) option[11-i]<<(i*8);
+                                    if (optlen == 20)
+                                        kB += (uint64) option[19-i]<<(i*8);
+                                }                                
+                            }
+							val_list* vl = new val_list();
+
+                            vl->append(analyzer->BuildConnVal());
+                            vl->append(new Val(optlen, TYPE_COUNT)); // length
+                            vl->append(new Val(option[2]&15, TYPE_COUNT)); // version (4 bits)
+                            vl->append(new Val(option[3], TYPE_COUNT)); // flags (8 bits)
+                            vl->append(new Val(kA, TYPE_COUNT));
+                            vl->append(new Val(kB, TYPE_COUNT));
+                            vl->append(new Val(is_orig, TYPE_BOOL));
+                            analyzer->ConnectionEvent(mp_capable, vl);
+                        }
+                        break;
+                        
+                    case 1: //MP_JOIN (token & random number on SYN, truncated HMAC & random number on SYN+ACK, HMAC on ACK)
+                        // TOFIX: store hmac in u_char (memcopy) and generate event.
+                        if (optlen == 12 && flags.SYN() && !flags.ACK()) {
+                            for (int i = 0; i < 4; i++) {
+                                token += (uint64) option[7 - i] << (i * 8);
+                                rand += (uint64) option[11 - i] << (i * 8);
+                            }
+                        } else if (optlen == 16 && flags.SYN() && flags.ACK()) {
+                            for (int i = 0; i < 8; i++) {
+                                hmac1 += (uint64) option[11 - i] << (i * 8);
+                            }
+                            for (int i = 0; i < 4; i++) {
+                                rand += (uint64) option[15 - i] << (i * 8);
+                            }
+                        }
+                        else if (optlen == 24 && !flags.SYN() && flags.ACK()){
+                            for (int i = 0; i < 8; i++) {
+                                hmac1 += (uint64) option[11 - i] << (i * 8);
+                                hmac2 += (uint64) option[19-i]<<(i*8);
+                            }
+                            for (int i = 0; i < 4; i++) {
+                                hmac3 += (uint64) option[23 - i] << (i * 8);
+                            }     
+                        }
+                        else {
+                            // bad length for MP_JOIN option
+                            // TODO: generate MP_error event
+                            printf("no match for JOIN: syn: %d, ack:%d, len: %d\n", flags.SYN(), flags.ACK(), optlen);
+                            return -1;
+                        }
+                        break;
+                }
+
+	}
+
+	return 0;
+	}
+
+
 int TCP_Analyzer::ParseTCPOptions(const struct tcphdr* tcp,
 					proc_tcp_option_t proc,
 					TCP_Analyzer* analyzer,
@@ -1420,8 +1573,7 @@ int TCP_Analyzer::ParseTCPOptions(const struct tcphdr* tcp,
 	const u_char* options = (const u_char*) tcp + sizeof(struct tcphdr);
 	const u_char* opt_end = (const u_char*) tcp + tcp->th_off * 4;
 
-	//printf("%x\n", options);
-
+        
 	while ( options < opt_end )
 		{
 		unsigned int opt = options[0];
@@ -1460,23 +1612,36 @@ int TCP_Analyzer::ParseTCPOptions(const struct tcphdr* tcp,
 
 int TCP_Analyzer::TCPOptionEvent(unsigned int opt,
 					unsigned int optlen,
-					const u_char* /*option*/,
+					const u_char* option,
 					TCP_Analyzer* analyzer,
 					bool is_orig, void* cookie)
 	{
 	if ( tcp_option )
 		{
 		val_list* vl = new val_list();
-		unsigned int test = 42;
+                
+                // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                // TESTING BLOCK
+                uint64 k= 0;
+                
+                if (option[0] == 30) {
+                    //printf(" %x %d %d\n", option[2], option[2] & 15, (option[0]<<24) + (option[1]<<16) + (option[2]<<8) + option[3]);
+                               
+                if (option[2]>>4 == 0) {
+                    for (int i = 0; i<8; i++) {
+                        k += (uint64) option[11-i]<<(i*8);
+                    }
+                }      
+                printf("\n");
+
+                // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 		vl->append(analyzer->BuildConnVal());
 		vl->append(new Val(is_orig, TYPE_BOOL));
 		vl->append(new Val(opt, TYPE_COUNT));
-		vl->append(new Val(optlen, TYPE_COUNT));
-		vl->append(new Val(test, TYPE_COUNT));
-
+		vl->append(new Val(k, TYPE_COUNT));
 		analyzer->ConnectionEvent(tcp_option, vl);
-		}
+		}} // remove one "}" when done (to get all options)
 
 	return 0;
 	}

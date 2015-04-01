@@ -51,6 +51,22 @@ std::list<std::pair<const char*, int> > __bif_events_init()
 	bifs.push_back(std::make_pair("mptcp", 2));
 	::mp_capable = internal_handler("mp_capable");
 	bifs.push_back(std::make_pair("mp_capable", 2));
+	::mp_join = internal_handler("mp_join");
+	bifs.push_back(std::make_pair("mp_join", 2));
+	::mp_dss = internal_handler("mp_dss");
+	bifs.push_back(std::make_pair("mp_dss", 2));
+	::mp_add_addr = internal_handler("mp_add_addr");
+	bifs.push_back(std::make_pair("mp_add_addr", 2));
+	::mp_remove_addr = internal_handler("mp_remove_addr");
+	bifs.push_back(std::make_pair("mp_remove_addr", 2));
+	::mp_prio = internal_handler("mp_prio");
+	bifs.push_back(std::make_pair("mp_prio", 2));
+	::mp_fastclose = internal_handler("mp_fastclose");
+	bifs.push_back(std::make_pair("mp_fastclose", 2));
+	::mp_fail = internal_handler("mp_fail");
+	bifs.push_back(std::make_pair("mp_fail", 2));
+	::mp_error = internal_handler("mp_error");
+	bifs.push_back(std::make_pair("mp_error", 2));
 
 	return bifs;
 	}

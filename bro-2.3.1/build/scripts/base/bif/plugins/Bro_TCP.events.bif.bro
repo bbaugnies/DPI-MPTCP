@@ -321,9 +321,212 @@ global contents_file_write_failure: event(c: connection , is_orig: bool , msg: s
 
 
 
-global mptcp: event(c: connection , len: count , subtype: count , version: count , flags: count , sender_key: count , receiver_key: count , token: count , rand: count , hmac1: count , hmac2: count , hmac3: count , is_orig: bool );
 
 
+## Generated for each MPTCP option found in a TCP header (kind = 30) 
+## In most cases, this event will be raised at least once for every
+## packet in an MPTCP connection
+##
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## subtype: The numerical subtype of the option as defined by RFC6824
+##
+## 
+global mptcp: event(c: connection , len: count , subtype: count , is_orig: bool );
+
+
+## Generated for each MPTCP option of MP_Capable subtype
+## found in a TCP header (kind = 30, subtype = 0) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## version: The MPTPC version used (should be 0 according to RFC 6824)
+##
+## flags: the MPTCP flags (refer to RFC 6824)
+##
+## sender_key: the key chosen by the sender
+##
+## receiver_key: the key chosen by the receiver. Should be 0 if len != 20
+##
+## 
 global mp_capable: event(c: connection , len: count , version: count , flags: count , sender_key: count , receiver_key: count , is_orig: bool );
+
+
+## Generated for each MPTCP option of MP_JOIN subtype
+## found in a TCP header (kind = 30, subtype = 1) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## flags: the MPTCP flags (refer to RFC 6824) should only be 0 or 1 (backup)
+##
+## rand: the random number chosen by the sender. Should be 0 in the last ACK of TCP handshake
+##
+## token: the token corresponding to the connection the sender wants to join. Should be 0
+##			outside of initial SYN
+##
+## hmac: the (possibly truncated) hmac sent for authentication. Should be 0 in initial SYN,
+##			64 bits in SYN + ACK and 160 bits in final ACK (see RFC 6824 for details)
+##
+## 
+global mp_join: event(c: connection , len: count , flags: count , rand: count , token: count , hmac: string , is_orig: bool );
+
+
+## Generated for each MPTCP option of DSS subtype
+## found in a TCP header (kind = 30, subtype = 2) 
+## most fields are optional in length and presence. See RFC 6824 and flags.
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## flags: the flags used by the MPTCP option. Includes reserved bits that should be 0
+##
+## data_ack: connection-level acknowledgement
+##
+## dsn: data sequence number
+##
+## ssn: subflow sequence number
+##
+## dll: data-level length
+##
+## checksum: 
+##
+## 
+global mp_dss: event(c: connection , len: count , flags: count , data_ack: count , dsn: count , ssn: count , dll: count , checksum: count , is_orig: bool );
+
+
+
+## Generated for each MPTCP option of ADD_ADDR subtype
+## found in a TCP header (kind = 30, subtype = 3) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## ipver: the version of IP used by the new address
+##
+## addr_id: the ID to assign to the new address in this connection
+##
+## address: the new address (in 32 or 128 bits)
+##
+## portn: the port number of the address (optional)
+##
+## 
+global mp_add_addr: event(c: connection , len: count , ipver: count , addr_id: count , address: addr , portn: count , is_orig: bool );
+
+
+
+## Generated for each MPTCP option of REOMVE_ADDR subtype
+## found in a TCP header (kind = 30, subtype = 4) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## resvd: reserved bits, should always be 0
+##
+## addr_id: ID of the address to remove. (TODO: change to accommodate multiple addresses)
+##
+## 
+global mp_remove_addr: event(c: connection , len: count , resvd: count , addr_id: count , is_orig: bool );
+
+
+
+## Generated for each MPTCP option of MP_PRIO subtype
+## found in a TCP header (kind = 30, subtype = 5) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## flags: flags used by the option. Should only be 0 or 1
+##
+## addr_id: The ID of the address who's priority is changed
+##
+## 
+global mp_prio: event(c: connection , len: count , flags: count , addr_id: count , is_orig: bool );
+
+
+
+## Generated for each MPTCP option of MP_FASTCLOSE subtype
+## found in a TCP header (kind = 30, subtype = 6) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## resvd: reserved bits, should always be 0
+##
+## receiver_key: key use by the receiver
+##
+## 
+global mp_fastclose: event(c: connection , len: count , resvd: count , receiver_key: count , is_orig: bool );
+
+
+
+## Generated for each MPTCP option of MP_FAIL subtype
+## found in a TCP header (kind = 30, subtype = 7) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## resvd: reserved bits, should always be 0
+##
+## dsn: Data Sequence Number
+##
+## 
+global mp_fail: event(c: connection , len: count , resvd: count , dsn: count , is_orig: bool );
+
+
+
+## Generated for each MPTCP option which is invalid
+## Either unknown subtype or length inconsistent with the subtype and/or flags 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## subtype: subtype of the option
+##
+## 
+global mp_error: event(c: connection , len: count , subtype: count , is_orig: bool );
+
 } # end of export section
 module GLOBAL;

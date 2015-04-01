@@ -360,7 +360,7 @@ event mp_capable%(c: connection, len: count, version: count, flags: count, sende
 ##			64 bits in SYN + ACK and 160 bits in final ACK (see RFC 6824 for details)
 ##
 ## 
-event mp_join%(c: connection, len: count, flags: count, rand: count, token: count, hmac: string, is_orig: bool%)
+event mp_join%(c: connection, len: count, flags: count, rand: count, token: count, hmac: string, is_orig: bool%);
 
 ## Generated for each MPTCP option of DSS subtype
 ## found in a TCP header (kind = 30, subtype = 2) 
@@ -386,7 +386,7 @@ event mp_join%(c: connection, len: count, flags: count, rand: count, token: coun
 ## checksum: 
 ##
 ## 
-event mp_dss%(c: connection, len: count, flags: count, data_ack: count, dsn: count, ssn: count, dll: count, checksum: count%)
+event mp_dss%(c: connection, len: count, flags: count, data_ack: count, dsn: count, ssn: count, dll: count, checksum: count, is_orig: bool%);
 
 
 ## Generated for each MPTCP option of ADD_ADDR subtype
@@ -408,4 +408,92 @@ event mp_dss%(c: connection, len: count, flags: count, data_ack: count, dsn: cou
 ## portn: the port number of the address (optional)
 ##
 ## 
-event mp_add_addr%(c: connection, len: count, ipver: count, addr_id: count, address: addr, portn: count%)
+event mp_add_addr%(c: connection, len: count, ipver: count, addr_id: count, address: addr, portn: count, is_orig: bool%);
+
+
+## Generated for each MPTCP option of REOMVE_ADDR subtype
+## found in a TCP header (kind = 30, subtype = 4) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## resvd: reserved bits, should always be 0
+##
+## addr_id: ID of the address to remove. (TODO: change to accommodate multiple addresses)
+##
+## 
+event mp_remove_addr%(c: connection, len: count, resvd: count, addr_id: count, is_orig: bool%);
+
+
+## Generated for each MPTCP option of MP_PRIO subtype
+## found in a TCP header (kind = 30, subtype = 5) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## flags: flags used by the option. Should only be 0 or 1
+##
+## addr_id: The ID of the address who's priority is changed
+##
+## 
+event mp_prio%(c: connection, len: count, flags: count, addr_id: count, is_orig: bool%);
+
+
+## Generated for each MPTCP option of MP_FASTCLOSE subtype
+## found in a TCP header (kind = 30, subtype = 6) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## resvd: reserved bits, should always be 0
+##
+## receiver_key: key use by the receiver
+##
+## 
+event mp_fastclose%(c: connection, len: count, resvd: count, receiver_key: count, is_orig: bool%);
+
+
+## Generated for each MPTCP option of MP_FAIL subtype
+## found in a TCP header (kind = 30, subtype = 7) 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## resvd: reserved bits, should always be 0
+##
+## dsn: Data Sequence Number
+##
+## 
+event mp_fail%(c: connection, len: count, resvd: count, dsn: count, is_orig: bool%);
+
+
+## Generated for each MPTCP option which is invalid
+## Either unknown subtype or length inconsistent with the subtype and/or flags 
+## 
+##
+## c: The connection the packet is part of.
+##
+## is_orig: True if the packet was sent by the connection's originator.
+##
+## len: The length of the option's value.
+##
+## subtype: subtype of the option
+##
+## 
+event mp_error%(c: connection, len: count, subtype: count, is_orig: bool%);

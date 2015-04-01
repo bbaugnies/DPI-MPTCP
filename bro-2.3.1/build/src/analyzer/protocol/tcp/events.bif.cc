@@ -277,7 +277,7 @@ void BifEvent::generate_contents_file_write_failure(analyzer::Analyzer* analyzer
 	mgr.QueueEvent(::contents_file_write_failure, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
 	} // event generation
 EventHandlerPtr mptcp; 
-void BifEvent::generate_mptcp(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t subtype, bro_uint_t version, bro_uint_t flags, bro_uint_t sender_key, bro_uint_t receiver_key, bro_uint_t token, bro_uint_t rand, bro_uint_t hmac1, bro_uint_t hmac2, bro_uint_t hmac3, int is_orig)
+void BifEvent::generate_mptcp(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t subtype, int is_orig)
 	{
 	// Note that it is intentional that here we do not
 	// check if ::mptcp is NULL, which should happen *before*
@@ -289,15 +289,6 @@ void BifEvent::generate_mptcp(analyzer::Analyzer* analyzer, Connection* c, bro_u
 	vl->append(c->BuildConnVal());
 	vl->append(new Val(len, TYPE_COUNT));
 	vl->append(new Val(subtype, TYPE_COUNT));
-	vl->append(new Val(version, TYPE_COUNT));
-	vl->append(new Val(flags, TYPE_COUNT));
-	vl->append(new Val(sender_key, TYPE_COUNT));
-	vl->append(new Val(receiver_key, TYPE_COUNT));
-	vl->append(new Val(token, TYPE_COUNT));
-	vl->append(new Val(rand, TYPE_COUNT));
-	vl->append(new Val(hmac1, TYPE_COUNT));
-	vl->append(new Val(hmac2, TYPE_COUNT));
-	vl->append(new Val(hmac3, TYPE_COUNT));
 	vl->append(new Val(is_orig, TYPE_BOOL));
 
 	mgr.QueueEvent(::mptcp, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
@@ -321,4 +312,155 @@ void BifEvent::generate_mp_capable(analyzer::Analyzer* analyzer, Connection* c, 
 	vl->append(new Val(is_orig, TYPE_BOOL));
 
 	mgr.QueueEvent(::mp_capable, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
+	} // event generation
+EventHandlerPtr mp_join; 
+void BifEvent::generate_mp_join(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t flags, bro_uint_t rand, bro_uint_t token, StringVal* hmac, int is_orig)
+	{
+	// Note that it is intentional that here we do not
+	// check if ::mp_join is NULL, which should happen *before*
+	// BifEvent::generate_mp_join is called to avoid unnecessary Val
+	// allocation.
+
+	val_list* vl = new val_list;
+
+	vl->append(c->BuildConnVal());
+	vl->append(new Val(len, TYPE_COUNT));
+	vl->append(new Val(flags, TYPE_COUNT));
+	vl->append(new Val(rand, TYPE_COUNT));
+	vl->append(new Val(token, TYPE_COUNT));
+	vl->append(hmac);
+	vl->append(new Val(is_orig, TYPE_BOOL));
+
+	mgr.QueueEvent(::mp_join, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
+	} // event generation
+EventHandlerPtr mp_dss; 
+void BifEvent::generate_mp_dss(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t flags, bro_uint_t data_ack, bro_uint_t dsn, bro_uint_t ssn, bro_uint_t dll, bro_uint_t checksum, int is_orig)
+	{
+	// Note that it is intentional that here we do not
+	// check if ::mp_dss is NULL, which should happen *before*
+	// BifEvent::generate_mp_dss is called to avoid unnecessary Val
+	// allocation.
+
+	val_list* vl = new val_list;
+
+	vl->append(c->BuildConnVal());
+	vl->append(new Val(len, TYPE_COUNT));
+	vl->append(new Val(flags, TYPE_COUNT));
+	vl->append(new Val(data_ack, TYPE_COUNT));
+	vl->append(new Val(dsn, TYPE_COUNT));
+	vl->append(new Val(ssn, TYPE_COUNT));
+	vl->append(new Val(dll, TYPE_COUNT));
+	vl->append(new Val(checksum, TYPE_COUNT));
+	vl->append(new Val(is_orig, TYPE_BOOL));
+
+	mgr.QueueEvent(::mp_dss, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
+	} // event generation
+EventHandlerPtr mp_add_addr; 
+void BifEvent::generate_mp_add_addr(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t ipver, bro_uint_t addr_id, AddrVal* address, bro_uint_t portn, int is_orig)
+	{
+	// Note that it is intentional that here we do not
+	// check if ::mp_add_addr is NULL, which should happen *before*
+	// BifEvent::generate_mp_add_addr is called to avoid unnecessary Val
+	// allocation.
+
+	val_list* vl = new val_list;
+
+	vl->append(c->BuildConnVal());
+	vl->append(new Val(len, TYPE_COUNT));
+	vl->append(new Val(ipver, TYPE_COUNT));
+	vl->append(new Val(addr_id, TYPE_COUNT));
+	vl->append(address);
+	vl->append(new Val(portn, TYPE_COUNT));
+	vl->append(new Val(is_orig, TYPE_BOOL));
+
+	mgr.QueueEvent(::mp_add_addr, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
+	} // event generation
+EventHandlerPtr mp_remove_addr; 
+void BifEvent::generate_mp_remove_addr(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t resvd, bro_uint_t addr_id, int is_orig)
+	{
+	// Note that it is intentional that here we do not
+	// check if ::mp_remove_addr is NULL, which should happen *before*
+	// BifEvent::generate_mp_remove_addr is called to avoid unnecessary Val
+	// allocation.
+
+	val_list* vl = new val_list;
+
+	vl->append(c->BuildConnVal());
+	vl->append(new Val(len, TYPE_COUNT));
+	vl->append(new Val(resvd, TYPE_COUNT));
+	vl->append(new Val(addr_id, TYPE_COUNT));
+	vl->append(new Val(is_orig, TYPE_BOOL));
+
+	mgr.QueueEvent(::mp_remove_addr, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
+	} // event generation
+EventHandlerPtr mp_prio; 
+void BifEvent::generate_mp_prio(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t flags, bro_uint_t addr_id, int is_orig)
+	{
+	// Note that it is intentional that here we do not
+	// check if ::mp_prio is NULL, which should happen *before*
+	// BifEvent::generate_mp_prio is called to avoid unnecessary Val
+	// allocation.
+
+	val_list* vl = new val_list;
+
+	vl->append(c->BuildConnVal());
+	vl->append(new Val(len, TYPE_COUNT));
+	vl->append(new Val(flags, TYPE_COUNT));
+	vl->append(new Val(addr_id, TYPE_COUNT));
+	vl->append(new Val(is_orig, TYPE_BOOL));
+
+	mgr.QueueEvent(::mp_prio, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
+	} // event generation
+EventHandlerPtr mp_fastclose; 
+void BifEvent::generate_mp_fastclose(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t resvd, bro_uint_t receiver_key, int is_orig)
+	{
+	// Note that it is intentional that here we do not
+	// check if ::mp_fastclose is NULL, which should happen *before*
+	// BifEvent::generate_mp_fastclose is called to avoid unnecessary Val
+	// allocation.
+
+	val_list* vl = new val_list;
+
+	vl->append(c->BuildConnVal());
+	vl->append(new Val(len, TYPE_COUNT));
+	vl->append(new Val(resvd, TYPE_COUNT));
+	vl->append(new Val(receiver_key, TYPE_COUNT));
+	vl->append(new Val(is_orig, TYPE_BOOL));
+
+	mgr.QueueEvent(::mp_fastclose, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
+	} // event generation
+EventHandlerPtr mp_fail; 
+void BifEvent::generate_mp_fail(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t resvd, bro_uint_t dsn, int is_orig)
+	{
+	// Note that it is intentional that here we do not
+	// check if ::mp_fail is NULL, which should happen *before*
+	// BifEvent::generate_mp_fail is called to avoid unnecessary Val
+	// allocation.
+
+	val_list* vl = new val_list;
+
+	vl->append(c->BuildConnVal());
+	vl->append(new Val(len, TYPE_COUNT));
+	vl->append(new Val(resvd, TYPE_COUNT));
+	vl->append(new Val(dsn, TYPE_COUNT));
+	vl->append(new Val(is_orig, TYPE_BOOL));
+
+	mgr.QueueEvent(::mp_fail, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
+	} // event generation
+EventHandlerPtr mp_error; 
+void BifEvent::generate_mp_error(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t subtype, int is_orig)
+	{
+	// Note that it is intentional that here we do not
+	// check if ::mp_error is NULL, which should happen *before*
+	// BifEvent::generate_mp_error is called to avoid unnecessary Val
+	// allocation.
+
+	val_list* vl = new val_list;
+
+	vl->append(c->BuildConnVal());
+	vl->append(new Val(len, TYPE_COUNT));
+	vl->append(new Val(subtype, TYPE_COUNT));
+	vl->append(new Val(is_orig, TYPE_BOOL));
+
+	mgr.QueueEvent(::mp_error, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
 	} // event generation

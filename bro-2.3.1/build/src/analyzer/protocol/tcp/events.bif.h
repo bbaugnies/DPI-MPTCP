@@ -49,7 +49,7 @@ namespace BifEvent {  void generate_mptcp(analyzer::Analyzer* analyzer, Connecti
 extern EventHandlerPtr mp_capable; 
 namespace BifEvent {  void generate_mp_capable(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t version, bro_uint_t flags, bro_uint_t sender_key, bro_uint_t receiver_key, int is_orig);  } 
 extern EventHandlerPtr mp_join; 
-namespace BifEvent {  void generate_mp_join(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t flags, bro_uint_t rand, bro_uint_t token, StringVal* hmac, int is_orig);  } 
+namespace BifEvent {  void generate_mp_join(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t flags, bro_uint_t addr_id, bro_uint_t rand, bro_uint_t token, StringVal* hmac, int is_orig);  } 
 extern EventHandlerPtr mp_dss; 
 namespace BifEvent {  void generate_mp_dss(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t flags, bro_uint_t data_ack, bro_uint_t dsn, bro_uint_t ssn, bro_uint_t dll, bro_uint_t checksum, int is_orig);  } 
 extern EventHandlerPtr mp_add_addr; 

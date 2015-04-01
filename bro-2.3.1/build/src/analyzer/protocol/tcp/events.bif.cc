@@ -314,7 +314,7 @@ void BifEvent::generate_mp_capable(analyzer::Analyzer* analyzer, Connection* c, 
 	mgr.QueueEvent(::mp_capable, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
 	} // event generation
 EventHandlerPtr mp_join; 
-void BifEvent::generate_mp_join(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t flags, bro_uint_t rand, bro_uint_t token, StringVal* hmac, int is_orig)
+void BifEvent::generate_mp_join(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t flags, bro_uint_t addr_id, bro_uint_t rand, bro_uint_t token, StringVal* hmac, int is_orig)
 	{
 	// Note that it is intentional that here we do not
 	// check if ::mp_join is NULL, which should happen *before*
@@ -326,6 +326,7 @@ void BifEvent::generate_mp_join(analyzer::Analyzer* analyzer, Connection* c, bro
 	vl->append(c->BuildConnVal());
 	vl->append(new Val(len, TYPE_COUNT));
 	vl->append(new Val(flags, TYPE_COUNT));
+	vl->append(new Val(addr_id, TYPE_COUNT));
 	vl->append(new Val(rand, TYPE_COUNT));
 	vl->append(new Val(token, TYPE_COUNT));
 	vl->append(hmac);

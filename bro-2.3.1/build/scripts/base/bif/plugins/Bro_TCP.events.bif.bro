@@ -374,6 +374,9 @@ global mp_capable: event(c: connection , len: count , version: count , flags: co
 ##
 ## flags: the MPTCP flags (refer to RFC 6824) should only be 0 or 1 (backup)
 ##
+## addr_id: ID of the address that is joining, as referenced in the MPTCP connection's address table
+##      should be 0 on last ack of handshake
+##
 ## rand: the random number chosen by the sender. Should be 0 in the last ACK of TCP handshake
 ##
 ## token: the token corresponding to the connection the sender wants to join. Should be 0
@@ -383,7 +386,7 @@ global mp_capable: event(c: connection , len: count , version: count , flags: co
 ##			64 bits in SYN + ACK and 160 bits in final ACK (see RFC 6824 for details)
 ##
 ## 
-global mp_join: event(c: connection , len: count , flags: count , rand: count , token: count , hmac: string , is_orig: bool );
+global mp_join: event(c: connection , len: count , flags: count , addr_id: count , rand: count , token: count , hmac: string , is_orig: bool );
 
 
 ## Generated for each MPTCP option of DSS subtype

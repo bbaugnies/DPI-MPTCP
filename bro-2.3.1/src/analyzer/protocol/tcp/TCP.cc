@@ -1453,10 +1453,9 @@ int TCP_Analyzer::ParseMPTCP(const struct tcphdr* tcp,
 			return -1;
 
                 if (opt == 30) {
-                    if ( (*proc)(opt_len, options, analyzer, is_orig, cookie, flags) == -1 ){
-                        printf("got -1 on MPTCP parsing %d\n", options[2]>>4);
+                    if ( (*proc)(opt_len, options, analyzer, is_orig, cookie, flags) == -1 )
                         return -1;
-                    }
+                    
                 }
 
 		options += opt_len;
@@ -1486,70 +1485,90 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
             analyzer->ConnectionEvent(mptcp, vl);
         }
 
-        uint32 token = 0;
-        uint32 rand = 0;
-        uint64 hmac1 = 0;
-        uint64 hmac2 = 0;
-        uint64 hmac3 = 0;
-
         // fill in relevant fields, check if subtypes & lengths match
         switch (subtype) {
             case 0: // MP_Capable (sender key and receiver key if len= 20)
-                if (mp_capable) {
-                    uint64 kA = 0;
-                    uint64 kB = 0;
-                    if ((flags.SYN() && optlen != 12) || (flags.ACK() && !flags.SYN() && optlen != 20)) {
-                        // wrong length for an MP_Capable option
-                        // TODO: generate MP error event, refactor to generate event when correct and fail in else clause
-                        return -1;
-                    } else {
-                        for (int i = 0; i < 8; i++) {
-                            kA += (uint64) option[11 - i] << (i * 8);
-                            if (optlen == 20)
-                                kB += (uint64) option[19 - i] << (i * 8);
-                        }
-                    }
-                    val_list* vl = new val_list();
+            {
+                uint64 kA = 0;
+                uint64 kB = 0;
+                val_list* vl = new val_list();
+                vl->append(analyzer->BuildConnVal());
+                vl->append(new Val(optlen, TYPE_COUNT)); // length
 
-                    vl->append(analyzer->BuildConnVal());
-                    vl->append(new Val(optlen, TYPE_COUNT)); // length
+                if (mp_capable && ((flags.SYN() && optlen == 12) || (flags.ACK() && !flags.SYN() && optlen == 20))) {
+                    for (int i = 0; i < 8; i++) {
+                        kA += (uint64) option[11 - i] << (i * 8);
+                        if (optlen == 20)
+                            kB += (uint64) option[19 - i] << (i * 8);
+                    }
                     vl->append(new Val(option[2]&15, TYPE_COUNT)); // version (4 bits)
                     vl->append(new Val(option[3], TYPE_COUNT)); // flags (8 bits)
                     vl->append(new Val(kA, TYPE_COUNT));
                     vl->append(new Val(kB, TYPE_COUNT));
                     vl->append(new Val(is_orig, TYPE_BOOL));
                     analyzer->ConnectionEvent(mp_capable, vl);
+                } else {
+                    // wrong length for an MP_Capable option
+                    if (mp_error) {
+                        vl->append(new Val(subtype, TYPE_COUNT));
+                        vl->append(new Val(is_orig, TYPE_BOOL));
+                        analyzer->ConnectionEvent(mp_error, vl);
+                        return 0;
+                    }
+                    return -1;
                 }
+            }
+
                 break;
 
             case 1: //MP_JOIN (token & random number on SYN, truncated HMAC & random number on SYN+ACK, HMAC on ACK)
+            {
                 // TOFIX: store hmac in u_char (memcopy) and generate event.
+                uint32 token = 0;
+                uint32 rand = 0;
+                val_list* vl = new val_list();
+                vl->append(analyzer->BuildConnVal());
+                vl->append(new Val(optlen, TYPE_COUNT)); // length
+                vl->append(new Val(option[2]&15, TYPE_COUNT)); // flags
+                vl->append(new Val(option[3], TYPE_COUNT)); //addr_ID
+
                 if (optlen == 12 && flags.SYN() && !flags.ACK()) {
                     for (int i = 0; i < 4; i++) {
-                        token += (uint64) option[7 - i] << (i * 8);
-                        rand += (uint64) option[11 - i] << (i * 8);
+                        token += (uint32) option[7 - i] << (i * 8);
+                        rand += (uint32) option[11 - i] << (i * 8);
                     }
+                    vl->append(new Val(rand, TYPE_COUNT));
+                    vl->append(new Val(token,TYPE_COUNT));
+                    char h[1];
+                    h[0]='r';
+                    vl->append(new StringVal(h));
                 } else if (optlen == 16 && flags.SYN() && flags.ACK()) {
+                    char h[8];
                     for (int i = 0; i < 8; i++) {
-                        hmac1 += (uint64) option[11 - i] << (i * 8);
+                        h[i] = option[i+4];
                     }
                     for (int i = 0; i < 4; i++) {
-                        rand += (uint64) option[15 - i] << (i * 8);
+                        rand += (uint32) option[15 - i] << (i * 8);
                     }
+                    vl->append(new Val(token, TYPE_COUNT));
+                    vl->append(new Val(rand,TYPE_COUNT));
+                    vl->append(new StringVal(h));
                 } else if (optlen == 24 && !flags.SYN() && flags.ACK()) {
-                    for (int i = 0; i < 8; i++) {
-                        hmac1 += (uint64) option[11 - i] << (i * 8);
-                        hmac2 += (uint64) option[19 - i] << (i * 8);
+                    char h[20];
+                    for (int i = 0; i < 20; i++) {
+                        h[i] = option[i+4];
                     }
-                    for (int i = 0; i < 4; i++) {
-                        hmac3 += (uint64) option[23 - i] << (i * 8);
-                    }
+                    vl->append(new Val(token, TYPE_COUNT));
+                    vl->append(new Val(rand,TYPE_COUNT));
+                    vl->append(new StringVal(h));
                 } else {
                     // bad length for MP_JOIN option
                     // TODO: generate MP_error event
-                    printf("no match for JOIN: syn: %d, ack:%d, len: %d\n", flags.SYN(), flags.ACK(), optlen);
                     return -1;
                 }
+                analyzer->ConnectionEvent(mp_join, vl);
+            }
+
                 break;
         }
 

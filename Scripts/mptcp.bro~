@@ -28,17 +28,22 @@ event mp_join(c: connection, len: count, flags: count, addr_id:count, rand: coun
 		print fmt("len: %d", len);
 		print fmt("ID: %d", addr_id);
 		print fmt("flags: %d", flags);
-		print fmt("rand: %d", token);
-		print fmt("token: %d", rand);
+		print fmt("rand: %d", rand);
+		print fmt("token: %d", token);
 		print(hmac);
 		print fmt("--------------------");		
 	}
 
-event connection_SYN_packet(c: connection, pkt: SYN_packet)
+event mp_dss(c: connection, len: count, flags: count, data_ack: count, dsn: count, ssn: count, dll: count, checksum: count, is_orig: bool)
 	{
-		print fmt("-------syn-------------");
-		print(c);
-		print(pkt);
-		print fmt("--------------------");	
+		print fmt("-------mp_join-------------");
+		print fmt("len: %d", len);
+		print fmt("flags: %d", flags);
+		print fmt("ack: %d", data_ack);
+		print fmt("dsn: %d", dsn);
+		print fmt("ssn: %d", ssn);
+		print fmt("dll: %d", dll);
+		print fmt("check: %d", checksum);
+		print fmt("--------------------");		
 		
 	}

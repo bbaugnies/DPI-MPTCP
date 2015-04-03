@@ -1523,7 +1523,7 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
 
             case 1: //MP_JOIN (token & random number on SYN, truncated HMAC & random number on SYN+ACK, HMAC on ACK)
             {
-                // TOFIX: store hmac in u_char (memcopy) and generate event.
+                // TOFIX: issues with HMAC and getting its length is script.
                 uint32 token = 0;
                 uint32 rand = 0;
                 val_list* vl = new val_list();
@@ -1569,6 +1569,76 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                 analyzer->ConnectionEvent(mp_join, vl);
             }
 
+                break;
+            case 2: // DSS
+            {
+                val_list* vl = new val_list();
+                vl->append(analyzer->BuildConnVal());
+                vl->append(new Val(optlen, TYPE_COUNT));
+                uint32 flags = ((option[2] & 15) << 8) + option[3];
+                vl->append(new Val(flags, TYPE_COUNT));
+                u_int expected_len = 4;
+                if (option[3] & 1) {
+                    expected_len += 4;
+                    if (option[3] & 2) {
+                        expected_len += 4;
+                        uint64 ack = 0;
+                        for (int i = 0; i < 8; i++) {
+                            ack += (uint64) option[11 - i] << (i * 8);
+                        }
+                        vl->append(new Val(ack, TYPE_COUNT));
+                    } else {
+                        uint32 ack = 0;
+                        for (int i = 0; i < 4; i++) {
+                            ack += (uint32) option[7 - i] << (i * 8);
+                        }
+                        vl->append(new Val(ack, TYPE_COUNT));
+                    }
+                } else
+                    vl->append(new Val(0, TYPE_COUNT));
+
+                uint32 ssn = 0;
+                uint32 dll = 0;
+                uint32 checksum = 0;
+                if (option[3] & 4) {
+                    expected_len += 12;
+                    if (option[3] & 8) {
+                        expected_len += 4;
+                        uint64 dsn = 0;
+                        for (int i = 0; i < 8; i++) {
+                            dsn += (uint64) option[11 + expected_len - 20 - i] << (i * 8);
+                        }
+                        vl->append(new Val(dsn, TYPE_COUNT));
+                        for (int i = 0; i < 4; i++) {
+                            ssn += (uint32) option[15 + expected_len - 20 - i] << (i * 8);
+                        }
+                        dll = option[17 + expected_len - 20] + (option[16 + expected_len - 20] << 8);
+                        checksum = option[19 + expected_len - 20] + (option[18 + expected_len - 20] << 8);
+                    } else {
+                        uint32 dsn = 0;
+                        for (int i = 0; i < 4; i++) {
+                            dsn += (uint32) option[7 + expected_len - 16 - i] << (i * 8);
+                            ssn += (uint32) option[11 + expected_len - 16 - i] << (i * 8);
+                        }
+                        vl->append(new Val(dsn, TYPE_COUNT));
+                        dll = option[13 + expected_len - 16] + (option[12 + expected_len - 16] << 8);
+                        checksum = option[15 + expected_len - 16] + (option[14 + expected_len - 16] << 8);
+                    }
+                }
+                else {
+                    uint32 dns = 0;
+                    vl->append(new Val(dns, TYPE_COUNT));
+                }
+                vl->append(new Val(ssn, TYPE_COUNT));
+                vl->append(new Val(dll, TYPE_COUNT));
+                vl->append(new Val(checksum, TYPE_COUNT));
+                
+               /* if (expected_len != optlen) {
+                    return -1;
+                }*/
+                printf("expect: %d, got %d", expected_len, optlen);
+                analyzer->ConnectionEvent(mp_dss, vl);
+            }
                 break;
         }
 

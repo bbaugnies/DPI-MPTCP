@@ -1633,13 +1633,21 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                 vl->append(new Val(dll, TYPE_COUNT));
                 vl->append(new Val(checksum, TYPE_COUNT));
                 
-               /* if (expected_len != optlen) {
+                if (expected_len != optlen) {
                     return -1;
-                }*/
-                printf("expect: %d, got %d", expected_len, optlen);
+                }
                 analyzer->ConnectionEvent(mp_dss, vl);
             }
                 break;
+            case 3:  {//ADD_ADDR
+                val_list* vl = new val_list();
+                vl->append(analyzer->BuildConnVal());
+                vl->append(new Val(optlen, TYPE_COUNT));
+                vl->append(new Val(option[2] & 15, TYPE_COUNT));
+                vl->append(new Val(option[3], TYPE_COUNT));
+            }
+                
+                
         }
 
     }

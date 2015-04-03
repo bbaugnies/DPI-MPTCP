@@ -325,7 +325,7 @@ global contents_file_write_failure: event(c: connection , is_orig: bool , msg: s
 
 ## Generated for each MPTCP option found in a TCP header (kind = 30) 
 ## In most cases, this event will be raised at least once for every
-## packet in an MPTCP connection
+## packet in an MPTCP connection (read "very often if MPTCP is in use")
 ##
 ##
 ## c: The connection the packet is part of.
@@ -518,6 +518,8 @@ global mp_fail: event(c: connection , len: count , resvd: count , dsn: count , i
 
 ## Generated for each MPTCP option which is invalid
 ## Either unknown subtype or length inconsistent with the subtype and/or flags 
+## Should never be raised unless someone is using a faulty implementation
+## or willingly creating invalid packets
 ## 
 ##
 ## c: The connection the packet is part of.

@@ -1538,34 +1538,35 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                         rand += (uint32) option[11 - i] << (i * 8);
                     }
                     vl->append(new Val(rand, TYPE_COUNT));
-                    vl->append(new Val(token,TYPE_COUNT));
+                    vl->append(new Val(token, TYPE_COUNT));
                     char h[1];
-                    h[0]='r';
+                    h[0] = 'r';
                     vl->append(new StringVal(h));
                 } else if (optlen == 16 && flags.SYN() && flags.ACK()) {
                     char h[8];
                     for (int i = 0; i < 8; i++) {
-                        h[i] = option[i+4];
+                        h[i] = option[i + 4];
                     }
                     for (int i = 0; i < 4; i++) {
                         rand += (uint32) option[15 - i] << (i * 8);
                     }
                     vl->append(new Val(token, TYPE_COUNT));
-                    vl->append(new Val(rand,TYPE_COUNT));
+                    vl->append(new Val(rand, TYPE_COUNT));
                     vl->append(new StringVal(h));
                 } else if (optlen == 24 && !flags.SYN() && flags.ACK()) {
                     char h[20];
                     for (int i = 0; i < 20; i++) {
-                        h[i] = option[i+4];
+                        h[i] = option[i + 4];
                     }
                     vl->append(new Val(token, TYPE_COUNT));
-                    vl->append(new Val(rand,TYPE_COUNT));
+                    vl->append(new Val(rand, TYPE_COUNT));
                     vl->append(new StringVal(h));
                 } else {
                     // bad length for MP_JOIN option
                     // TODO: generate MP_error event
                     return -1;
                 }
+                vl->append(new Val(is_orig, TYPE_BOOL));
                 analyzer->ConnectionEvent(mp_join, vl);
             }
 
@@ -1624,30 +1625,140 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                         dll = option[13 + expected_len - 16] + (option[12 + expected_len - 16] << 8);
                         checksum = option[15 + expected_len - 16] + (option[14 + expected_len - 16] << 8);
                     }
-                }
-                else {
+                } else {
                     uint32 dns = 0;
                     vl->append(new Val(dns, TYPE_COUNT));
                 }
                 vl->append(new Val(ssn, TYPE_COUNT));
                 vl->append(new Val(dll, TYPE_COUNT));
                 vl->append(new Val(checksum, TYPE_COUNT));
-                
+
                 if (expected_len != optlen) {
                     return -1;
                 }
+                vl->append(new Val(is_orig, TYPE_BOOL));
                 analyzer->ConnectionEvent(mp_dss, vl);
             }
                 break;
-            case 3:  {//ADD_ADDR
+            case 3:
+            {//ADD_ADDR
                 val_list* vl = new val_list();
                 vl->append(analyzer->BuildConnVal());
                 vl->append(new Val(optlen, TYPE_COUNT));
-                vl->append(new Val(option[2] & 15, TYPE_COUNT));
-                vl->append(new Val(option[3], TYPE_COUNT));
+                vl->append(new Val(option[2] & 15, TYPE_COUNT)); // IP version
+                vl->append(new Val(option[3], TYPE_COUNT)); //ADDR ID
+                uint32 p = 0;
+
+                if ((option[2]& 15) == 4 && (optlen == 8 || optlen == 10)) {
+                    uint32 addr = 0;
+                    for (int i = 0; i < 4; i++) {
+                        addr += (uint32) option[7 - i] << (i * 8);
+                    }
+                    vl->append(new AddrVal(addr));
+                    if (optlen == 10) {
+                        p = (option[8] << 8) + option[9];
+                    }
+                } else if ((option[2] & 15) == 6 && (optlen == 20 || optlen == 22)) {
+                    uint32 addr[4];
+                    for (int i = 0; i < 4; i++) {
+                        addr[i] = 0;
+                    }
+                    for (int i = 0; i < 4; i++) {
+                        addr[0] += (uint32) option[7 - i] << (i * 8);
+                        addr[1] += (uint32) option[11 - i] << (i * 8);
+                        addr[2] += (uint32) option[15 - i] << (i * 8);
+                        addr[3] += (uint32) option[19 - i] << (i * 8);
+                    }
+                    vl->append(new AddrVal(addr));
+                    if (optlen == 22) {
+                        p = (option[20] << 8) + option[21];
+                    }
+                } else {
+                    return -1;
+                }
+                vl->append(new Val(p, TYPE_COUNT));
+                vl->append(new Val(is_orig, TYPE_BOOL));
+                analyzer->ConnectionEvent(mp_add_addr, vl);
             }
-                
-                
+                break;
+
+            case 4:
+            {// REMOVE_ADDR
+                if (optlen >= 4) {
+                    for (u_int i = 3; i < optlen; i++) {
+                        val_list* vl = new val_list();
+                        vl->append(analyzer->BuildConnVal());
+                        vl->append(new Val(optlen, TYPE_COUNT));
+                        vl->append(new Val(option[2]&15, TYPE_COUNT)); // resvd bits
+                        vl->append(new Val(option[i], TYPE_COUNT)); //ADDR_ID
+                        vl->append(new Val(is_orig, TYPE_BOOL));
+                        analyzer->ConnectionEvent(mp_remove_addr, vl);
+                    }
+                } else {
+                    return -1;
+                }
+            }
+                break;
+
+            case 5:
+            { // MP_PRIO
+                if (optlen == 4) {
+                    val_list* vl = new val_list();
+                    vl->append(analyzer->BuildConnVal());
+                    vl->append(new Val(optlen, TYPE_COUNT));
+                    vl->append(new Val(option[2]&15, TYPE_COUNT)); // flags
+                    vl->append(new Val(option[3], TYPE_COUNT)); //ADDR_ID
+                    vl->append(new Val(is_orig, TYPE_BOOL));
+                    analyzer->ConnectionEvent(mp_prio, vl);
+                } else {
+                    return -1;
+                }
+            }
+                break;
+            case 6:
+            { // MP_FASTCLOSE
+                if (optlen == 12) {
+                    val_list* vl = new val_list();
+                    vl->append(analyzer->BuildConnVal());
+                    vl->append(new Val(optlen, TYPE_COUNT));
+                    vl->append(new Val((option[2]&15 << 8) + option[3], TYPE_COUNT)); // resvd
+                    uint64 k = 0;
+                    for (int i = 0; i < 8; i++) {
+                        k += (uint64) option[11 - i] << 8 * i;
+                    }
+                    vl->append(new Val(k, TYPE_COUNT));
+                    vl->append(new Val(is_orig, TYPE_BOOL));
+                    analyzer->ConnectionEvent(mp_fastclose, vl);
+                } else {
+                    return -1;
+                }
+            }
+                break;
+            case 7:
+            { // MP_FAIL
+                if (optlen == 12) {
+                    val_list* vl = new val_list();
+                    vl->append(analyzer->BuildConnVal());
+                    vl->append(new Val(optlen, TYPE_COUNT));
+                    vl->append(new Val((option[2]&15 << 8) + option[3], TYPE_COUNT)); // resvd
+                    uint64 k = 0;
+                    for (int i = 0; i < 8; i++) {
+                        k += (uint64) option[11 - i] << 8 * i;
+                    }
+                    vl->append(new Val(k, TYPE_COUNT));
+                    vl->append(new Val(is_orig, TYPE_BOOL));
+                    analyzer->ConnectionEvent(mp_fail, vl);
+                } else {
+                    return -1;
+                }
+
+            }
+                break;
+            default:
+            {
+                return -1;
+            }
+                break;
         }
 
     }

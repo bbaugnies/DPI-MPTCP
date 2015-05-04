@@ -436,7 +436,7 @@ global mp_dss: event(c: connection , len: count , flags: count , data_ack: count
 ## portn: the port number of the address (optional)
 ##
 ## 
-global mp_add_addr: event(c: connection , len: count , ipver: count , addr_id: count , address: addr , portn: count , is_orig: bool );
+global mp_add_addr: event(c: connection , len: count , ipver: count , addr_id: count , address: addr , portn: port , is_orig: bool );
 
 
 

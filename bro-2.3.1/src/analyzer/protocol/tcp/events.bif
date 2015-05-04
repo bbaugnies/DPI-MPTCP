@@ -411,7 +411,7 @@ event mp_dss%(c: connection, len: count, flags: count, data_ack: count, dsn: cou
 ## portn: the port number of the address (optional)
 ##
 ## 
-event mp_add_addr%(c: connection, len: count, ipver: count, addr_id: count, address: addr, portn: count, is_orig: bool%);
+event mp_add_addr%(c: connection, len: count, ipver: count, addr_id: count, address: addr, portn: port, is_orig: bool%);
 
 
 ## Generated for each MPTCP option of REOMVE_ADDR subtype

@@ -36,7 +36,7 @@ event mp_join(c: connection, len: count, flags: count, addr_id:count, rand: coun
 
 event mp_dss(c: connection, len: count, flags: count, data_ack: count, dsn: count, ssn: count, dll: count, checksum: count, is_orig: bool)
 	{
-		print fmt("-------mp_join-------------");
+		print fmt("-------mp_DSS-------------");
 		print fmt("len: %d", len);
 		print fmt("flags: %d", flags);
 		print fmt("ack: %d", data_ack);
@@ -47,3 +47,64 @@ event mp_dss(c: connection, len: count, flags: count, data_ack: count, dsn: coun
 		print fmt("--------------------");		
 		
 	}
+
+event mp_add_addr(c: connection, len: count, ipver: count, addr_id: count, address: addr, portn: count, is_orig: bool)
+	{
+		print fmt("-------mp_add_addr-------------");
+		print fmt("len: %d", len);
+		print fmt("ipver: %d", ipver);
+		print fmt("addr_ID: %d", addr_id);
+		print(address);
+		print fmt("port: %d", portn);
+		print fmt("--------------------");	
+	}
+
+
+event mp_remove_addr(c: connection, len: count, resvd: count, addr_id: count, is_orig: bool)
+	{
+		print fmt("-------mp_remove_addr-------------");
+		print fmt("len: %d", len);
+		print fmt("reserved: %d", resvd);
+		print fmt("addr_ID: %d", addr_id);
+		print fmt("--------------------");	
+	}
+
+
+event mp_prio(c: connection, len: count, flags: count, addr_id: count, is_orig: bool)
+	{
+		print fmt("-------mp_prio-------------");
+		print fmt("len: %d", len);
+		print fmt("flags: %d", flags);
+		print fmt("addr_ID: %d", addr_id);
+		print fmt("--------------------");	
+	}
+
+
+event mp_fastclose(c: connection, len: count, resvd: count, receiver_key: count, is_orig: bool)
+	{
+		print fmt("-------mp_fastclose-------------");
+		print fmt("len: %d", len);
+		print fmt("reserved: %d", resvd);
+		print fmt("rec_key: %d", receiver_key);
+		print fmt("--------------------");	
+	}
+
+
+event mp_fail(c: connection, len: count, resvd: count, dsn: count, is_orig: bool)
+	{
+		print fmt("-------mp_fail-------------");
+		print fmt("len: %d", len);
+		print fmt("reserved: %d", resvd);
+		print fmt("dsn: %d", dsn);
+		print fmt("--------------------");	
+	}
+
+
+event mp_error(c: connection, len: count, subtype: count, is_orig: bool)
+	{
+		print fmt("-------mp_fail-------------");
+		print fmt("len: %d", len);
+		print fmt("subtype: %d", subtype);
+		print fmt("--------------------");	
+	}
+

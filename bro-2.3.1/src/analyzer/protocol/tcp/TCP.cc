@@ -1564,6 +1564,7 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                 } else {
                     // bad length for MP_JOIN option
                     // TODO: generate MP_error event
+                    printf("got mistake\n");
                     return -1;
                 }
                 vl->append(new Val(is_orig, TYPE_BOOL));
@@ -1652,7 +1653,7 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                 if ((option[2]& 15) == 4 && (optlen == 8 || optlen == 10)) {
                     uint32 addr = 0;
                     for (int i = 0; i < 4; i++) {
-                        addr += (uint32) option[7 - i] << (i * 8);
+                        addr += (uint32) option[4 + i] << (i * 8);
                     }
                     vl->append(new AddrVal(addr));
                     if (optlen == 10) {
@@ -1664,10 +1665,10 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                         addr[i] = 0;
                     }
                     for (int i = 0; i < 4; i++) {
-                        addr[0] += (uint32) option[7 - i] << (i * 8);
-                        addr[1] += (uint32) option[11 - i] << (i * 8);
-                        addr[2] += (uint32) option[15 - i] << (i * 8);
-                        addr[3] += (uint32) option[19 - i] << (i * 8);
+                        addr[0] += (uint32) option[4 + i] << (i * 8);
+                        addr[1] += (uint32) option[8 + i] << (i * 8);
+                        addr[2] += (uint32) option[12 + i] << (i * 8);
+                        addr[3] += (uint32) option[16 + i] << (i * 8);
                     }
                     vl->append(new AddrVal(addr));
                     if (optlen == 22) {
@@ -1676,7 +1677,7 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                 } else {
                     return -1;
                 }
-                vl->append(new Val(p, TYPE_COUNT));
+                vl->append(new PortVal(p));
                 vl->append(new Val(is_orig, TYPE_BOOL));
                 analyzer->ConnectionEvent(mp_add_addr, vl);
             }

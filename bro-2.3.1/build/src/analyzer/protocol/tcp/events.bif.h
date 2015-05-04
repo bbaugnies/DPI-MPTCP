@@ -53,7 +53,7 @@ namespace BifEvent {  void generate_mp_join(analyzer::Analyzer* analyzer, Connec
 extern EventHandlerPtr mp_dss; 
 namespace BifEvent {  void generate_mp_dss(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t flags, bro_uint_t data_ack, bro_uint_t dsn, bro_uint_t ssn, bro_uint_t dll, bro_uint_t checksum, int is_orig);  } 
 extern EventHandlerPtr mp_add_addr; 
-namespace BifEvent {  void generate_mp_add_addr(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t ipver, bro_uint_t addr_id, AddrVal* address, bro_uint_t portn, int is_orig);  } 
+namespace BifEvent {  void generate_mp_add_addr(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t ipver, bro_uint_t addr_id, AddrVal* address, PortVal* portn, int is_orig);  } 
 extern EventHandlerPtr mp_remove_addr; 
 namespace BifEvent {  void generate_mp_remove_addr(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t resvd, bro_uint_t addr_id, int is_orig);  } 
 extern EventHandlerPtr mp_prio; 

@@ -357,7 +357,7 @@ void BifEvent::generate_mp_dss(analyzer::Analyzer* analyzer, Connection* c, bro_
 	mgr.QueueEvent(::mp_dss, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
 	} // event generation
 EventHandlerPtr mp_add_addr; 
-void BifEvent::generate_mp_add_addr(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t ipver, bro_uint_t addr_id, AddrVal* address, bro_uint_t portn, int is_orig)
+void BifEvent::generate_mp_add_addr(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t ipver, bro_uint_t addr_id, AddrVal* address, PortVal* portn, int is_orig)
 	{
 	// Note that it is intentional that here we do not
 	// check if ::mp_add_addr is NULL, which should happen *before*
@@ -371,7 +371,7 @@ void BifEvent::generate_mp_add_addr(analyzer::Analyzer* analyzer, Connection* c,
 	vl->append(new Val(ipver, TYPE_COUNT));
 	vl->append(new Val(addr_id, TYPE_COUNT));
 	vl->append(address);
-	vl->append(new Val(portn, TYPE_COUNT));
+	vl->append(portn);
 	vl->append(new Val(is_orig, TYPE_BOOL));
 
 	mgr.QueueEvent(::mp_add_addr, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);

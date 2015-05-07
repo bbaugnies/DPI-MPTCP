@@ -42,7 +42,6 @@ event bro_init() {
 
 event mp_capable(c: connection, len: count, version: count, flags: count, sender_key: count, receiver_key: count, is_orig: bool) {
 	if (len == 20){
-		print(c$id);
 		hosts[host_id]=[$key=sender_key, $connection=conn_id, $naddresses=1];
 		addresses[[$address=c$id$orig_h, $portn=c$id$orig_p]] = host_id;
 
@@ -64,25 +63,28 @@ event mp_capable(c: connection, len: count, version: count, flags: count, sender
 
 event mp_add_addr(c: connection, len: count, ipver: count, addr_id: count, a: addr, p: port, is_orig: bool) {
 	local id: count;
+	local p_tmp: port;
 
 	## the address belongs to the initiator of the connection
 	if(is_orig){
 		id = addresses[[$address=c$id$orig_h, $portn=c$id$orig_p]];
 		if (p==0/unknown){
-			addresses[[$address=a, $portn=c$id$orig_p]]=id;
+			p_tmp = c$id$orig_p;
 		}
 		else
-			addresses[[$address=a, $portn=p]]=id;
+			p_tmp= p;
 	}
 	## it belongs to the responder
 	else {
 		id = addresses[[$address=c$id$resp_h, $portn=c$id$resp_p]];
 		if (p==0/unknown){
-			addresses[[$address=a, $portn=c$id$resp_p]]=id;
+			p_tmp = c$id$resp_p;
 		}
 		else
-			addresses[[$address=a, $portn=p]]=id;
+			p_tmp= p;
 	}
+
+	addresses[[$address=a, $portn=p_tmp]]=id;
 
 	
 	hosts[id]$naddresses += 1;
@@ -94,7 +96,9 @@ event mp_join(c: connection, len: count, flags: count, addr_id:count, rand: coun
 	if(len==24){
 		local id: count;
 		id = addresses[[$address=c$id$resp_h, $portn=c$id$resp_p]];
-		print(c$id);
+		if([$address=c$id$orig_h, $portn=c$id$orig_p] !in addresses){
+			
+		}
 		
 		Log::write(Connection::LOG, [$orig_h=c$id$orig_h,
 										$orig_p=c$id$orig_p,
@@ -105,4 +109,7 @@ event mp_join(c: connection, len: count, flags: count, addr_id:count, rand: coun
 	}
 }
 
+event connection_established(c: connection){
+	print(c$id);
+}
 

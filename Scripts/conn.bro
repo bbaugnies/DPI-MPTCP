@@ -63,7 +63,8 @@ event bro_init() {
 
 
 event mp_capable(c: connection, len: count, version: count, flags: count, sender_key: count, receiver_key: count, is_orig: bool) {
-	if (len == 12 && !is_orig){
+	
+        if (len == 12 && !is_orig){
 		hosts[host_id]=[$connection=conn_id, $naddresses=1, $other_host=host_id+1, $addresses=table([0]=[$address=c$id$orig_h, $portn=c$id$orig_p])];
 		addresses[[$address=c$id$orig_h, $portn=c$id$orig_p]] = host_id;
 
@@ -89,7 +90,7 @@ event mp_capable(c: connection, len: count, version: count, flags: count, sender
 
 ## TODO test duplicate_add_addr notice
 event mp_add_addr(c: connection, len: count, ipver: count, addr_id: count, a: addr, p: port, is_orig: bool) {
-
+        print("saw event");
 	local id: count;
 	local p_tmp: port;
 
@@ -115,6 +116,7 @@ event mp_add_addr(c: connection, len: count, ipver: count, addr_id: count, a: ad
         if (addr_id in hosts[id]$addresses){
             ##advertising new address with used ID
             if (a!= hosts[id]$addresses[addr_id]$address){
+                print("should send notice");
                 NOTICE([$note=Duplicate_add_addr,
                         $msg=fmt("ADDR_ID %d already used for %s", addr_id, hosts[id]$addresses[addr_id]$address),
                         $conn = c]);

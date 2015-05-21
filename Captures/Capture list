@@ -1,0 +1,5 @@
+mp_capable.pcapng:
+	63 packets. capture from a visit to "amiusingmptcp". Features a connection, address advertisement and joins, as well as some data packets
+
+wrongAdd_Addr.pcap:
+	5 packets. Host A establishes MPTCP connection with host B, then adds two different addresses with ID 2

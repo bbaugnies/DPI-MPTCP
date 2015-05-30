@@ -1,0 +1,8 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Rapport.aux
+The style file: plain.bst
+Database file #1: mybib.bib
+Too many commas in name 1 of "A. Ford, C. Raiciu, M. Handley, O. Bonaventure" for entry rfc6824
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "A. Ford, C. Raiciu, M. Handley, O. Bonaventure" for entry rfc6824
+while executing---line 1090 of file plain.bst
+(There were 2 error messages)

@@ -1,35 +1,35 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces MPTCP option as seen in Wireshark\relax }}{6}{figure.caption.4}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces MPTCP option as seen in Wireshark\relax }}{2}{figure.caption.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Setting up multiple subflows between two hosts\relax }}{9}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Data exchanged for MPTCP connection setup\relax }}{10}{figure.caption.5}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Data exchanged for MPTCP JOIN\relax }}{12}{figure.caption.6}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Setting up multiple subflows between two hosts\relax }}{5}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Data exchanged for MPTCP connection setup\relax }}{6}{figure.caption.5}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Data exchanged for MPTCP JOIN\relax }}{8}{figure.caption.6}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Bro's internal architecture\relax }}{13}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Bro call stack to deliver TCP packet\relax }}{14}{figure.caption.7}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Bro's internal architecture\relax }}{9}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Bro call stack to deliver TCP packets\relax }}{10}{figure.caption.7}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Class Hierarchy of Bro analyzers\relax }}{21}{figure.caption.8}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Class Hierarchy of Bro analyzers\relax }}{17}{figure.caption.8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Header for our MPTCP connection log\relax }}{32}{figure.caption.18}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces A Three-way handshake ACK followed by two Add Addr duplicates\relax }}{37}{figure.caption.19}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Possible Add Addr Attack\relax }}{37}{figure.caption.20}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces The first Add Addr in detail\relax }}{39}{figure.caption.21}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces The second Add Addr in detail\relax }}{40}{figure.caption.22}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Possible Key Change Attack\relax }}{41}{figure.5.6}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Potential Attack on the Join Authentication\relax }}{44}{figure.caption.23}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Header for our MPTCP connection log\relax }}{28}{figure.caption.18}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces A Three-way handshake ACK followed by two Add Addr duplicates\relax }}{33}{figure.caption.19}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Possible Add Addr Attack\relax }}{33}{figure.caption.20}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces The first Add Addr in detail\relax }}{35}{figure.caption.21}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces The second Add Addr in detail\relax }}{36}{figure.caption.22}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Possible Key Change Attack\relax }}{37}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Potential Attack on the Join Authentication\relax }}{40}{figure.caption.23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Generated Packet Capture for Duplicate Add Addr\relax }}{47}{figure.caption.24}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Generated Packet Capture for Duplicate Add Addr\relax }}{43}{figure.caption.24}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces MP Capable option format\relax }}{57}{figure.A.1}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces MP Join option format for initial SYN\relax }}{57}{figure.A.2}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces MP Join option format for SYN+ACK\relax }}{58}{figure.A.3}
-\contentsline {figure}{\numberline {A.4}{\ignorespaces MP Join option format for final ACK\relax }}{58}{figure.A.4}
-\contentsline {figure}{\numberline {A.5}{\ignorespaces MP DSS option format\relax }}{58}{figure.A.5}
-\contentsline {figure}{\numberline {A.6}{\ignorespaces MP ADD\_ADDR option format\relax }}{59}{figure.A.6}
-\contentsline {figure}{\numberline {A.7}{\ignorespaces MP REMOVE\_ADDR option format\relax }}{59}{figure.A.7}
-\contentsline {figure}{\numberline {A.8}{\ignorespaces MP PRIO option format\relax }}{59}{figure.A.8}
-\contentsline {figure}{\numberline {A.9}{\ignorespaces MP FASCT\_CLOSE option format\relax }}{59}{figure.A.9}
-\contentsline {figure}{\numberline {A.10}{\ignorespaces MP FAIL option format\relax }}{59}{figure.A.10}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces MP Capable option format\relax }}{53}{figure.A.1}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces MP Join option format for initial SYN\relax }}{53}{figure.A.2}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces MP Join option format for SYN+ACK\relax }}{54}{figure.A.3}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces MP Join option format for final ACK\relax }}{54}{figure.A.4}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces MP DSS option format\relax }}{54}{figure.A.5}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces MP ADD\_ADDR option format\relax }}{55}{figure.A.6}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces MP REMOVE\_ADDR option format\relax }}{55}{figure.A.7}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces MP PRIO option format\relax }}{55}{figure.A.8}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces MP FASCT\_CLOSE option format\relax }}{55}{figure.A.9}
+\contentsline {figure}{\numberline {A.10}{\ignorespaces MP FAIL option format\relax }}{55}{figure.A.10}
 \addvspace {10\p@ }

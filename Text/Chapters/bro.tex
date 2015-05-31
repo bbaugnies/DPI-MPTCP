@@ -4,7 +4,7 @@
 Bro is an open-source, multi-layered, stream-oriented intrusion detection system capable of high-performance analysis and logging. This section will cover how Bro functions. In particular, we will go over each component's job, how it works, and how they all fit together to provide many flexible services.
 
 \section{System Architecture}
-Bro's operation is mainly split into two parts: the C++ Event Engine  and the Policy Script Interpreter. Figure \ref{pic:arch} shows Bro's architecture as seen in the documentation, though it is worth noting that packets can also be fed into the Event Engine through packet captures. \\
+Bro's operation is mainly split into two parts: the C++ Event Engine  and the Policy Script Interpreter. Figure \ref{pic:arch} shows Bro's architecture as seen in the documentation \cite{bro}, though it is worth noting that packets can also be fed into the Event Engine through packet captures. \\
 
 
 \begin{minipage}[c]{\textwidth}
@@ -34,11 +34,11 @@ As mentioned already, the Event Engine is responsible for parsing packets and ge
 \begin{figure}[!t]
 \centering
 \includegraphics[width = \textwidth]{Figures/brodebug.png}
-\caption{Bro call stack to deliver TCP packet}
+\caption{Bro call stack to deliver TCP packets}
 \label{pic:callstack}
 \end{figure}
 
-During the whole process, it is important to remember that all the packets belonging to the same stream are treated together. For some protocols, TCP included, Bro can perform re-assembly internally and deliver the re-assembled stream to the analyzers instead of individual packets. This will play a role on how MPTCP re-assembly must be performed. Indeed, MPTCP must re-assemble content from multiple streams, meaning that the architecture of the Event Engine is not currently adapted to this. It has no way of maintaining state over multiple stream.
+During the whole process, it is important to remember that all the packets belonging to the same stream are treated together. For some protocols, TCP included, Bro can perform re-assembly internally and deliver the re-assembled stream to the analyzers instead of individual packets. This will play a role on how MPTCP re-assembly must be performed. Indeed, MPTCP must re-assemble content from multiple streams, meaning that the architecture of the Event Engine is not currently adapted to this. It has no way of maintaining state over multiple streams.
 
 
 \section{The Policy Script Interpreter}
@@ -135,7 +135,7 @@ event connection_SYN_packet(c: connection, pkt: SYN_packet) {
 
 Once again, most fields of the \texttt{Notice::Info} record are optional. Here, we filled \texttt{note} which is the notice type which allows the notice handler to distinguish which kind of notice it was (and the only mandatory field), and \texttt{msg} which allows us to transmit a human-readable message along with the notice.\\
 
-Once the notice is raised, it will not be acted upon unless a script subscribes notices by using a hook. The hook will be executed every time a notice is raised, and can check the note to determine which notice took place, and how to react to it. For our example, we could write a hook that sends an e-mail every time the notice is raised (a very bad idea in practice, of course): \\
+Once the notice is raised, it will not be acted upon unless a script subscribes to notices by using a hook. The hook will be executed every time a notice is raised, and can check the note to determine which notice took place, and how to react to it. For our example, we could write a hook that sends an e-mail every time the notice is raised (a very bad idea in practice, of course): \\
 
 \begin{code}
 hook Notice::policy(n: Notice::Info) {

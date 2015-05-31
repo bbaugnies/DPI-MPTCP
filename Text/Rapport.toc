@@ -1,49 +1,49 @@
-\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
-\contentsline {chapter}{\numberline {2}An Overview of MPTCP}{8}{chapter.2}
-\contentsline {section}{\numberline {2.1}General Operation and Option Types}{8}{section.2.1}
-\contentsline {section}{\numberline {2.2}First Connection Establishment}{10}{section.2.2}
-\contentsline {section}{\numberline {2.3}Advertising New Addresses}{10}{section.2.3}
-\contentsline {section}{\numberline {2.4}Joining an Existing Connection}{11}{section.2.4}
-\contentsline {section}{\numberline {2.5}Sending Data}{12}{section.2.5}
-\contentsline {section}{\numberline {2.6}Fastclose and Failure}{12}{section.2.6}
-\contentsline {chapter}{\numberline {3}The DPI system: Bro}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}System Architecture}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}The Event Engine}{14}{section.3.2}
-\contentsline {section}{\numberline {3.3}The Policy Script Interpreter}{15}{section.3.3}
-\contentsline {section}{\numberline {3.4}Output}{16}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Logging}{16}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Notices}{18}{subsection.3.4.2}
-\contentsline {chapter}{\numberline {4}Bro Events}{20}{chapter.4}
-\contentsline {section}{\numberline {4.1}Protocol analyzers}{20}{section.4.1}
-\contentsline {section}{\numberline {4.2}Adding new events}{23}{section.4.2}
-\contentsline {section}{\numberline {4.3}Event description}{24}{section.4.3}
-\contentsline {subsubsection}{mptcp event}{25}{section*.9}
-\contentsline {subsubsection}{mp\_error event}{25}{section*.10}
-\contentsline {subsubsection}{mp\_capable event}{26}{section*.11}
-\contentsline {subsubsection}{mp\_join event}{27}{section*.12}
-\contentsline {subsubsection}{mp\_dss event}{28}{section*.13}
-\contentsline {subsubsection}{mp\_add\_addr event}{29}{section*.14}
-\contentsline {subsubsection}{mp\_remove\_addr event}{29}{section*.15}
-\contentsline {subsubsection}{mp\_prio event}{30}{section*.16}
-\contentsline {subsubsection}{mp\_fastclose \& mp\_fail events}{30}{section*.17}
-\contentsline {chapter}{\numberline {5}Script-level Functionalities}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Logging MPTCP Connections}{31}{section.5.1}
-\contentsline {section}{\numberline {5.2}Detecting Erroneous Address Advertisement}{36}{section.5.2}
-\contentsline {section}{\numberline {5.3}Detecting Key Modifications}{41}{section.5.3}
-\contentsline {section}{\numberline {5.4}Unknown Join Detection}{42}{section.5.4}
-\contentsline {section}{\numberline {5.5}Join Flooding}{43}{section.5.5}
-\contentsline {chapter}{\numberline {6}Testing}{45}{chapter.6}
-\contentsline {section}{\numberline {6.1}Testing the Event Engine modifications}{45}{section.6.1}
-\contentsline {section}{\numberline {6.2}Testing the Logging}{45}{section.6.2}
-\contentsline {section}{\numberline {6.3}Testing the Bad Behavior Detection}{46}{section.6.3}
-\contentsline {section}{\numberline {6.4}Performance Testing}{48}{section.6.4}
-\contentsline {chapter}{\numberline {7}Further Considerations}{50}{chapter.7}
-\contentsline {section}{\numberline {7.1}Adding Bad Behavior Detection}{50}{section.7.1}
-\contentsline {section}{\numberline {7.2}Improving Events}{50}{section.7.2}
-\contentsline {section}{\numberline {7.3}Recomputing Cryptographic Operations}{51}{section.7.3}
-\contentsline {section}{\numberline {7.4}Improving Join Flood Detection}{52}{section.7.4}
-\contentsline {section}{\numberline {7.5}Internal Re-Assembly}{53}{section.7.5}
-\contentsline {chapter}{\numberline {8}Conclusion}{55}{chapter.8}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}An Overview of MPTCP}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}General Operation and Option Types}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}First Connection Establishment}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Advertising New Addresses}{6}{section.2.3}
+\contentsline {section}{\numberline {2.4}Joining an Existing Connection}{7}{section.2.4}
+\contentsline {section}{\numberline {2.5}Sending Data}{8}{section.2.5}
+\contentsline {section}{\numberline {2.6}Fastclose and Failure}{8}{section.2.6}
+\contentsline {chapter}{\numberline {3}The DPI system: Bro}{9}{chapter.3}
+\contentsline {section}{\numberline {3.1}System Architecture}{9}{section.3.1}
+\contentsline {section}{\numberline {3.2}The Event Engine}{10}{section.3.2}
+\contentsline {section}{\numberline {3.3}The Policy Script Interpreter}{11}{section.3.3}
+\contentsline {section}{\numberline {3.4}Output}{12}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Logging}{12}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Notices}{14}{subsection.3.4.2}
+\contentsline {chapter}{\numberline {4}Bro Events}{16}{chapter.4}
+\contentsline {section}{\numberline {4.1}Protocol analyzers}{16}{section.4.1}
+\contentsline {section}{\numberline {4.2}Adding new events}{19}{section.4.2}
+\contentsline {section}{\numberline {4.3}Event description}{20}{section.4.3}
+\contentsline {subsubsection}{mptcp event}{21}{section*.9}
+\contentsline {subsubsection}{mp\_error event}{21}{section*.10}
+\contentsline {subsubsection}{mp\_capable event}{22}{section*.11}
+\contentsline {subsubsection}{mp\_join event}{23}{section*.12}
+\contentsline {subsubsection}{mp\_dss event}{24}{section*.13}
+\contentsline {subsubsection}{mp\_add\_addr event}{25}{section*.14}
+\contentsline {subsubsection}{mp\_remove\_addr event}{25}{section*.15}
+\contentsline {subsubsection}{mp\_prio event}{26}{section*.16}
+\contentsline {subsubsection}{mp\_fastclose \& mp\_fail events}{26}{section*.17}
+\contentsline {chapter}{\numberline {5}Script-level Functionalities}{27}{chapter.5}
+\contentsline {section}{\numberline {5.1}Logging MPTCP Connections}{27}{section.5.1}
+\contentsline {section}{\numberline {5.2}Detecting Erroneous Address Advertisement}{32}{section.5.2}
+\contentsline {section}{\numberline {5.3}Detecting Key Modifications}{37}{section.5.3}
+\contentsline {section}{\numberline {5.4}Unknown Join Detection}{38}{section.5.4}
+\contentsline {section}{\numberline {5.5}Join Flooding}{39}{section.5.5}
+\contentsline {chapter}{\numberline {6}Testing}{41}{chapter.6}
+\contentsline {section}{\numberline {6.1}Testing the Event Engine modifications}{41}{section.6.1}
+\contentsline {section}{\numberline {6.2}Testing the Logging}{41}{section.6.2}
+\contentsline {section}{\numberline {6.3}Testing the Bad Behavior Detection}{42}{section.6.3}
+\contentsline {section}{\numberline {6.4}Performance Testing}{44}{section.6.4}
+\contentsline {chapter}{\numberline {7}Further Considerations}{46}{chapter.7}
+\contentsline {section}{\numberline {7.1}Adding Bad Behavior Detection}{46}{section.7.1}
+\contentsline {section}{\numberline {7.2}Improving Events}{46}{section.7.2}
+\contentsline {section}{\numberline {7.3}Recomputing Cryptographic Operations}{47}{section.7.3}
+\contentsline {section}{\numberline {7.4}Improving Join Flood Detection}{48}{section.7.4}
+\contentsline {section}{\numberline {7.5}Internal Re-Assembly}{49}{section.7.5}
+\contentsline {chapter}{\numberline {8}Conclusion}{51}{chapter.8}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}MPTCP Option Formats}{57}{appendix.A}
-\contentsline {chapter}{\numberline {B}MPTCP Event Definitions}{60}{appendix.B}
+\contentsline {chapter}{\numberline {A}MPTCP Option Formats}{53}{appendix.A}
+\contentsline {chapter}{\numberline {B}MPTCP Event Definitions}{56}{appendix.B}

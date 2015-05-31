@@ -88,9 +88,11 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chap:script}{{5}{27}{Script-level Functionalities}{chapter.5}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.1}Logging MPTCP Connections}{27}{section.5.1}}
+\newlabel{section:mp log}{{5.1}{27}{Logging MPTCP Connections}{section.5.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Header for our MPTCP connection log\relax }}{28}{figure.caption.15}}
 \newlabel{pic:log header}{{5.1}{28}{Header for our MPTCP connection log\relax }{figure.caption.15}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5.2}Detecting Erroneous Address Advertisement}{32}{section.5.2}}
+\newlabel{section:add addr log}{{5.2}{32}{Detecting Erroneous Address Advertisement}{section.5.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces A Three-way handshake ACK followed by two Add Addr duplicates\relax }}{33}{figure.caption.16}}
 \newlabel{pic:2 adds}{{5.2}{33}{A Three-way handshake ACK followed by two Add Addr duplicates\relax }{figure.caption.16}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Possible Add Addr Attack\relax }}{33}{figure.caption.17}}
@@ -108,42 +110,61 @@
 \@writefile{toc}{\contentsline {section}{\numberline {5.5}Join Flooding}{39}{section.5.5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Potential Attack on the Join Authentication\relax }}{40}{figure.caption.20}}
 \newlabel{pic:join flood}{{5.7}{40}{Potential Attack on the Join Authentication\relax }{figure.caption.20}{}}
+\citation{amiusing}
+\citation{wireshark}
 \@writefile{toc}{\contentsline {chapter}{\numberline {6}Testing}{41}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chap:test}{{6}{41}{Testing}{chapter.6}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Further Considerations}{42}{chapter.7}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Testing the Event Engine modifications}{41}{section.6.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Testing the Logging}{41}{section.6.2}}
+\citation{scapy}
+\citation{mpscapy}
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Testing the Bad Behavior Detection}{42}{section.6.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces Generated Packet Capture for Duplicate Add Addr\relax }}{43}{figure.caption.21}}
+\newlabel{pic:bad add}{{6.1}{43}{Generated Packet Capture for Duplicate Add Addr\relax }{figure.caption.21}{}}
+\citation{memusg}
+\@writefile{toc}{\contentsline {section}{\numberline {6.4}Performance Testing}{44}{section.6.4}}
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Average Peak memory [KB] usage over 20 iterations\relax }}{45}{table.caption.22}}
+\newlabel{table:perf}{{6.1}{45}{Average Peak memory [KB] usage over 20 iterations\relax }{table.caption.22}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Further Considerations}{46}{chapter.7}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:further}{{7}{42}{Further Considerations}{chapter.7}{}}
+\newlabel{chap:further}{{7}{46}{Further Considerations}{chapter.7}{}}
 \bibdata{mybib}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion}{43}{chapter.8}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion}{47}{chapter.8}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{8}{43}{Conclusion}{chapter.8}{}}
+\newlabel{chap:conclusion}{{8}{47}{Conclusion}{chapter.8}{}}
 \bibcite{rfc6824}{{1}{}{{}}{{}}}
 \bibcite{mptcp}{{2}{}{{}}{{}}}
 \bibcite{mptcpdump}{{3}{}{{}}{{}}}
 \bibcite{wireshark}{{4}{}{{}}{{}}}
 \bibcite{tcpdump}{{5}{}{{}}{{}}}
-\bibcite{mpwireshark}{{6}{}{{}}{{}}}
-\bibcite{mpscapy}{{7}{}{{}}{{}}}
-\bibcite{scapy}{{8}{}{{}}{{}}}
-\bibcite{bro}{{9}{}{{}}{{}}}
+\bibcite{amiusing}{{6}{}{{}}{{}}}
+\bibcite{mpwireshark}{{7}{}{{}}{{}}}
+\bibcite{mpscapy}{{8}{}{{}}{{}}}
+\bibcite{scapy}{{9}{}{{}}{{}}}
+\bibcite{memusg}{{10}{}{{}}{{}}}
+\bibcite{bro}{{11}{}{{}}{{}}}
 \bibstyle{plain}
 \@writefile{toc}{\vspace  {2em}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}MPTCP Option Formats}{45}{appendix.A}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}MPTCP Option Formats}{49}{appendix.A}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{append:mp opt format}{{A}{45}{MPTCP Option Formats}{appendix.A}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces MP Capable option format\relax }}{45}{figure.A.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces MP Join option format for initial SYN\relax }}{45}{figure.A.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces MP Join option format for SYN+ACK\relax }}{46}{figure.A.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces MP Join option format for final ACK\relax }}{46}{figure.A.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces MP DSS option format\relax }}{46}{figure.A.5}}
+\newlabel{append:mp opt format}{{A}{49}{MPTCP Option Formats}{appendix.A}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces MP Capable option format\relax }}{49}{figure.A.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces MP Join option format for initial SYN\relax }}{49}{figure.A.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces MP Join option format for SYN+ACK\relax }}{50}{figure.A.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces MP Join option format for final ACK\relax }}{50}{figure.A.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces MP DSS option format\relax }}{50}{figure.A.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.6}{\ignorespaces MP ADD\_ADDR option format\relax }}{51}{figure.A.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.7}{\ignorespaces MP REMOVE\_ADDR option format\relax }}{51}{figure.A.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.8}{\ignorespaces MP PRIO option format\relax }}{51}{figure.A.8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.9}{\ignorespaces MP FASCT\_CLOSE option format\relax }}{51}{figure.A.9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.10}{\ignorespaces MP FAIL option format\relax }}{51}{figure.A.10}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}MPTCP Event Definitions}{52}{appendix.B}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{append:event}{{B}{52}{MPTCP Event Definitions}{appendix.B}{}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
-\@writefile{lof}{\contentsline {figure}{\numberline {A.6}{\ignorespaces MP ADD\_ADDR option format\relax }}{47}{figure.A.6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.7}{\ignorespaces MP REMOVE\_ADDR option format\relax }}{47}{figure.A.7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.8}{\ignorespaces MP PRIO option format\relax }}{47}{figure.A.8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.9}{\ignorespaces MP FASCT\_CLOSE option format\relax }}{47}{figure.A.9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.10}{\ignorespaces MP FAIL option format\relax }}{47}{figure.A.10}}

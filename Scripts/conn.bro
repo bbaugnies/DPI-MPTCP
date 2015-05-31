@@ -8,7 +8,7 @@ export {
                                         MP_key_change,
                                         MP_rejected,
                                         MP_unknown_join,
-                                        MP_join_bruteforce };
+                                        MP_join_flood };
 	
 	type Info: record {
 		orig_h:			addr &log;
@@ -225,7 +225,7 @@ event mp_join(c: connection, len: count, flags: count, addr_id:count, rand: coun
             }
 	}
     
-    #should be if token unknown
+    #should only if token is known
     if (len == 12) {
         if (c$id$resp_h !in victims) {
             victims[c$id$resp_h] = 1;
@@ -233,8 +233,8 @@ event mp_join(c: connection, len: count, flags: count, addr_id:count, rand: coun
         else {
             victims[c$id$resp_h] += 1;
             if(victims[c$id$resp_h] > join_threshold) {
-                NOTICE([$note=MP_join_bruteforce,
-                        $msg=fmt("possible join bruteforce to %s", c$id$resp_h),
+                NOTICE([$note=MP_join_flood,
+                        $msg=fmt("possible join flood to %s", c$id$resp_h),
                         $conn = c,
                         $suppress_for = join_reset,
                         $identifier = cat(c$id$resp_h)
@@ -288,7 +288,7 @@ hook Notice::policy(n: Notice::Info) {
         print("key");
         print(n$msg);
     }
-    if (n$note == MP_Connection::MP_join_bruteforce) {
+    if (n$note == MP_Connection::MP_join_flood) {
         add n$actions[Notice::ACTION_NONE];
         print("bru");
         print(n$msg);

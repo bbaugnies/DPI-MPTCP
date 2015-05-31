@@ -24,6 +24,11 @@
 \BOOKMARK [1][-]{section.5.4}{Unknown Join Detection}{chapter.5}% 24
 \BOOKMARK [1][-]{section.5.5}{Join Flooding}{chapter.5}% 25
 \BOOKMARK [0][-]{chapter.6}{Testing}{}% 26
-\BOOKMARK [0][-]{chapter.7}{Further Considerations}{}% 27
-\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 28
-\BOOKMARK [0][-]{appendix.A}{MPTCP Option Formats}{}% 29
+\BOOKMARK [1][-]{section.6.1}{Testing the Event Engine modifications}{chapter.6}% 27
+\BOOKMARK [1][-]{section.6.2}{Testing the Logging}{chapter.6}% 28
+\BOOKMARK [1][-]{section.6.3}{Testing the Bad Behavior Detection}{chapter.6}% 29
+\BOOKMARK [1][-]{section.6.4}{Performance Testing}{chapter.6}% 30
+\BOOKMARK [0][-]{chapter.7}{Further Considerations}{}% 31
+\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 32
+\BOOKMARK [0][-]{appendix.A}{MPTCP Option Formats}{}% 33
+\BOOKMARK [0][-]{appendix.B}{MPTCP Event Definitions}{}% 34

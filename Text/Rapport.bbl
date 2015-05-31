@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{rfc6824}
 M.~Handley O.~Bonaventure A.~Ford, C.~Raiciu.
@@ -25,6 +25,11 @@ The~Tcpdump Group.
 \newblock Tcpdump network dissector.
 \newblock http://www.tcpdump.org/.
 
+\bibitem{amiusing}
+Matt Layher.
+\newblock Am i using mptcp?
+\newblock https://amiusingmptcp.com/, 2013.
+
 \bibitem{mpwireshark}
 Andrei Maruseac.
 \newblock Multipath tcp patch to packet-tcp.c.
@@ -39,6 +44,11 @@ Nicolas Maître.
 secdev.
 \newblock Scapy.
 \newblock http://www.secdev.org/projects/scapy/.
+
+\bibitem{memusg}
+Jaeho Shin.
+\newblock memusg.
+\newblock https://gist.github.com/netj/526585, 2010.
 
 \bibitem{bro}
 et~al. Vern~Paxson, Robin~Sommer.

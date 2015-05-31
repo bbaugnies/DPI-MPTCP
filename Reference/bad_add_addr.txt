@@ -1,0 +1,21 @@
+
+
+
+		Host A											Host B
+		------											------
+		MP_CAPABLE						->		
+		[Key A, flags]						
+				
+										<-				MP_CAPABLE
+														[Key B, flags]
+										
+		ACK + MP_CAPABLE				->
+		[Key A, Key B, flags]
+
+		ADD_ADDR						->
+		[IP#-A2,
+		 Address ID = 2]
+
+		ADD_ADDR						->
+		[IP#-A3,
+		 Address ID = 2]

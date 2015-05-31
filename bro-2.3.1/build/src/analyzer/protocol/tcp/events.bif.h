@@ -64,5 +64,7 @@ extern EventHandlerPtr mp_fail;
 namespace BifEvent {  void generate_mp_fail(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t resvd, bro_uint_t dsn, int is_orig);  } 
 extern EventHandlerPtr mp_error; 
 namespace BifEvent {  void generate_mp_error(analyzer::Analyzer* analyzer, Connection* c, bro_uint_t len, bro_uint_t subtype, int is_orig);  } 
+extern EventHandlerPtr join_timeout; 
+namespace BifEvent {  void generate_join_timeout(analyzer::Analyzer* analyzer);  } 
 
 #endif

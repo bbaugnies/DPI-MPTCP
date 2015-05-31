@@ -502,3 +502,6 @@ event mp_fail%(c: connection, len: count, resvd: count, dsn: count, is_orig: boo
 ##
 ## 
 event mp_error%(c: connection, len: count, subtype: count, is_orig: bool%);
+
+
+event join_timeout%(%);

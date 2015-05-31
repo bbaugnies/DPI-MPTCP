@@ -67,6 +67,8 @@ std::list<std::pair<const char*, int> > __bif_events_init()
 	bifs.push_back(std::make_pair("mp_fail", 2));
 	::mp_error = internal_handler("mp_error");
 	bifs.push_back(std::make_pair("mp_error", 2));
+	::join_timeout = internal_handler("join_timeout");
+	bifs.push_back(std::make_pair("join_timeout", 2));
 
 	return bifs;
 	}

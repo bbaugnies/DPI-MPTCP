@@ -16,34 +16,111 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {2}An Overview of MPTCP}{1}{section.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}General Operation and Option Types}{2}{subsection.2.1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}First Connection Establishment}{3}{subsection.2.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Advertising New Addresses}{3}{subsection.2.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4}Joining an Existing Connection}{4}{subsection.2.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.5}Sending Data}{4}{subsection.2.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.6}Fastclose and Failure}{5}{subsection.2.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}The DPI system: Bro}{5}{section.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Bro Events}{5}{section.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Protocol analyzers}{5}{subsection.4.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Class Hierarchy of Bro analyzers}}{6}{figure.1}}
-\newlabel{als}{{1}{6}{Class Hierarchy of Bro analyzers}{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Adding new events}{8}{subsection.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Event description}{9}{subsection.4.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.1}mptcp event}{10}{subsubsection.4.3.1}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.2}mp\_error event}{10}{subsubsection.4.3.2}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.3}mp\_capable event}{11}{subsubsection.4.3.3}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.4}mp\_join event}{12}{subsubsection.4.3.4}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.5}mp\_dss event}{13}{subsubsection.4.3.5}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.6}mp\_add\_addr event}{14}{subsubsection.4.3.6}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.7}mp\_remove\_addr event}{14}{subsubsection.4.3.7}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.8}mp\_prio event}{15}{subsubsection.4.3.8}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.3.9}mp\_fastclose \& mp\_fail events}{15}{subsubsection.4.3.9}}
-\@writefile{toc}{\contentsline {section}{\numberline {5}Script-level Functionalities}{15}{section.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Testing}{15}{section.6}}
-\@writefile{toc}{\contentsline {section}{\numberline {7}Further Considerations}{15}{section.7}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Conclusion}{15}{section.8}}
+\citation{wireshark}
+\citation{mpwireshark}
+\citation{tcpdump}
+\citation{mptcpdump}
+\citation{scapy}
+\citation{mpscapy}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:intro}{{1}{1}{Introduction}{chapter.1}{}}
+\citation{bro}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces MPTCP option as seen in Wireshark\relax }}{2}{figure.caption.1}}
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{pic:wshark demo}{{1.1}{2}{MPTCP option as seen in Wireshark\relax }{figure.caption.1}{}}
+\citation{rfc6824}
+\citation{mptcp}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}An Overview of MPTCP}{3}{chapter.2}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:mptcp}{{2}{3}{An Overview of MPTCP}{chapter.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}General Operation and Option Types}{3}{section.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Setting up multiple subflows between two hosts\relax }}{4}{figure.2.1}}
+\newlabel{pic:mp setup}{{2.1}{4}{Setting up multiple subflows between two hosts\relax }{figure.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Data exchanged for MPTCP connection setup\relax }}{5}{figure.caption.2}}
+\newlabel{pic:mpcapex}{{2.2}{5}{Data exchanged for MPTCP connection setup\relax }{figure.caption.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}First Connection Establishment}{5}{section.2.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Advertising New Addresses}{5}{section.2.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Joining an Existing Connection}{6}{section.2.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Data exchanged for MPTCP JOIN\relax }}{7}{figure.caption.3}}
+\newlabel{pic:mpjoinex}{{2.3}{7}{Data exchanged for MPTCP JOIN\relax }{figure.caption.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Sending Data}{7}{section.2.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Fastclose and Failure}{7}{section.2.6}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}The DPI system: Bro}{8}{chapter.3}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:bro}{{3}{8}{The DPI system: Bro}{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}System Architecture}{8}{section.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Bro's internal architecture\relax }}{8}{figure.3.1}}
+\newlabel{pic:arch}{{3.1}{8}{Bro's internal architecture\relax }{figure.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Bro call stack to deliver TCP packet\relax }}{9}{figure.caption.4}}
+\newlabel{pic:callstack}{{3.2}{9}{Bro call stack to deliver TCP packet\relax }{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}The Event Engine}{9}{section.3.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}The Policy Script Interpreter}{10}{section.3.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Output}{11}{section.3.4}}
+\newlabel{output}{{3.4}{11}{Output}{section.3.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Logging}{11}{subsection.3.4.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Notices}{13}{subsection.3.4.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Bro Events}{15}{chapter.4}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:events}{{4}{15}{Bro Events}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Protocol analyzers}{15}{section.4.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Class Hierarchy of Bro analyzers\relax }}{16}{figure.caption.5}}
+\newlabel{pic:als}{{4.1}{16}{Class Hierarchy of Bro analyzers\relax }{figure.caption.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Adding new events}{18}{section.4.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Event description}{19}{section.4.3}}
+\@writefile{toc}{\contentsline {subsubsection}{mptcp event}{20}{section*.6}}
+\@writefile{toc}{\contentsline {subsubsection}{mp\_error event}{20}{section*.7}}
+\@writefile{toc}{\contentsline {subsubsection}{mp\_capable event}{21}{section*.8}}
+\@writefile{toc}{\contentsline {subsubsection}{mp\_join event}{22}{section*.9}}
+\@writefile{toc}{\contentsline {subsubsection}{mp\_dss event}{23}{section*.10}}
+\@writefile{toc}{\contentsline {subsubsection}{mp\_add\_addr event}{23}{section*.11}}
+\@writefile{toc}{\contentsline {subsubsection}{mp\_remove\_addr event}{24}{section*.12}}
+\@writefile{toc}{\contentsline {subsubsection}{mp\_prio event}{25}{section*.13}}
+\@writefile{toc}{\contentsline {subsubsection}{mp\_fastclose \& mp\_fail events}{25}{section*.14}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Script-level Functionalities}{26}{chapter.5}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:script}{{5}{26}{Script-level Functionalities}{chapter.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Testing}{27}{chapter.6}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:test}{{6}{27}{Testing}{chapter.6}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Further Considerations}{28}{chapter.7}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:further}{{7}{28}{Further Considerations}{chapter.7}{}}
+\bibdata{mybib}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion}{29}{chapter.8}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chap:conclusion}{{8}{29}{Conclusion}{chapter.8}{}}
+\bibcite{rfc6824}{{1}{}{{}}{{}}}
+\bibcite{mptcp}{{2}{}{{}}{{}}}
+\bibcite{mptcpdump}{{3}{}{{}}{{}}}
+\bibcite{wireshark}{{4}{}{{}}{{}}}
+\bibcite{tcpdump}{{5}{}{{}}{{}}}
+\bibcite{mpwireshark}{{6}{}{{}}{{}}}
+\bibcite{mpscapy}{{7}{}{{}}{{}}}
+\bibcite{scapy}{{8}{}{{}}{{}}}
+\bibcite{bro}{{9}{}{{}}{{}}}
+\bibstyle{plain}
 \@writefile{toc}{\vspace  {2em}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}MPTCP Option Formats}{16}{appendix.A}}
-\newlabel{mp opt format}{{A}{16}{MPTCP Option Formats}{appendix.A}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}MPTCP Option Formats}{31}{appendix.A}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{append:mp opt format}{{A}{31}{MPTCP Option Formats}{appendix.A}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces MP Capable option format\relax }}{31}{figure.A.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces MP Join option format for initial SYN\relax }}{31}{figure.A.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces MP Join option format for SYN+ACK\relax }}{32}{figure.A.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces MP Join option format for final ACK\relax }}{32}{figure.A.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces MP DSS option format\relax }}{32}{figure.A.5}}
+\providecommand\NAT@force@numbers{}\NAT@force@numbers
+\@writefile{lof}{\contentsline {figure}{\numberline {A.6}{\ignorespaces MP ADD\_ADDR option format\relax }}{33}{figure.A.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.7}{\ignorespaces MP REMOVE\_ADDR option format\relax }}{33}{figure.A.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.8}{\ignorespaces MP PRIO option format\relax }}{33}{figure.A.8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.9}{\ignorespaces MP FASCT\_CLOSE option format\relax }}{33}{figure.A.9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.10}{\ignorespaces MP FAIL option format\relax }}{33}{figure.A.10}}

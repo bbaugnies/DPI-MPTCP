@@ -465,3 +465,16 @@ void BifEvent::generate_mp_error(analyzer::Analyzer* analyzer, Connection* c, br
 
 	mgr.QueueEvent(::mp_error, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr, c);
 	} // event generation
+EventHandlerPtr join_timeout; 
+void BifEvent::generate_join_timeout(analyzer::Analyzer* analyzer)
+	{
+	// Note that it is intentional that here we do not
+	// check if ::join_timeout is NULL, which should happen *before*
+	// BifEvent::generate_join_timeout is called to avoid unnecessary Val
+	// allocation.
+
+	val_list* vl = new val_list;
+
+
+	mgr.QueueEvent(::join_timeout, vl, SOURCE_LOCAL, analyzer->GetID(), timer_mgr);
+	} // event generation

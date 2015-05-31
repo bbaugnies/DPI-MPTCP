@@ -3,3 +3,13 @@ mp_capable.pcapng:
 
 wrongAdd_Addr.pcap:
 	5 packets. Host A establishes MPTCP connection with host B, then adds two different addresses with ID 2
+	
+mp_key_change.pcap:
+	3 packets. Host A sends SYN with key A1, B responds with SYN+ACK and key B1. A sends final ACK with with modified keys A2 and B2
+	
+flood.pcap:
+	10000 packets: send 10000 MP_join SYNs to the same address from different randomized initiators.
+	
+	
+large.pcap:
+	400k + packets: real traffic captured while browsing several MPTCP-enabled websites

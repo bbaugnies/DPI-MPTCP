@@ -1,5 +1,11 @@
 mp_capable.pcapng:
-	63 packets. capture from a visit to "amiusingmptcp". Features a connection, address advertisement and join, as well as some data packets
+	63 packets. capture from a visit to "amiusingmptcp". Features a connection, address advertisement and joins, as well as some data packets
 
 wrongAdd_Addr.pcap:
 	5 packets. Host A establishes MPTCP connection with host B, then adds two different addresses with ID 2
+	
+mp_key_change.pcap:
+	3 packets. Host A sends SYN with key A1, B responds with SYN+ACK and key B1. A sends final ACK with with modified keys A2 and B2
+	
+mp_rejected.pcap:
+	3 packets. Host A sends SYN with MP_capable, Host B replies without the option, Host A reverts to TCP and sends ACK without option

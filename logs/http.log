@@ -1,0 +1,187 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	http
+#open	2015-05-30-23-36-19
+#fields	ts	uid	id.orig_h	id.orig_p	id.resp_h	id.resp_p	trans_depth	method	host	uri	referrer	user_agent	request_body_len	response_body_len	status_code	status_msg	info_code	info_msg	filename	tags	username	password	proxied	orig_fuids	orig_mime_types	resp_fuids	resp_mime_types
+#types	time	string	addr	port	addr	port	count	string	string	string	string	string	count	count	count	string	count	string	string	set[enum]	string	string	set[string]	vector[string]	vector[string]	vector[string]	vector[string]
+1433020440.932136	CYzoD64oNhlcwpB651	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	48020	2001:6a8:308f:1:216:3eff:fec5:c815	80	1	GET	multipath-tcp.org	/snapshots/	-	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	4416	200	OK	-	-	-	(empty)	-	-	-	-	-	FUiE75er4t4W7F4kg	text/html
+1433020460.262301	CkbLymnuKjbJWILBf	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	48022	2001:6a8:308f:1:216:3eff:fec5:c815	80	1	GET	multipath-tcp.org	/	-	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	26088	200	OK	-	-	-	(empty)	-	-	-	-	-	FQoTZb1bbKUdmO3EZ5	text/plain
+1433020461.290848	CAfeDKhfnx68RoTYg	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	44458	2a00:1450:400c:c04::64	80	1	GET	www.google-analytics.com	/__utm.gif?utmwv=5.6.4&utms=2&utmn=136651802&utmhn=multipath-tcp.org&utmcs=UTF-8&utmsr=1067x853&utmvp=1056x774&utmsc=24-bit&utmul=en-us&utmje=0&utmfl=11.2 r202&utmdt=MultiPath TCP - Linux Kernel implementation : Main - Home Page browse&utmhid=965522584&utmr=-&utmp=/&utmht=1433020461124&utmac=UA-27657326-1&utmcc=__utma=59931185.1085421413.1411399168.1433016726.1433020308.12;+__utmz=59931185.1411399168.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none);&utmjid=&utmu=qAAAAAAAAAAAAAAAAAAAAAAE~	http://multipath-tcp.org/	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	35	200	OK	-	-	-	(empty)	-	-	-	-	-	FYIqClKOeHo2Wbok	image/gif
+1433020465.853520	CHwnvv1UAc5nZ159mg	192.168.1.47	33218	205.147.110.241	80	0	-	-	-	-	-	0	52229	200	OK	-	-	-	(empty)	-	-	-	-	-	FBZxOY1LETAlPqmM33	text/html
+1433020466.089346	CHwnvv1UAc5nZ159mg	192.168.1.47	33218	205.147.110.241	80	0	-	-	-	-	-	0	771	200	OK	-	-	-	(empty)	-	-	-	-	-	FBZxOY1LETAlPqmM33	text/plain
+1433020466.092501	CEiTy34HhWQTV1aXp1	192.168.1.47	33217	205.147.110.241	80	0	-	-	-	-	-	0	5285	200	OK	-	-	-	(empty)	-	-	-	-	-	FUNCcCfRCl0KO5WC8	text/plain
+1433020466.262238	Cck2q61SY6gpOMEoIk	192.168.1.47	33230	205.147.110.241	80	0	-	-	-	-	-	0	7702	200	OK	-	-	-	(empty)	-	-	-	-	-	FtNjsX3FXoew2ux7be	text/plain
+1433020466.269346	CEiTy34HhWQTV1aXp1	192.168.1.47	33217	205.147.110.241	80	0	-	-	-	-	-	0	6188	200	OK	-	-	-	(empty)	-	-	-	-	-	FUNCcCfRCl0KO5WC8	text/plain
+1433020466.270105	CMeF3G2ozyecfNZYRa	192.168.1.47	33229	205.147.110.241	80	0	-	-	-	-	-	0	27241	200	OK	-	-	-	(empty)	-	-	-	-	-	FsFhWx4haOM6FjQjXd	text/html
+1433020466.271622	CDibAxSJJWnUbbb6g	192.168.1.47	33228	205.147.110.241	80	0	-	-	-	-	-	0	2954	200	OK	-	-	-	(empty)	-	-	-	-	-	FQy1mA3xNRFaog9qM1	text/plain
+1433020466.443826	CMeF3G2ozyecfNZYRa	192.168.1.47	33229	205.147.110.241	80	0	-	-	-	-	-	0	4129	200	OK	-	-	-	(empty)	-	-	-	-	-	FsFhWx4haOM6FjQjXd	text/plain
+1433020466.444058	CEiTy34HhWQTV1aXp1	192.168.1.47	33217	205.147.110.241	80	0	-	-	-	-	-	0	292	200	OK	-	-	-	(empty)	-	-	-	-	-	FUNCcCfRCl0KO5WC8	text/plain
+1433020466.445056	CDibAxSJJWnUbbb6g	192.168.1.47	33228	205.147.110.241	80	0	-	-	-	-	-	0	16785	200	OK	-	-	-	(empty)	-	-	-	-	-	FQy1mA3xNRFaog9qM1	text/plain
+1433020466.440578	Cck2q61SY6gpOMEoIk	192.168.1.47	33230	205.147.110.241	80	0	-	-	-	-	-	0	95952	200	OK	-	-	-	(empty)	-	-	-	-	-	FtNjsX3FXoew2ux7be	text/plain
+1433020466.616062	CMeF3G2ozyecfNZYRa	192.168.1.47	33229	205.147.110.241	80	0	-	-	-	-	-	0	235	200	OK	-	-	-	(empty)	-	-	-	-	-	FsFhWx4haOM6FjQjXd	text/plain
+1433020466.616512	CEiTy34HhWQTV1aXp1	192.168.1.47	33217	205.147.110.241	80	0	-	-	-	-	-	0	515	200	OK	-	-	-	(empty)	-	-	-	-	-	FUNCcCfRCl0KO5WC8	text/plain
+1433020466.659600	CJl08nG6xkhdnD9mb	192.168.1.47	41483	62.4.254.188	80	0	-	-	-	-	-	0	146005	200	OK	-	-	-	(empty)	-	-	-	-	-	FTgG4P1vUx41dcNuDi	text/plain
+1433020466.785573	Cck2q61SY6gpOMEoIk	192.168.1.47	33230	205.147.110.241	80	0	-	-	-	-	-	0	34982	200	OK	-	-	-	(empty)	-	-	-	-	-	FtNjsX3FXoew2ux7be	text/plain
+1433020466.788813	CMeF3G2ozyecfNZYRa	192.168.1.47	33229	205.147.110.241	80	0	-	-	-	-	-	0	42164	200	OK	-	-	-	(empty)	-	-	-	-	-	FsFhWx4haOM6FjQjXd	image/png
+1433020466.793583	CEiTy34HhWQTV1aXp1	192.168.1.47	33217	205.147.110.241	80	0	-	-	-	-	-	0	20254	200	OK	-	-	-	(empty)	-	-	-	-	-	FUNCcCfRCl0KO5WC8	image/jpeg
+1433020466.796541	CDibAxSJJWnUbbb6g	192.168.1.47	33228	205.147.110.241	80	0	-	-	-	-	-	0	55143	200	OK	-	-	-	(empty)	-	-	-	-	-	FQy1mA3xNRFaog9qM1	image/png
+1433020467.638461	C6AzAo4g3RcRRk9ht2	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	59948	2a00:1450:400c:c05::8a	80	1	POST	clients1.google.com	/ocsp	-	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	75	463	200	OK	-	-	-	(empty)	-	-	-	F9VdAL1vQmRjTHQ3Ab	text/plain	F58tPw2sRBTo6iy843	-
+1433020468.138554	CSxP9U1mzgVmOBFNae	192.168.1.47	45128	23.23.188.223	80	0	-	-	-	-	-	0	160	302	Moved Temporarily	-	-	-	(empty)	-	-	-	-	-	FXokPQ2R9u8YPbsGId	text/html
+1433020468.385204	CEiTy34HhWQTV1aXp1	192.168.1.47	33217	205.147.110.241	80	0	-	-	-	-	-	0	3015	200	OK	-	-	-	(empty)	-	-	-	-	-	FUNCcCfRCl0KO5WC8	image/png
+1433020469.234246	CfHYAQ2HmPBSF9Ndfa	192.168.1.47	33460	172.227.135.204	80	0	-	-	-	-	-	0	198	200	OK	-	-	-	(empty)	-	-	-	-	-	F7ZXwX1FggR8Zbskzc	text/plain
+1433020469.312187	CKJqTC3OBNjVfm9QF3	192.168.1.47	45129	23.23.188.223	80	0	-	-	-	-	-	0	53	200	OK	-	-	-	(empty)	-	-	-	-	-	F6truz5aL1uTCJmF1	text/plain
+1433020469.314628	C8tb3Q24wIx9CMxMha	192.168.1.47	33463	172.227.135.204	80	0	-	-	-	-	-	0	22	200	OK	-	-	-	(empty)	-	-	-	-	-	FZGlZH1JjVWq23AMSe	text/plain
+1433020469.307556	CcS1mz2yPIsO9NXNh8	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	36586	2a00:1450:4013:c00::5f	80	1	GET	fonts.googleapis.com	/css?family=Open+Sans:400,600,300,700,400italic	http://www.xmind.net/embed/APVL/?size=small	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	1259	200	OK	-	-	-	(empty)	-	-	-	-	-	FArj8Y30kzkw0vQSkd	text/plain
+1433020469.307675	Cll3Bo453GfQ2weet2	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	36588	2a00:1450:4013:c00::5f	80	1	GET	fonts.googleapis.com	/css?family=Raleway:400,100,200,300	http://www.xmind.net/embed/APVL/?size=small	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	941	200	OK	-	-	-	(empty)	-	-	-	-	-	Fr1e56axeahMCay3a	text/plain
+1433020469.432349	CU8Y3l2cVTkd3HYHlf	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	59417	2400:cb00:2048:1::be5d:f40a	80	1	GET	static.getclicky.com	/js	http://www.xmind.net/embed/APVL/?size=small	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	11153	200	OK	-	-	-	(empty)	-	-	-	-	-	F4azVN1vfHaZL1zA2a	text/plain
+1433020469.513362	CVP2hk29Q1ZBnPNIl	192.168.1.47	56708	54.88.147.102	80	0	-	-	-	-	-	0	0	204	No Content	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020469.518095	CIitsT2fjkBHg5cY77	192.168.1.47	37344	54.165.101.60	80	0	-	-	-	-	-	0	2226	200	OK	-	-	-	(empty)	-	-	-	-	-	FuJ2b2LDZtmZSaEO5	text/html
+1433020469.728990	C6ddiX3YlGNRoQ3ex4	192.168.1.47	34069	74.125.136.154	80	0	-	-	-	-	-	0	335	302	Found	-	-	-	(empty)	-	-	-	-	-	Fja6T83C2FOTfM06Td	text/html
+1433020469.731841	Cv64kI3en6hQZXxEF	192.168.1.47	54493	37.252.163.89	80	0	-	-	-	-	-	0	43	200	OK	-	-	-	(empty)	-	-	-	-	-	FkHY0k4dgcDRSJt9Z9	image/gif
+1433020469.744170	CXWkvQ1osPo7l3B3Gb	192.168.1.47	52983	62.4.254.156	80	0	-	-	-	-	-	0	0	204	No Content	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020469.729143	CTGaHz4FfL2H9AkRN1	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	35744	2a00:1450:400c:c05::61	80	1	GET	www.googletagmanager.com	/gtm.js?id=GTM-TR24NF	http://seg.sharethis.com/getSegment.php?purl=http%3A%2F%2Ftechnosrix.com%2F&jsref=http%3A%2F%2Fmultipath-tcp.org%2F&rnd=1433020469248	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	11720	200	OK	-	-	-	(empty)	-	-	-	-	-	F1rOs14m7G5B2z8Fue	text/plain
+1433020469.863103	CIitsT2fjkBHg5cY77	192.168.1.47	37344	54.165.101.60	80	0	-	-	-	-	-	0	43	200	OK	-	-	-	(empty)	-	-	-	-	-	FuJ2b2LDZtmZSaEO5	image/gif
+1433020469.865161	Cy1kSi4AHWEBaf6uC6	192.168.1.47	52668	54.236.139.138	80	0	-	-	-	-	-	0	43	200	OK	-	-	-	(empty)	-	-	-	-	-	F5ebwJ2MrFLAagBUWg	image/gif
+1433020469.869379	CukcFX2tnTlqKwD6l9	192.168.1.47	42188	54.225.190.89	80	0	-	-	-	-	-	0	43	200	OK	-	-	-	(empty)	-	-	-	-	-	F7HHUD31b2NffYuzHg	image/gif
+1433020469.907442	CAfeDKhfnx68RoTYg	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	44458	2a00:1450:400c:c04::64	80	2	GET	www.google-analytics.com	/r/__utm.gif?utmwv=5.6.4&utms=1&utmn=484898910&utmhn=www.xmind.net&utmcs=UTF-8&utmsr=1280x1024&utmvp=600x360&utmsc=24-bit&utmul=en-us&utmje=0&utmfl=11.2 r202&utmdt=Human Language - computer interaction - neosrix - XMind: The Most Professional Mind Mapping Software&utmhid=1726835691&utmr=http://technosrix.com/&utmp=/embed/APVL/?size=small&utmht=1433020469905&utmac=UA-6267030-1&utmcc=__utma=72682522.1428476745.1433020470.1433020470.1433020470.1;+__utmz=72682522.1433020470.1.1.utmcsr=technosrix.com|utmccn=(referral)|utmcmd=referral|utmcct=/;&utmjid=1125574845&utmredir=1&utmu=qAAAAAAAAAAAAAAAAAAAAAAE~	http://www.xmind.net/embed/APVL/?size=small	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	35	200	OK	-	-	-	(empty)	-	-	-	-	-	FI0YxQDUZyCzps0Gc	image/gif
+1433020470.051120	CHBbql2Ag5zqK5zVp1	192.168.1.47	43326	54.213.126.9	80	0	-	-	-	-	-	0	0	302	Found	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020470.365377	CM7WAxY9GGmOWuuUh	192.168.1.47	58916	198.145.13.24	80	0	-	-	-	-	-	0	202	200	OK	-	-	-	(empty)	-	-	-	-	-	FWytso4tc89pEHf4r2	text/plain
+1433020470.504632	CJaqp61ooHCJ0h8rfd	192.168.1.47	44122	173.192.220.64	80	0	-	-	-	-	-	0	0	302	Found	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020470.537368	ChSM6X2gUXagzKLsi9	192.168.1.47	48864	62.4.254.134	80	0	-	-	-	-	-	0	6948	200	OK	-	-	-	(empty)	-	-	-	-	-	Foq43BoBvuZ0oEXW7	text/html
+1433020469.584036	ChtAtz3gqV9EEIn3d1	192.168.1.47	58524	54.231.10.225	80	0	-	-	-	-	-	0	181004	200	OK	-	-	-	(empty)	-	-	-	-	-	F9DAPg1PajflKowVnc	image/png
+1433020466.958312	Cck2q61SY6gpOMEoIk	192.168.1.47	33230	205.147.110.241	80	0	-	-	-	-	-	0	8679	200	OK	-	-	-	(empty)	-	-	-	-	-	FtNjsX3FXoew2ux7be	text/plain
+1433020468.374366	CMeF3G2ozyecfNZYRa	192.168.1.47	33229	205.147.110.241	80	0	-	-	-	-	-	0	5459	200	OK	-	-	-	(empty)	-	-	-	-	-	FsFhWx4haOM6FjQjXd	image/png
+1433020466.265395	CnwvUh3PWCbBIT2cb8	192.168.1.47	33227	205.147.110.241	80	0	-	-	-	-	-	0	9456	200	OK	-	-	-	(empty)	-	-	-	-	-	FnTcSK1HvR8bBHTgyb	text/plain
+1433020468.379095	CDibAxSJJWnUbbb6g	192.168.1.47	33228	205.147.110.241	80	0	-	-	-	-	-	0	1150	200	OK	-	-	-	(empty)	-	-	-	-	-	FQy1mA3xNRFaog9qM1	image/png
+1433020466.263962	CHwnvv1UAc5nZ159mg	192.168.1.47	33218	205.147.110.241	80	0	-	-	-	-	-	0	3791	200	OK	-	-	-	(empty)	-	-	-	-	-	FBZxOY1LETAlPqmM33	text/plain
+1433020475.613077	C5RsNS1uuN50TAokyg	192.168.1.47	56735	74.125.136.149	80	0	-	-	-	-	-	0	42	200	OK	-	-	-	(empty)	-	-	-	-	-	Ff3LhN20gWbHmI53Dc	image/gif
+1433020476.121298	C8pPmE2d2LQgwXff38	192.168.1.47	33279	205.147.110.241	80	0	-	-	-	-	-	0	28167	200	OK	-	-	-	(empty)	-	-	-	-	-	FRGMkJ3AeHMCxLaVq7	text/html
+1433020476.425209	Cb1xizQmlumUE6GVk	192.168.1.47	33280	205.147.110.241	80	0	-	-	-	-	-	0	0	200	OK	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020476.600973	CYlpf91v1zKfbowt2i	192.168.1.47	33281	205.147.110.241	80	0	-	-	-	-	-	0	0	200	OK	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020479.536881	C8DRft1VpbHlUiu59l	192.168.1.47	33362	66.71.252.151	80	0	-	-	-	-	-	0	83531	200	OK	-	-	-	(empty)	-	-	-	-	-	FEYoqe3FIBm6rw70F9	text/html
+1433020479.665352	CFJMtJ25plSlQuwjra	192.168.1.47	33363	66.71.252.151	80	0	-	-	-	-	-	0	134776	200	OK	-	-	-	(empty)	-	-	-	-	-	FsD8CU1p4XCJ4tt7Ga	image/png
+1433020443.365720	CtexZs3rKZRIhWBVZ6	2a02:a03f:2220:4300:204:4bff:fe0a:54f9	39238	2001:6a8:308f:1:216:3eff:fec5:c815	80	1	GET	multipath-tcp.org	/snapshots/mptcp_2015_05_16.tar.gz	http://multipath-tcp.org/snapshots/	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	44405723	200	OK	-	-	-	(empty)	-	-	-	-	-	FLZOny1K7Hhy39jiU	application/x-gzip
+1433020488.587389	CeCeCf3uNgo1X3pa12	192.168.1.47	37751	152.19.134.44	80	0	-	-	-	-	-	0	0	301	Moved Permanently	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020488.723110	CeCeCf3uNgo1X3pa12	192.168.1.47	37751	152.19.134.44	80	0	-	-	-	-	-	0	2396	404	Not Found	-	-	-	(empty)	-	-	-	-	-	FKtnlh45djWlL6jHZc	application/xml
+1433020488.865398	CeCeCf3uNgo1X3pa12	192.168.1.47	37751	152.19.134.44	80	0	-	-	-	-	-	0	1251	200	OK	-	-	-	(empty)	-	-	-	-	-	FKtnlh45djWlL6jHZc	text/plain
+1433020488.865611	CXqc804fruHvKA3Dih	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	34489	2a00:1450:400c:c02::68	80	1	GET	www.google.com	/jsapi	http://mirrors.ibiblio.org/flightgear/ftp/Scenery-v2.10/w010n70.tgz	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	24558	200	OK	-	-	-	(empty)	-	-	-	-	-	Fto8kwlDvHQMWDsEg	text/plain
+1433020488.921485	CXqc804fruHvKA3Dih	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	34489	2a00:1450:400c:c02::68	80	2	GET	www.google.com	/uds/?file=search&v=1	http://mirrors.ibiblio.org/flightgear/ftp/Scenery-v2.10/w010n70.tgz	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	605	200	OK	-	-	-	(empty)	-	-	-	-	-	FlFOoH3Ek7w76LiWH1	text/plain
+1433020488.885601	CXbIC735cYX2njfq26	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	35456	2610:28:3090:3000:0:bad:cafe:23	80	1	GET	www.ibiblio.org	/cms/wp-content/themes/ibiblio/img/md_ibiblio_trans.gif	http://mirrors.ibiblio.org/flightgear/ftp/Scenery-v2.10/w010n70.tgz	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	1644	200	OK	-	-	-	(empty)	-	-	-	-	-	FDWTLsBK0dZJwhye9	image/gif
+1433020489.349454	CAfeDKhfnx68RoTYg	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	44458	2a00:1450:400c:c04::64	80	3	GET	www.google-analytics.com	/r/__utm.gif?utmwv=5.6.4&utms=1&utmn=996009914&utmhn=mirrors.ibiblio.org&utmcs=windows-1252&utmsr=1280x1024&utmvp=800x600&utmsc=24-bit&utmul=en-us&utmje=0&utmfl=11.2 r202&utmdt=404 - Not Found&utmhid=571110989&utmr=http://www.flightgear.org/legacy-Downloads/scenery-v2.10.html&utmp=/flightgear/ftp/Scenery-v2.10/w010n70.tgz&utmht=1433020489348&utmac=UA-330438-12&utmcc=__utma=181475259.1598233925.1433020489.1433020489.1433020489.1;+__utmz=181475259.1433020489.1.1.utmcsr=flightgear.org|utmccn=(referral)|utmcmd=referral|utmcct=/legacy-Downloads/scenery-v2.10.html;&utmjid=2049909887&utmredir=1&utmu=qAAAAAAAAAAAAAAAAAAAAAAE~	http://mirrors.ibiblio.org/flightgear/ftp/Scenery-v2.10/w010n70.tgz	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	35	200	OK	-	-	-	(empty)	-	-	-	-	-	FzP0z9d6YPzEQN2Mg	image/gif
+1433020489.512918	CuP2rr4lOkomjgyFs5	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	40829	2a00:1450:400c:c02::8b	80	1	GET	clients1.google.com	/generate_204	http://mirrors.ibiblio.org/flightgear/ftp/Scenery-v2.10/w010n70.tgz	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	0	204	No Content	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020493.502530	CeCeCf3uNgo1X3pa12	192.168.1.47	37751	152.19.134.44	80	0	-	-	-	-	-	0	0	301	Moved Permanently	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020493.635103	CeCeCf3uNgo1X3pa12	192.168.1.47	37751	152.19.134.44	80	0	-	-	-	-	-	0	2396	404	Not Found	-	-	-	(empty)	-	-	-	-	-	FKtnlh45djWlL6jHZc	application/xml
+1433020493.699779	CAfeDKhfnx68RoTYg	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	44458	2a00:1450:400c:c04::64	80	4	GET	www.google-analytics.com	/__utm.gif?utmwv=5.6.4&utms=2&utmn=395672968&utmhn=mirrors.ibiblio.org&utmcs=windows-1252&utmsr=1280x1024&utmvp=800x600&utmsc=24-bit&utmul=en-us&utmje=0&utmfl=11.2 r202&utmdt=404 - Not Found&utmhid=1325139534&utmr=http://www.flightgear.org/legacy-Downloads/scenery-v2.10.html&utmp=/flightgear/ftp/Scenery-v2.10/w110n60.tgz&utmht=1433020493698&utmac=UA-330438-12&utmcc=__utma=181475259.1598233925.1433020489.1433020489.1433020489.1;+__utmz=181475259.1433020489.1.1.utmcsr=flightgear.org|utmccn=(referral)|utmcmd=referral|utmcct=/legacy-Downloads/scenery-v2.10.html;&utmjid=&utmu=qAAAAAAAAAAAAAAAAAAAAAAE~	http://mirrors.ibiblio.org/flightgear/ftp/Scenery-v2.10/w110n60.tgz	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	35	200	OK	-	-	-	(empty)	-	-	-	-	-	FV47hF4RlkQZOqYW3c	image/gif
+1433020493.862316	CuP2rr4lOkomjgyFs5	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	40829	2a00:1450:400c:c02::8b	80	2	GET	clients1.google.com	/generate_204	http://mirrors.ibiblio.org/flightgear/ftp/Scenery-v2.10/w110n60.tgz	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	0	204	No Content	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020495.066894	CZi4a5QbZZ7haDwXd	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	35457	2610:28:3090:3000:0:bad:cafe:23	80	0	-	-	-	-	-	0	90	400	Bad request	-	-	-	(empty)	-	-	-	-	-	F84cPZ3OeImX3tGUAb	text/html
+1433020498.886308	CTRHsn1I79mJN6Z8oe	192.168.1.47	33295	205.147.110.241	80	0	-	-	-	-	-	0	64617	200	OK	-	-	-	(empty)	-	-	-	-	-	FaeM0o4uYJjiVenmH2	text/html
+1433020498.964076	C6OmID1CoK9NIqL1gh	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	60639	2a02:a000:1:210::3e04:fe51	80	1	GET	static.ak.fbcdn.net	/connect.php/js/FB.Share	http://technosrix.com/category/general/	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	169320	200	OK	-	-	-	(empty)	-	-	-	-	-	Fk10iE39RsSYSYcvj7	text/plain
+1433020499.264002	CTPeXpWxJJicSaOsl	192.168.1.47	33298	205.147.110.241	80	0	-	-	-	-	-	0	771	200	OK	-	-	-	(empty)	-	-	-	-	-	FsMDfT1pgxh646fV3f	text/plain
+1433020499.322058	CQj71o1TzfmUDdZxle	192.168.1.47	33304	205.147.110.241	80	0	-	-	-	-	-	0	5285	200	OK	-	-	-	(empty)	-	-	-	-	-	FgZt6G2v5XtJEUwzC4	text/plain
+1433020499.086213	C8gqsS3ibDGw0fLe7a	192.168.1.47	39479	54.192.130.28	80	0	-	-	-	-	-	0	9284	200	OK	-	-	-	(empty)	-	-	-	-	-	F7DGIEphSUMSVKZ8a	text/plain
+1433020499.439539	CTPeXpWxJJicSaOsl	192.168.1.47	33298	205.147.110.241	80	0	-	-	-	-	-	0	15111	200	OK	-	-	-	(empty)	-	-	-	-	-	FsMDfT1pgxh646fV3f	text/plain
+1433020499.518578	CQj71o1TzfmUDdZxle	192.168.1.47	33304	205.147.110.241	80	0	-	-	-	-	-	0	6188	200	OK	-	-	-	(empty)	-	-	-	-	-	FgZt6G2v5XtJEUwzC4	text/plain
+1433020499.331550	CRMUDA3qBlMZkiZxM	192.168.1.47	33305	205.147.110.241	80	0	-	-	-	-	-	0	123983	200	OK	-	-	-	(empty)	-	-	-	-	-	FfT6cVA8OXcpkwkQg	text/plain
+1433020499.090048	CTRHsn1I79mJN6Z8oe	192.168.1.47	33295	205.147.110.241	80	0	-	-	-	-	-	0	228386	200	OK	-	-	-	(empty)	-	-	-	-	-	FaeM0o4uYJjiVenmH2	image/png
+1433020499.627742	CTPeXpWxJJicSaOsl	192.168.1.47	33298	205.147.110.241	80	0	-	-	-	-	-	0	7702	200	OK	-	-	-	(empty)	-	-	-	-	-	FsMDfT1pgxh646fV3f	text/plain
+1433020499.265047	CeyZKN2nzrmi1xP8d7	192.168.1.47	33299	205.147.110.241	80	0	-	-	-	-	-	0	71548	200	OK	-	-	-	(empty)	-	-	-	-	-	F8bPLC3cZt2I9ulY5e	image/png
+1433020499.274573	Cr7gUn3l8JHj7B95v3	192.168.1.47	33300	205.147.110.241	80	0	-	-	-	-	-	0	82385	200	OK	-	-	-	(empty)	-	-	-	-	-	FlnC2t3GTSSpTqiPgh	image/png
+1433020499.693249	CQj71o1TzfmUDdZxle	192.168.1.47	33304	205.147.110.241	80	0	-	-	-	-	-	0	27241	200	OK	-	-	-	(empty)	-	-	-	-	-	FgZt6G2v5XtJEUwzC4	text/html
+1433020499.706528	CRMUDA3qBlMZkiZxM	192.168.1.47	33305	205.147.110.241	80	0	-	-	-	-	-	0	2954	200	OK	-	-	-	(empty)	-	-	-	-	-	FfT6cVA8OXcpkwkQg	text/plain
+1433020499.778976	CTRHsn1I79mJN6Z8oe	192.168.1.47	33295	205.147.110.241	80	0	-	-	-	-	-	0	95952	200	OK	-	-	-	(empty)	-	-	-	-	-	FaeM0o4uYJjiVenmH2	text/plain
+1433020499.797780	CTPeXpWxJJicSaOsl	192.168.1.47	33298	205.147.110.241	80	0	-	-	-	-	-	0	7200	200	OK	-	-	-	(empty)	-	-	-	-	-	FsMDfT1pgxh646fV3f	text/plain
+1433020499.803193	CeyZKN2nzrmi1xP8d7	192.168.1.47	33299	205.147.110.241	80	0	-	-	-	-	-	0	292	200	OK	-	-	-	(empty)	-	-	-	-	-	F8bPLC3cZt2I9ulY5e	text/plain
+1433020499.805014	Cr7gUn3l8JHj7B95v3	192.168.1.47	33300	205.147.110.241	80	0	-	-	-	-	-	0	4129	200	OK	-	-	-	(empty)	-	-	-	-	-	FlnC2t3GTSSpTqiPgh	text/plain
+1433020499.877239	CQj71o1TzfmUDdZxle	192.168.1.47	33304	205.147.110.241	80	0	-	-	-	-	-	0	16785	200	OK	-	-	-	(empty)	-	-	-	-	-	FgZt6G2v5XtJEUwzC4	text/plain
+1433020499.886513	CRMUDA3qBlMZkiZxM	192.168.1.47	33305	205.147.110.241	80	0	-	-	-	-	-	0	6127	200	OK	-	-	-	(empty)	-	-	-	-	-	FfT6cVA8OXcpkwkQg	text/plain
+1433020499.966940	CTRHsn1I79mJN6Z8oe	192.168.1.47	33295	205.147.110.241	80	0	-	-	-	-	-	0	322	200	OK	-	-	-	(empty)	-	-	-	-	-	FaeM0o4uYJjiVenmH2	text/plain
+1433020499.967793	CTPeXpWxJJicSaOsl	192.168.1.47	33298	205.147.110.241	80	0	-	-	-	-	-	0	235	200	OK	-	-	-	(empty)	-	-	-	-	-	FsMDfT1pgxh646fV3f	text/plain
+1433020499.973020	CeyZKN2nzrmi1xP8d7	192.168.1.47	33299	205.147.110.241	80	0	-	-	-	-	-	0	515	200	OK	-	-	-	(empty)	-	-	-	-	-	F8bPLC3cZt2I9ulY5e	text/plain
+1433020500.152160	CTRHsn1I79mJN6Z8oe	192.168.1.47	33295	205.147.110.241	80	0	-	-	-	-	-	0	34982	200	OK	-	-	-	(empty)	-	-	-	-	-	FaeM0o4uYJjiVenmH2	text/plain
+1433020500.167949	Cr7gUn3l8JHj7B95v3	192.168.1.47	33300	205.147.110.241	80	0	-	-	-	-	-	0	2404	200	OK	-	-	-	(empty)	-	-	-	-	-	FlnC2t3GTSSpTqiPgh	text/plain
+1433020500.179457	CRMUDA3qBlMZkiZxM	192.168.1.47	33305	205.147.110.241	80	0	-	-	-	-	-	0	14596	200	OK	-	-	-	(empty)	-	-	-	-	-	FfT6cVA8OXcpkwkQg	text/plain
+1433020500.239241	CeyZKN2nzrmi1xP8d7	192.168.1.47	33299	205.147.110.241	80	0	-	-	-	-	-	0	3265	200	OK	-	-	-	(empty)	-	-	-	-	-	F8bPLC3cZt2I9ulY5e	image/png
+1433020500.240242	CQj71o1TzfmUDdZxle	192.168.1.47	33304	205.147.110.241	80	0	-	-	-	-	-	0	3763	200	OK	-	-	-	(empty)	-	-	-	-	-	FgZt6G2v5XtJEUwzC4	image/png
+1433020500.969013	CmzB9y4vvN89WtWpK1	192.168.1.47	53655	23.235.43.175	80	0	-	-	-	-	-	0	22469	200	OK	-	-	-	(empty)	-	-	-	-	-	FS80BP3nN0fDsQ5Bu4	text/plain
+1433020501.495101	CLGxFm3qJYlL0B4fq3	192.168.1.47	49077	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	FMMoiG2gJfFSSqwWLk	text/plain
+1433020501.499542	CwoDrK2cqH2vhlISO7	192.168.1.47	49073	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	F17BZD2ItJUBoxqCM4	text/plain
+1433020501.675240	CLGxFm3qJYlL0B4fq3	192.168.1.47	49077	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	FMMoiG2gJfFSSqwWLk	text/plain
+1433020502.251026	CwoDrK2cqH2vhlISO7	192.168.1.47	49073	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	F17BZD2ItJUBoxqCM4	text/plain
+1433020503.584483	CiP5Cy3qc4hgYNegj1	192.168.1.47	33563	172.227.135.204	80	0	-	-	-	-	-	0	198	200	OK	-	-	-	(empty)	-	-	-	-	-	FKESTU2yFOzygequ21	text/plain
+1433020503.650616	CLGxFm3qJYlL0B4fq3	192.168.1.47	49077	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	FMMoiG2gJfFSSqwWLk	text/plain
+1433020503.669789	CeRaYY1UloVw4f7m2b	192.168.1.47	33572	172.227.135.204	80	0	-	-	-	-	-	0	22	200	OK	-	-	-	(empty)	-	-	-	-	-	FRAcBbBpxTQDy3owi	text/plain
+1433020503.682822	CyUrXT3m7ffxOOzaY5	192.168.1.47	36895	68.232.35.154	80	0	-	-	-	-	-	0	133	200	OK	-	-	-	(empty)	-	-	-	-	-	FjN2Hi4CZTHQEsKa1j	text/plain
+1433020503.687551	CjDx6F1d3jGF6Pe7Df	192.168.1.47	36894	68.232.35.154	80	0	-	-	-	-	-	0	123	200	OK	-	-	-	(empty)	-	-	-	-	-	FaW1y732kzkRNXs8Hg	text/plain
+1433020503.688554	CiqtIHgMWJkykzenh	192.168.1.47	36896	68.232.35.154	80	0	-	-	-	-	-	0	142	200	OK	-	-	-	(empty)	-	-	-	-	-	FODHhY2L5c2mc9qFEb	text/plain
+1433020503.690277	Cleyk8X1j47flZKdk	192.168.1.47	36897	68.232.35.154	80	0	-	-	-	-	-	0	109	200	OK	-	-	-	(empty)	-	-	-	-	-	FAj3Qk2ClRvLk8PkTg	text/plain
+1433020503.758087	CVP2hk29Q1ZBnPNIl	192.168.1.47	56708	54.88.147.102	80	0	-	-	-	-	-	0	0	204	No Content	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020503.758373	CIitsT2fjkBHg5cY77	192.168.1.47	37344	54.165.101.60	80	0	-	-	-	-	-	0	1398	200	OK	-	-	-	(empty)	-	-	-	-	-	FuJ2b2LDZtmZSaEO5	text/html
+1433020503.794070	C1mqg63zXN1r49vdC8	192.168.1.47	36899	68.232.35.154	80	0	-	-	-	-	-	0	96	200	OK	-	-	-	(empty)	-	-	-	-	-	F0Gced4aAsy1FZI5Mg	text/plain
+1433020504.062533	CBWGrW12NIpZe2fwzb	192.168.1.47	38640	66.6.101.171	80	0	-	-	-	-	-	0	24098	404	Not Found	-	-	-	(empty)	-	-	-	-	-	FpJAYP1FlesilzzWs6	text/html
+1433020504.383717	CXWkvQ1osPo7l3B3Gb	192.168.1.47	52983	62.4.254.156	80	0	-	-	-	-	-	0	0	204	No Content	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020504.563720	CHBbql2Ag5zqK5zVp1	192.168.1.47	43326	54.213.126.9	80	0	-	-	-	-	-	0	0	302	Found	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020504.607233	C6ddiX3YlGNRoQ3ex4	192.168.1.47	34069	74.125.136.154	80	0	-	-	-	-	-	0	272	302	Found	-	-	-	(empty)	-	-	-	-	-	Fja6T83C2FOTfM06Td	text/html
+1433020505.025680	CpxsZTh9KRlaF8m1j	192.168.1.47	49216	52.25.21.59	80	0	-	-	-	-	-	0	0	302	Found	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020505.300936	CpxsZTh9KRlaF8m1j	192.168.1.47	49216	52.25.21.59	80	0	-	-	-	-	-	0	43	200	OK	-	-	-	(empty)	-	-	-	-	-	F6lhlr3olG9nKg6RI8	image/gif
+1433020535.054084	CkUzWH1AmYTDl4jaff	192.168.1.47	33364	205.147.110.241	80	0	-	-	-	-	-	0	64617	200	OK	-	-	-	(empty)	-	-	-	-	-	FEDMdl25HNaiFC2A5	text/html
+1433020535.364594	CkUzWH1AmYTDl4jaff	192.168.1.47	33364	205.147.110.241	80	0	-	-	-	-	-	0	771	200	OK	-	-	-	(empty)	-	-	-	-	-	FEDMdl25HNaiFC2A5	text/plain
+1433020535.553771	CRU9zb46fkTHlNkgI5	192.168.1.47	33372	205.147.110.241	80	0	-	-	-	-	-	0	7702	200	OK	-	-	-	(empty)	-	-	-	-	-	FnZFeR2om2QzU7Ebbj	text/plain
+1433020535.554038	C8ml4CkACnnl8g3Dh	192.168.1.47	33370	205.147.110.241	80	0	-	-	-	-	-	0	6188	200	OK	-	-	-	(empty)	-	-	-	-	-	Fk4Suj2eeTr05tOpBe	text/plain
+1433020535.554543	CkUzWH1AmYTDl4jaff	192.168.1.47	33364	205.147.110.241	80	0	-	-	-	-	-	0	15111	200	OK	-	-	-	(empty)	-	-	-	-	-	FEDMdl25HNaiFC2A5	text/plain
+1433020535.563045	CVfzVb3zR3oPpCURw8	192.168.1.47	33371	205.147.110.241	80	0	-	-	-	-	-	0	27241	200	OK	-	-	-	(empty)	-	-	-	-	-	FtRLRwGJ5pNrIx2Pl	text/html
+1433020535.564261	CXehmj9gThrpRajk	192.168.1.47	33369	205.147.110.241	80	0	-	-	-	-	-	0	2954	200	OK	-	-	-	(empty)	-	-	-	-	-	FDsOHlJ8CSoPcViA1	text/plain
+1433020535.722545	C8ml4CkACnnl8g3Dh	192.168.1.47	33370	205.147.110.241	80	0	-	-	-	-	-	0	7200	200	OK	-	-	-	(empty)	-	-	-	-	-	Fk4Suj2eeTr05tOpBe	text/plain
+1433020535.733962	CkUzWH1AmYTDl4jaff	192.168.1.47	33364	205.147.110.241	80	0	-	-	-	-	-	0	292	200	OK	-	-	-	(empty)	-	-	-	-	-	FEDMdl25HNaiFC2A5	text/plain
+1433020535.744004	CVfzVb3zR3oPpCURw8	192.168.1.47	33371	205.147.110.241	80	0	-	-	-	-	-	0	16785	200	OK	-	-	-	(empty)	-	-	-	-	-	FtRLRwGJ5pNrIx2Pl	text/plain
+1433020535.745775	CXehmj9gThrpRajk	192.168.1.47	33369	205.147.110.241	80	0	-	-	-	-	-	0	4129	200	OK	-	-	-	(empty)	-	-	-	-	-	FDsOHlJ8CSoPcViA1	text/plain
+1433020535.836749	CBWGrW12NIpZe2fwzb	192.168.1.47	38640	66.6.101.171	80	0	-	-	-	-	-	0	24098	404	Not Found	-	-	-	(empty)	-	-	-	-	-	FpJAYP1FlesilzzWs6	text/html
+1433020535.895223	C8ml4CkACnnl8g3Dh	192.168.1.47	33370	205.147.110.241	80	0	-	-	-	-	-	0	6127	200	OK	-	-	-	(empty)	-	-	-	-	-	Fk4Suj2eeTr05tOpBe	text/plain
+1433020535.726545	CRU9zb46fkTHlNkgI5	192.168.1.47	33372	205.147.110.241	80	0	-	-	-	-	-	0	95952	200	OK	-	-	-	(empty)	-	-	-	-	-	FnZFeR2om2QzU7Ebbj	text/plain
+1433020535.906706	CkUzWH1AmYTDl4jaff	192.168.1.47	33364	205.147.110.241	80	0	-	-	-	-	-	0	322	200	OK	-	-	-	(empty)	-	-	-	-	-	FEDMdl25HNaiFC2A5	text/plain
+1433020535.919702	CVfzVb3zR3oPpCURw8	192.168.1.47	33371	205.147.110.241	80	0	-	-	-	-	-	0	235	200	OK	-	-	-	(empty)	-	-	-	-	-	FtRLRwGJ5pNrIx2Pl	text/plain
+1433020535.924264	CXehmj9gThrpRajk	192.168.1.47	33369	205.147.110.241	80	0	-	-	-	-	-	0	515	200	OK	-	-	-	(empty)	-	-	-	-	-	FDsOHlJ8CSoPcViA1	text/plain
+1433020536.239511	CRU9zb46fkTHlNkgI5	192.168.1.47	33372	205.147.110.241	80	0	-	-	-	-	-	0	34982	200	OK	-	-	-	(empty)	-	-	-	-	-	FnZFeR2om2QzU7Ebbj	text/plain
+1433020536.247967	CkUzWH1AmYTDl4jaff	192.168.1.47	33364	205.147.110.241	80	0	-	-	-	-	-	0	2404	200	OK	-	-	-	(empty)	-	-	-	-	-	FEDMdl25HNaiFC2A5	text/plain
+1433020536.255490	CVfzVb3zR3oPpCURw8	192.168.1.47	33371	205.147.110.241	80	0	-	-	-	-	-	0	14596	200	OK	-	-	-	(empty)	-	-	-	-	-	FtRLRwGJ5pNrIx2Pl	text/plain
+1433020537.178407	CwoDrK2cqH2vhlISO7	192.168.1.47	49073	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	F17BZD2ItJUBoxqCM4	text/plain
+1433020537.238457	CLGxFm3qJYlL0B4fq3	192.168.1.47	49077	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	FMMoiG2gJfFSSqwWLk	text/plain
+1433020538.066479	CwoDrK2cqH2vhlISO7	192.168.1.47	49073	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	F17BZD2ItJUBoxqCM4	text/plain
+1433020538.512461	CLGxFm3qJYlL0B4fq3	192.168.1.47	49077	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	FMMoiG2gJfFSSqwWLk	text/plain
+1433020538.656246	CBWGrW12NIpZe2fwzb	192.168.1.47	38640	66.6.101.171	80	0	-	-	-	-	-	0	24098	404	Not Found	-	-	-	(empty)	-	-	-	-	-	FpJAYP1FlesilzzWs6	text/html
+1433020539.131492	CwoDrK2cqH2vhlISO7	192.168.1.47	49073	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	F17BZD2ItJUBoxqCM4	text/plain
+1433020540.694541	CkUzWH1AmYTDl4jaff	192.168.1.47	33364	205.147.110.241	80	0	-	-	-	-	-	0	771	200	OK	-	-	-	(empty)	-	-	-	-	-	FEDMdl25HNaiFC2A5	text/plain
+1433020540.699271	C8ml4CkACnnl8g3Dh	192.168.1.47	33370	205.147.110.241	80	0	-	-	-	-	-	0	123983	200	OK	-	-	-	(empty)	-	-	-	-	-	Fk4Suj2eeTr05tOpBe	text/plain
+1433020541.287220	CkUzWH1AmYTDl4jaff	192.168.1.47	33364	205.147.110.241	80	0	-	-	-	-	-	0	27241	200	OK	-	-	-	(empty)	-	-	-	-	-	FEDMdl25HNaiFC2A5	text/html
+1433020541.288659	C8ml4CkACnnl8g3Dh	192.168.1.47	33370	205.147.110.241	80	0	-	-	-	-	-	0	292	200	OK	-	-	-	(empty)	-	-	-	-	-	Fk4Suj2eeTr05tOpBe	text/plain
+1433020541.364818	CRU9zb46fkTHlNkgI5	192.168.1.47	33372	205.147.110.241	80	0	-	-	-	-	-	0	2944	200	OK	-	-	-	(empty)	-	-	-	-	-	FnZFeR2om2QzU7Ebbj	text/html
+1433020541.466676	C8ml4CkACnnl8g3Dh	192.168.1.47	33370	205.147.110.241	80	0	-	-	-	-	-	0	235	200	OK	-	-	-	(empty)	-	-	-	-	-	Fk4Suj2eeTr05tOpBe	text/plain
+1433020541.466684	CkUzWH1AmYTDl4jaff	192.168.1.47	33364	205.147.110.241	80	0	-	-	-	-	-	0	322	200	OK	-	-	-	(empty)	-	-	-	-	-	FEDMdl25HNaiFC2A5	text/plain
+1433020541.815705	C8ml4CkACnnl8g3Dh	192.168.1.47	33370	205.147.110.241	80	0	-	-	-	-	-	0	34982	200	OK	-	-	-	(empty)	-	-	-	-	-	Fk4Suj2eeTr05tOpBe	text/plain
+1433020542.431854	CLGxFm3qJYlL0B4fq3	192.168.1.47	49077	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	FMMoiG2gJfFSSqwWLk	text/plain
+1433020543.147571	CwoDrK2cqH2vhlISO7	192.168.1.47	49073	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	F17BZD2ItJUBoxqCM4	text/plain
+1433020543.507706	CLGxFm3qJYlL0B4fq3	192.168.1.47	49077	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	FMMoiG2gJfFSSqwWLk	text/plain
+1433020544.578818	CwoDrK2cqH2vhlISO7	192.168.1.47	49073	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	F17BZD2ItJUBoxqCM4	text/plain
+1433020545.169944	CAfeDKhfnx68RoTYg	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	44458	2a00:1450:400c:c04::64	80	5	GET	www.google-analytics.com	/__utm.gif?utmwv=5.6.4&utms=2&utmn=1337676722&utmhn=www.xmind.net&utmcs=UTF-8&utmsr=1280x1024&utmvp=600x360&utmsc=24-bit&utmul=en-us&utmje=0&utmfl=11.2 r202&utmdt=Human Language - computer interaction - neosrix - XMind: The Most Professional Mind Mapping Software&utmhid=692466881&utmr=http://technosrix.com/category/technology/&utmp=/embed/APVL/?size=small&utmht=1433020545167&utmac=UA-6267030-1&utmcc=__utma=72682522.1428476745.1433020470.1433020470.1433020470.1;+__utmz=72682522.1433020470.1.1.utmcsr=technosrix.com|utmccn=(referral)|utmcmd=referral|utmcct=/;&utmjid=&utmu=qAAAAAAAAAAAAAAAAAAAAAAE~	http://www.xmind.net/embed/APVL/?size=small	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	35	200	OK	-	-	-	(empty)	-	-	-	-	-	FPlgco2dyBDdZAOx7c	image/gif
+1433020545.767663	CoZSMf4phGJCuFtbo	192.168.1.47	59041	198.145.13.24	80	0	-	-	-	-	-	0	35	200	OK	-	-	-	(empty)	-	-	-	-	-	FT8SAE28mz1tVHPawa	text/plain
+1433020546.622641	CLGxFm3qJYlL0B4fq3	192.168.1.47	49077	50.31.164.175	80	0	-	-	-	-	-	0	41	200	OK	-	-	-	(empty)	-	-	-	-	-	FMMoiG2gJfFSSqwWLk	text/plain
+1433020540.708027	CXehmj9gThrpRajk	192.168.1.47	33369	205.147.110.241	80	0	-	-	-	-	-	0	3791	200	OK	-	-	-	(empty)	-	-	-	-	-	FDsOHlJ8CSoPcViA1	text/plain
+1433020548.239044	CXqc804fruHvKA3Dih	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	34489	2a00:1450:400c:c02::68	80	3	GET	www.google.com	/logos/Logo_25wht.gif	http://www.usenet-replayer.com/	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	1607	200	OK	-	-	-	(empty)	-	-	-	-	-	Fq9crl1G2Ieaw1jHT4	image/gif
+1433020548.314061	C1NeZa4NYtywu0Rzw3	192.168.1.47	33631	172.227.135.204	80	0	-	-	-	-	-	0	198	200	OK	-	-	-	(empty)	-	-	-	-	-	FCOrduTGxZkWVl7Li	text/plain
+1433020548.693892	Ctpq8m1FQousw96Ije	192.168.1.47	33643	172.227.135.204	80	0	-	-	-	-	-	0	22	200	OK	-	-	-	(empty)	-	-	-	-	-	F3HL6S20SCV77IaLt	text/plain
+1433020548.637937	CjXxyp1hsJCQjND2Td	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	60882	2a00:1450:400c:c05::66	80	1	GET	translate.google.com	/translate_a/element.js?cb=googleTranslateElementInit	http://www.usenet-replayer.com/	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	1448	200	OK	-	-	-	(empty)	-	-	-	-	-	F6Jud61CMetVCilh27	text/plain
+1433020548.761558	CVP2hk29Q1ZBnPNIl	192.168.1.47	56708	54.88.147.102	80	0	-	-	-	-	-	0	0	204	No Content	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020548.763135	CIitsT2fjkBHg5cY77	192.168.1.47	37344	54.165.101.60	80	0	-	-	-	-	-	0	1398	200	OK	-	-	-	(empty)	-	-	-	-	-	FuJ2b2LDZtmZSaEO5	text/html
+1433020549.041838	CXWkvQ1osPo7l3B3Gb	192.168.1.47	52983	62.4.254.156	80	0	-	-	-	-	-	0	0	204	No Content	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020549.224611	CHBbql2Ag5zqK5zVp1	192.168.1.47	43326	54.213.126.9	80	0	-	-	-	-	-	0	0	302	Found	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020548.676032	CEYg8qWZ2UKDrSCCl	2a02:a03f:2220:4300:204:4bff:fe0a:54f9	45075	2002:b2fe:d5a::2	80	0	-	-	-	-	-	0	4460	200	OK	-	-	-	(empty)	-	-	-	-	-	FeCV4u2IuW6HvhLXLk	image/jpeg
+1433020549.682860	CkddTU23x4UHfm0LU4	192.168.1.47	36975	68.232.35.154	80	0	-	-	-	-	-	0	109	200	OK	-	-	-	(empty)	-	-	-	-	-	F7HYr92hqLgZdD138c	text/plain
+1433020549.685238	CYoElg2YSi2GL1zaZc	192.168.1.47	36976	68.232.35.154	80	0	-	-	-	-	-	0	92	200	OK	-	-	-	(empty)	-	-	-	-	-	F6NA0323T7DeFkSAr5	text/plain
+1433020549.737240	Cr2AyV1mmc0WJd3p6e	192.168.1.47	33866	199.96.57.8	80	0	-	-	-	-	-	0	131	200	OK	-	-	-	(empty)	-	-	-	-	-	FLVXpy3PR7BqHGy8Be	text/plain
+1433020549.811793	CFIIjE37pq0AOkna4	192.168.1.47	33869	199.96.57.8	80	0	-	-	-	-	-	0	149	200	OK	-	-	-	(empty)	-	-	-	-	-	FF4gz120gcHdzVC7Ij	text/plain
+1433020549.619141	CfvrFA2welzminyim8	192.168.1.47	49773	208.146.36.48	80	0	-	-	-	-	-	0	0	200	OK	-	-	-	(empty)	-	-	-	-	-	-	-
+1433020470.478209	CJl08nG6xkhdnD9mb	192.168.1.47	41483	62.4.254.188	80	0	-	-	-	-	-	0	15320	200	OK	-	-	-	(empty)	-	-	-	-	-	FTgG4P1vUx41dcNuDi	text/plain
+1433020500.339740	CPZhac1YPsS4TnI73c	192.168.1.47	57417	23.23.164.6	80	0	-	-	-	-	-	0	20350	200	OK	-	-	-	(empty)	-	-	-	-	-	FwC7FSPWmrfzBu6c6	text/html
+1433020518.849980	CXxT8q9WvjbVUCACl	2a02:a03f:2220:4300:9009:ac68:352f:d0cc	48178	2001:6a8:308f:1:216:3eff:fec5:c815	80	1	GET	multipath-tcp.org	/snapshots/mptcp_2015_05_30.tar.gz	http://multipath-tcp.org/snapshots/	Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:32.0) Gecko/20100101 Firefox/32.0	0	21171824	200	OK	-	-	-	(empty)	-	-	-	-	-	FOn7b04uB1newErKgd	application/x-gzip
+#close	2015-05-30-23-36-24

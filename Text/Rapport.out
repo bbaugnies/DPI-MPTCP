@@ -1,27 +1,24 @@
-\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{An Overview of MPTCP}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{General Operation and Option Types}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.2}{First Connection Establishment}{section.2}% 4
-\BOOKMARK [2][-]{subsection.2.3}{Advertising New Addresses}{section.2}% 5
-\BOOKMARK [2][-]{subsection.2.4}{Joining an Existing Connection}{section.2}% 6
-\BOOKMARK [2][-]{subsection.2.5}{Sending Data}{section.2}% 7
-\BOOKMARK [2][-]{subsection.2.6}{Fastclose and Failure}{section.2}% 8
-\BOOKMARK [1][-]{section.3}{The DPI system: Bro}{}% 9
-\BOOKMARK [1][-]{section.4}{Bro Events}{}% 10
-\BOOKMARK [2][-]{subsection.4.1}{Protocol analyzers}{section.4}% 11
-\BOOKMARK [2][-]{subsection.4.2}{Adding new events}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.3}{Event description}{section.4}% 13
-\BOOKMARK [3][-]{subsubsection.4.3.1}{mptcp event}{subsection.4.3}% 14
-\BOOKMARK [3][-]{subsubsection.4.3.2}{mp\137error event}{subsection.4.3}% 15
-\BOOKMARK [3][-]{subsubsection.4.3.3}{mp\137capable event}{subsection.4.3}% 16
-\BOOKMARK [3][-]{subsubsection.4.3.4}{mp\137join event}{subsection.4.3}% 17
-\BOOKMARK [3][-]{subsubsection.4.3.5}{mp\137dss event}{subsection.4.3}% 18
-\BOOKMARK [3][-]{subsubsection.4.3.6}{mp\137add\137addr event}{subsection.4.3}% 19
-\BOOKMARK [3][-]{subsubsection.4.3.7}{mp\137remove\137addr event}{subsection.4.3}% 20
-\BOOKMARK [3][-]{subsubsection.4.3.8}{mp\137prio event}{subsection.4.3}% 21
-\BOOKMARK [3][-]{subsubsection.4.3.9}{mp\137fastclose \046 mp\137fail events}{subsection.4.3}% 22
-\BOOKMARK [1][-]{section.5}{Script-level Functionalities}{}% 23
-\BOOKMARK [1][-]{section.6}{Testing}{}% 24
-\BOOKMARK [1][-]{section.7}{Further Considerations}{}% 25
-\BOOKMARK [1][-]{section.8}{Conclusion}{}% 26
-\BOOKMARK [1][-]{appendix.A}{MPTCP Option Formats}{}% 27
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{An Overview of MPTCP}{}% 2
+\BOOKMARK [1][-]{section.2.1}{General Operation and Option Types}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{First Connection Establishment}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{Advertising New Addresses}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.4}{Joining an Existing Connection}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.5}{Sending Data}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.6}{Fastclose and Failure}{chapter.2}% 8
+\BOOKMARK [0][-]{chapter.3}{The DPI system: Bro}{}% 9
+\BOOKMARK [1][-]{section.3.1}{System Architecture}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.2}{The Event Engine}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.3}{The Policy Script Interpreter}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.4}{Output}{chapter.3}% 13
+\BOOKMARK [2][-]{subsection.3.4.1}{Logging}{section.3.4}% 14
+\BOOKMARK [2][-]{subsection.3.4.2}{Notices}{section.3.4}% 15
+\BOOKMARK [0][-]{chapter.4}{Bro Events}{}% 16
+\BOOKMARK [1][-]{section.4.1}{Protocol analyzers}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.2}{Adding new events}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.3}{Event description}{chapter.4}% 19
+\BOOKMARK [0][-]{chapter.5}{Script-level Functionalities}{}% 20
+\BOOKMARK [0][-]{chapter.6}{Testing}{}% 21
+\BOOKMARK [0][-]{chapter.7}{Further Considerations}{}% 22
+\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 23
+\BOOKMARK [0][-]{appendix.A}{MPTCP Option Formats}{}% 24

@@ -533,5 +533,8 @@ global mp_fail: event(c: connection , len: count , resvd: count , dsn: count , i
 ## 
 global mp_error: event(c: connection , len: count , subtype: count , is_orig: bool );
 
+
+
+global join_timeout: event();
 } # end of export section
 module GLOBAL;

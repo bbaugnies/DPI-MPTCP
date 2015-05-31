@@ -1,0 +1,11 @@
+#separator \x09
+#set_separator	,
+#empty_field	(empty)
+#unset_field	-
+#path	reporter
+#open	2015-05-30-23-36-19
+#fields	ts	level	message	location
+#types	time	enum	string	string
+1433020441.008204	Reporter::WARNING	Your trace file likely has invalid TCP and UDP checksums, most likely from NIC checksum offloading.	/usr/local/bro/share/bro/base/misc/find-checksum-offloading.bro, line 54
+1433020549.881267	Reporter::INFO	received termination signal	(empty)
+#close	2015-05-30-23-36-24

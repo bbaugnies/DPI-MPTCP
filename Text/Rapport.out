@@ -18,7 +18,12 @@
 \BOOKMARK [1][-]{section.4.2}{Adding new events}{chapter.4}% 18
 \BOOKMARK [1][-]{section.4.3}{Event description}{chapter.4}% 19
 \BOOKMARK [0][-]{chapter.5}{Script-level Functionalities}{}% 20
-\BOOKMARK [0][-]{chapter.6}{Testing}{}% 21
-\BOOKMARK [0][-]{chapter.7}{Further Considerations}{}% 22
-\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 23
-\BOOKMARK [0][-]{appendix.A}{MPTCP Option Formats}{}% 24
+\BOOKMARK [1][-]{section.5.1}{Logging MPTCP Connections}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.2}{Detecting Erroneous Address Advertisement}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.3}{Detecting Key Modifications}{chapter.5}% 23
+\BOOKMARK [1][-]{section.5.4}{Unknown Join Detection}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.5}{Join Flooding}{chapter.5}% 25
+\BOOKMARK [0][-]{chapter.6}{Testing}{}% 26
+\BOOKMARK [0][-]{chapter.7}{Further Considerations}{}% 27
+\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 28
+\BOOKMARK [0][-]{appendix.A}{MPTCP Option Formats}{}% 29

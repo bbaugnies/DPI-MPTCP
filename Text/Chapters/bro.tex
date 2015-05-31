@@ -61,7 +61,7 @@ An event handler is declared using the \texttt{event} keyword, followed by the t
 \section{Output} \label{output}
 Scripts performs the analysis of the network traffic, but once it is done, the results must be outputted in some form and not stored indefinitely in memory. Rather than having users write their own messages to files, Bro provides two main output methods: logs and notices. Both come with their own framework which allows users to access these high-level functionalities easily.
 
-\subsection{Logging}
+\subsection{Logging} \label{section: logging}
 Bro's logging framework provides a high-performance way to log behavior in standard tab-separated files. Creating a new log file is done entirely in script. The first step is to make the Interpreter aware of the new log by re-defining the \texttt{Log::ID} constant in the scripts \texttt{export} block. This constant contains the IDs of each log currently being maintained, and is populated by default with many common logs such as the TCP connections log. We redefine it using the \texttt{redef} command: \\
 
 \begin{code}
@@ -115,7 +115,7 @@ Here we see that we fill the fields of the \texttt{Info} record by accessing the
 \end{code}
 
 
-\subsection{Notices}
+\subsection{Notices} \label{section: notice}
 Logging is important, and parsing logs is a common way to detect that certain attacks took place. However, in many cases we may be interested in a more immediate reaction. This is the Notice framework's purpose. Notices are created in a way very similar to log entries, and they are raised much like log entries are written. Like for Logs, we first begin by redefining the list of known notice types: \\
 
 \begin{code}

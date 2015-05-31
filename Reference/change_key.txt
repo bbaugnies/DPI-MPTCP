@@ -1,0 +1,19 @@
+
+
+
+	Adversary						Host A (dishonest)				Server (target)
+	---------						------------------				---------------
+	Pre-arranged		->		
+	[Key 1,	
+	 Key 2]	
+		
+									MP_CAPABLE				->	
+									[Key 1, flags]
+																				
+															<-		MP_CAPABLE
+																	[Server's key, flags]
+															
+									ACK + MP_CAPABLE		->
+									[Key 1, Key 2, flags]
+									
+									

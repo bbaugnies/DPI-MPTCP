@@ -1,0 +1,24 @@
+
+
+		Adversary										Server
+		---------										------
+		MP_CAPABLE						->		
+		[Key adv, flags]						
+				
+										<-				MP_CAPABLE
+														[Key serv, flags]
+										
+		ACK + MP_CAPABLE				->
+		[Key adv, Key serv, flags]
+
+
+		MP_JOIN							->
+		[Serv's token, Adv's nonce,
+		 Adv's Address ID, flags]
+		 
+		 MP_JOIN						->
+		[Serv's token, Adv's nonce,
+		 Adv's Address ID, flags]
+		.
+		.
+		...

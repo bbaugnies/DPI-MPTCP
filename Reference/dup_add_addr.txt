@@ -1,0 +1,15 @@
+
+
+	Adversary							Host A									Host B
+	---------							------									------
+						<-				ADD_ADDR			->
+					Eavesdropped		[IP#-Ax,
+										 IP#-Ax's Address ID]
+										
+	ADD_ADDR 			------------------------------------->
+	[IP#-Adv1,
+	 IP#-Adv1's Address ID] 									
+	
+										ADD_ADDR			->
+										[IP#-Ay,
+										 IP#-Ay's Address ID = Adv1's Address ID]

@@ -29,6 +29,11 @@
 \BOOKMARK [1][-]{section.6.3}{Testing the Bad Behavior Detection}{chapter.6}% 29
 \BOOKMARK [1][-]{section.6.4}{Performance Testing}{chapter.6}% 30
 \BOOKMARK [0][-]{chapter.7}{Further Considerations}{}% 31
-\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 32
-\BOOKMARK [0][-]{appendix.A}{MPTCP Option Formats}{}% 33
-\BOOKMARK [0][-]{appendix.B}{MPTCP Event Definitions}{}% 34
+\BOOKMARK [1][-]{section.7.1}{Adding Bad Behavior Detection}{chapter.7}% 32
+\BOOKMARK [1][-]{section.7.2}{Improving Events}{chapter.7}% 33
+\BOOKMARK [1][-]{section.7.3}{Recomputing Cryptographic Operations}{chapter.7}% 34
+\BOOKMARK [1][-]{section.7.4}{Improving Join Flood Detection}{chapter.7}% 35
+\BOOKMARK [1][-]{section.7.5}{Internal Re-Assembly}{chapter.7}% 36
+\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 37
+\BOOKMARK [0][-]{appendix.A}{MPTCP Option Formats}{}% 38
+\BOOKMARK [0][-]{appendix.B}{MPTCP Event Definitions}{}% 39

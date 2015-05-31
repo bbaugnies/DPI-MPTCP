@@ -79,7 +79,7 @@
 \@writefile{toc}{\contentsline {subsubsection}{mp\_capable event}{22}{section*.8}}
 \@writefile{toc}{\contentsline {subsubsection}{mp\_join event}{23}{section*.9}}
 \@writefile{toc}{\contentsline {subsubsection}{mp\_dss event}{24}{section*.10}}
-\@writefile{toc}{\contentsline {subsubsection}{mp\_add\_addr event}{24}{section*.11}}
+\@writefile{toc}{\contentsline {subsubsection}{mp\_add\_addr event}{25}{section*.11}}
 \@writefile{toc}{\contentsline {subsubsection}{mp\_remove\_addr event}{25}{section*.12}}
 \@writefile{toc}{\contentsline {subsubsection}{mp\_prio event}{26}{section*.13}}
 \@writefile{toc}{\contentsline {subsubsection}{mp\_fastclose \& mp\_fail events}{26}{section*.14}}
@@ -131,11 +131,17 @@
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chap:further}{{7}{46}{Further Considerations}{chapter.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.1}Adding Bad Behavior Detection}{46}{section.7.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.2}Improving Events}{46}{section.7.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.3}Recomputing Cryptographic Operations}{47}{section.7.3}}
+\citation{synflood}
+\@writefile{toc}{\contentsline {section}{\numberline {7.4}Improving Join Flood Detection}{48}{section.7.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {7.5}Internal Re-Assembly}{49}{section.7.5}}
 \bibdata{mybib}
-\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion}{47}{chapter.8}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {8}Conclusion}{51}{chapter.8}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{8}{47}{Conclusion}{chapter.8}{}}
+\newlabel{chap:conclusion}{{8}{51}{Conclusion}{chapter.8}{}}
 \bibcite{rfc6824}{{1}{}{{}}{{}}}
 \bibcite{mptcp}{{2}{}{{}}{{}}}
 \bibcite{mptcpdump}{{3}{}{{}}{{}}}
@@ -144,27 +150,28 @@
 \bibcite{amiusing}{{6}{}{{}}{{}}}
 \bibcite{mpwireshark}{{7}{}{{}}{{}}}
 \bibcite{mpscapy}{{8}{}{{}}{{}}}
-\bibcite{scapy}{{9}{}{{}}{{}}}
-\bibcite{memusg}{{10}{}{{}}{{}}}
-\bibcite{bro}{{11}{}{{}}{{}}}
+\bibcite{synflood}{{9}{}{{}}{{}}}
+\bibcite{scapy}{{10}{}{{}}{{}}}
+\bibcite{memusg}{{11}{}{{}}{{}}}
+\bibcite{bro}{{12}{}{{}}{{}}}
 \bibstyle{plain}
 \@writefile{toc}{\vspace  {2em}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}MPTCP Option Formats}{49}{appendix.A}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}MPTCP Option Formats}{53}{appendix.A}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{append:mp opt format}{{A}{49}{MPTCP Option Formats}{appendix.A}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces MP Capable option format\relax }}{49}{figure.A.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces MP Join option format for initial SYN\relax }}{49}{figure.A.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces MP Join option format for SYN+ACK\relax }}{50}{figure.A.3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces MP Join option format for final ACK\relax }}{50}{figure.A.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces MP DSS option format\relax }}{50}{figure.A.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.6}{\ignorespaces MP ADD\_ADDR option format\relax }}{51}{figure.A.6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.7}{\ignorespaces MP REMOVE\_ADDR option format\relax }}{51}{figure.A.7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.8}{\ignorespaces MP PRIO option format\relax }}{51}{figure.A.8}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.9}{\ignorespaces MP FASCT\_CLOSE option format\relax }}{51}{figure.A.9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {A.10}{\ignorespaces MP FAIL option format\relax }}{51}{figure.A.10}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}MPTCP Event Definitions}{52}{appendix.B}}
+\newlabel{append:mp opt format}{{A}{53}{MPTCP Option Formats}{appendix.A}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.1}{\ignorespaces MP Capable option format\relax }}{53}{figure.A.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.2}{\ignorespaces MP Join option format for initial SYN\relax }}{53}{figure.A.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.3}{\ignorespaces MP Join option format for SYN+ACK\relax }}{54}{figure.A.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.4}{\ignorespaces MP Join option format for final ACK\relax }}{54}{figure.A.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.5}{\ignorespaces MP DSS option format\relax }}{54}{figure.A.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.6}{\ignorespaces MP ADD\_ADDR option format\relax }}{55}{figure.A.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.7}{\ignorespaces MP REMOVE\_ADDR option format\relax }}{55}{figure.A.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.8}{\ignorespaces MP PRIO option format\relax }}{55}{figure.A.8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.9}{\ignorespaces MP FASCT\_CLOSE option format\relax }}{55}{figure.A.9}}
+\@writefile{lof}{\contentsline {figure}{\numberline {A.10}{\ignorespaces MP FAIL option format\relax }}{55}{figure.A.10}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}MPTCP Event Definitions}{56}{appendix.B}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{append:event}{{B}{52}{MPTCP Event Definitions}{appendix.B}{}}
+\newlabel{append:event}{{B}{56}{MPTCP Event Definitions}{appendix.B}{}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers

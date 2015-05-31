@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.5)  31 MAY 2015 16:30
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2014.9.5)  31 MAY 2015 19:52
 entering extended mode
 **Rapport.tex
 (C:\Users\benjamin\bro\Rapport_1\Rapport.tex
@@ -653,7 +653,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
 
 {C:/Users/benjamin/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<Figures/wiresharkdemo.png, id=155, 386.19281pt x 129.48375pt>
+<Figures/wiresharkdemo.png, id=175, 386.19281pt x 129.48375pt>
 File: Figures/wiresharkdemo.png Graphic file (type png)
 
 <use Figures/wiresharkdemo.png>
@@ -696,7 +696,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-<Figures/mptcpsetup.png, id=185, 538.01pt x 270.00874pt>
+<Figures/mptcpsetup.png, id=205, 538.01pt x 270.00874pt>
 File: Figures/mptcpsetup.png Graphic file (type png)
 
 <use Figures/mptcpsetup.png>
@@ -753,7 +753,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
-<Figures/mpcapex.png, id=201, 494.84875pt x 156.585pt>
+<Figures/mpcapex.png, id=221, 494.84875pt x 156.585pt>
 File: Figures/mpcapex.png Graphic file (type png)
 
 <use Figures/mpcapex.png>
@@ -785,7 +785,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
-<Figures/mpjoinex.png, id=209, 556.0775pt x 228.855pt>
+<Figures/mpjoinex.png, id=229, 556.0775pt x 228.855pt>
 File: Figures/mpjoinex.png Graphic file (type png)
 
 <use Figures/mpjoinex.png>
@@ -821,7 +821,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
 
-<Figures/architecture.png, id=222, 803.0pt x 602.25pt>
+<Figures/architecture.png, id=242, 803.0pt x 602.25pt>
 File: Figures/architecture.png Graphic file (type png)
 
 <use Figures/architecture.png>
@@ -860,7 +860,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
-<Figures/brodebug.png, id=230, 863.225pt x 228.855pt>
+<Figures/brodebug.png, id=250, 863.225pt x 228.855pt>
 File: Figures/brodebug.png Graphic file (type png)
 
 <use Figures/brodebug.png>
@@ -981,11 +981,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
-<Figures/als.png, id=309, 707.82088pt x 300.41647pt>
+<Figures/als.png, id=329, 707.82088pt x 300.41647pt>
 File: Figures/als.png Graphic file (type png)
  <use Figures/als.png>
 Package pdftex.def Info: Figures/als.png used on input line 15.
-(pdftex.def)             Requested size: 452.9679pt x 192.25212pt.
+(pdftex.def)             Requested size: 707.81914pt x 300.41573pt.
 
 [16
 
@@ -1051,17 +1051,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--73
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [19]
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
@@ -1072,17 +1072,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--82
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
-
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [20]
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
@@ -1093,17 +1093,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
-
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [21]
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
@@ -1130,17 +1130,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 109--110
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [23]
+Underfull \hbox (badness 10000) in paragraph at lines 111--112
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
@@ -1151,17 +1151,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--117
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
-
- []
-
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [24]
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 123--124
 
  []
@@ -1208,7 +1208,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
-<Figures/logheader.png, id=408, 450.68375pt x 44.165pt>
+<Figures/logheader.png, id=432, 450.68375pt x 44.165pt>
 File: Figures/logheader.png Graphic file (type png)
 
 <use Figures/logheader.png>
@@ -1295,7 +1295,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[32] <Figures/2addaddrwireshark.png, id=498, 780.9175pt x 51.19125pt>
+[32] <Figures/2addaddrwireshark.png, id=522, 780.9175pt x 51.19125pt>
 File: Figures/2addaddrwireshark.png Graphic file (type png)
 
 <use Figures/2addaddrwireshark.png>
@@ -1306,21 +1306,21 @@ Overfull \hbox (15.58621pt too wide) in paragraph at lines 115--116
  [][] 
  []
 
-<Figures/addaddrattack.png, id=499, 689.57625pt x 286.06876pt>
+<Figures/addaddrattack.png, id=523, 689.57625pt x 286.06876pt>
 File: Figures/addaddrattack.png Graphic file (type png)
 
 <use Figures/addaddrattack.png>
 Package pdftex.def Info: Figures/addaddrattack.png used on input line 122.
 (pdftex.def)             Requested size: 413.74893pt x 171.64258pt.
 
-<Figures/addaddr1.png, id=500, 894.34125pt x 581.17125pt>
+<Figures/addaddr1.png, id=524, 894.34125pt x 581.17125pt>
 File: Figures/addaddr1.png Graphic file (type png)
 
 <use Figures/addaddr1.png>
 Package pdftex.def Info: Figures/addaddr1.png used on input line 129.
 (pdftex.def)             Requested size: 670.75429pt x 435.87737pt.
 
-<Figures/addaddr2.png, id=501, 863.225pt x 581.17125pt>
+<Figures/addaddr2.png, id=525, 863.225pt x 581.17125pt>
 File: Figures/addaddr2.png Graphic file (type png)
 
 <use Figures/addaddr2.png>
@@ -1374,7 +1374,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 154--155
 
  []
 
-<Figures/mpcapattack.png, id=526, 694.595pt x 300.12125pt>
+<Figures/mpcapattack.png, id=550, 694.595pt x 300.12125pt>
 File: Figures/mpcapattack.png Graphic file (type png)
 
 <use Figures/mpcapattack.png>
@@ -1440,7 +1440,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 191--192
 
  []
 
-<Figures/joinflood.png, id=542, 557.08125pt x 422.57875pt>
+<Figures/joinflood.png, id=566, 557.08125pt x 422.57875pt>
 File: Figures/joinflood.png Graphic file (type png)
 
 <use Figures/joinflood.png>
@@ -1509,7 +1509,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--24
 
  []
 
-<Figures/addpcap.png, id=572, 527.9725pt x 370.38374pt>
+<Figures/addpcap.png, id=596, 527.9725pt x 370.38374pt>
 File: Figures/addpcap.png Graphic file (type png)
 
 <use Figures/addpcap.png>
@@ -1556,11 +1556,92 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [45]
 Chapter 7.
-) (C:\Users\benjamin\bro\Rapport_1\Chapters\conclusion.tex [46
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--12
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 13--14
+
+ []
+
+[46
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 15--16
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
+
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 35--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--38
+
+ []
+
+) (C:\Users\benjamin\bro\Rapport_1\Chapters\conclusion.tex
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[49]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[50]
 Chapter 8.
-) (C:\Users\benjamin\bro\Rapport_1\Rapport.bbl [47
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+) (C:\Users\benjamin\bro\Rapport_1\Rapport.bbl [51
 
 ]
 Underfull \hbox (badness 1270) in paragraph at lines 14--17
@@ -1573,11 +1654,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--37
 []\OT1/cmr/m/n/12 Andrei Maruseac.  Mul-ti-path tcp patch to packet-tcp.c.
  []
 
-) (C:\Users\benjamin\bro\Rapport_1\Chapters\mpformat.tex [48
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--49
+[]\OT1/cmr/m/n/12 Vern Pax-son.  syn-flood.bro.  http://www.filewatcher.com/p/b
+ro-
+ []
+
+) (C:\Users\benjamin\bro\Rapport_1\Chapters\mpformat.tex [52
 
 ]
 Appendix A.
-<Figures/mpcapformat.png, id=606, 637.38126pt x 272.01625pt>
+<Figures/mpcapformat.png, id=651, 637.38126pt x 272.01625pt>
 File: Figures/mpcapformat.png Graphic file (type png)
 
 <use Figures/mpcapformat.png>
@@ -1594,7 +1681,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--9
 
  []
 
-<Figures/mpjoinformat1.png, id=607, 642.4pt x 182.6825pt>
+<Figures/mpjoinformat1.png, id=652, 642.4pt x 182.6825pt>
 File: Figures/mpjoinformat1.png Graphic file (type png)
 
 <use Figures/mpjoinformat1.png>
@@ -1616,7 +1703,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--15
 
  []
 
-<Figures/mpjoinformat2.png, id=608, 640.3925pt x 228.855pt>
+<Figures/mpjoinformat2.png, id=653, 640.3925pt x 228.855pt>
 File: Figures/mpjoinformat2.png Graphic file (type png)
 
 <use Figures/mpjoinformat2.png>
@@ -1638,11 +1725,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--21
 
  []
 
-[49
+[53
 
  <C:/Users/benjamin/bro/Rapport_1/Figures/mpcapformat.png> <C:/Users/benjamin/b
 ro/Rapport_1/Figures/mpjoinformat1.png>]
-<Figures/mpjoinformat3.png, id=618, 638.385pt x 224.84pt>
+<Figures/mpjoinformat3.png, id=662, 638.385pt x 224.84pt>
 File: Figures/mpjoinformat3.png Graphic file (type png)
 
 <use Figures/mpjoinformat3.png>
@@ -1664,7 +1751,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--27
 
  []
 
-<Figures/mpdssformat.png, id=619, 630.355pt x 269.005pt>
+<Figures/mpdssformat.png, id=663, 630.355pt x 269.005pt>
 File: Figures/mpdssformat.png Graphic file (type png)
 
 <use Figures/mpdssformat.png>
@@ -1686,7 +1773,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 28--32
 
  []
 
-<Figures/mpaddformat.png, id=620, 626.34pt x 182.6825pt>
+<Figures/mpaddformat.png, id=664, 626.34pt x 182.6825pt>
 File: Figures/mpaddformat.png Graphic file (type png)
 
 <use Figures/mpaddformat.png>
@@ -1714,10 +1801,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[50 <C:/Users/benjamin/bro/Rapport_1/Figures/mpjoinformat2.png> <C:/Users/benja
+[54 <C:/Users/benjamin/bro/Rapport_1/Figures/mpjoinformat2.png> <C:/Users/benja
 min/bro/Rapport_1/Figures/mpjoinformat3.png> <C:/Users/benjamin/bro/Rapport_1/F
 igures/mpdssformat.png>]
-<Figures/mpremoveformat.png, id=632, 662.475pt x 130.4875pt>
+<Figures/mpremoveformat.png, id=676, 662.475pt x 130.4875pt>
 File: Figures/mpremoveformat.png Graphic file (type png)
 
 <use Figures/mpremoveformat.png>
@@ -1739,7 +1826,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--44
 
  []
 
-<Figures/mpprioformat.png, id=633, 606.265pt x 106.3975pt>
+<Figures/mpprioformat.png, id=677, 606.265pt x 106.3975pt>
 File: Figures/mpprioformat.png Graphic file (type png)
 
 <use Figures/mpprioformat.png>
@@ -1761,7 +1848,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--50
 
  []
 
-<Figures/mpfastformat.png, id=634, 639.38875pt x 184.69pt>
+<Figures/mpfastformat.png, id=678, 639.38875pt x 184.69pt>
 File: Figures/mpfastformat.png Graphic file (type png)
 
 <use Figures/mpfastformat.png>
@@ -1783,7 +1870,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 51--56
 
  []
 
-<Figures/mpfailformat.png, id=635, 623.32875pt x 183.68625pt>
+<Figures/mpfailformat.png, id=679, 623.32875pt x 183.68625pt>
 File: Figures/mpfailformat.png Graphic file (type png)
 
 <use Figures/mpfailformat.png>
@@ -1811,13 +1898,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[51 <C:/Users/benjamin/bro/Rapport_1/Figures/mpaddformat.png> <C:/Users/benjami
+[55 <C:/Users/benjamin/bro/Rapport_1/Figures/mpaddformat.png> <C:/Users/benjami
 n/bro/Rapport_1/Figures/mpremoveformat.png> <C:/Users/benjamin/bro/Rapport_1/Fi
 gures/mpprioformat.png> <C:/Users/benjamin/bro/Rapport_1/Figures/mpfastformat.p
 ng (PNG copy)> <C:/Users/benjamin/bro/Rapport_1/Figures/mpfailformat.png (PNG c
 opy)>]
 Appendix B.
-[52
+[56
 
 ]
 
@@ -1826,35 +1913,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[53]
+[57]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 26.24986pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[54]
+[58]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 26.24986pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[55]
+[59]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 26.24986pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[56]
+[60]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 26.24986pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[57])
+[61])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 251.
 
 
@@ -1863,20 +1950,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[58]
+[62]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 251.
  (C:\Users\benjamin\bro\Rapport_1\Rapport.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 251.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 251.
 Package rerunfilecheck Info: File `Rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 1BAE7D2B91ADEAFC93F3EE9382AC668D;2226.
+(rerunfilecheck)             Checksum: 80C615DA6CFBDE20697FA137088E4B4B;2597.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 251.
  ) 
 Here is how much of TeX's memory you used:
- 11292 strings out of 493921
- 166179 string characters out of 3146472
- 339541 words of memory out of 3000000
- 13926 multiletter control sequences out of 15000+200000
+ 11310 strings out of 493921
+ 166388 string characters out of 3146472
+ 340294 words of memory out of 3000000
+ 13934 multiletter control sequences out of 15000+200000
  9184 words of font info for 33 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  36i,12n,59p,1725b,1277s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1886,9 +1973,9 @@ Program Files (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program
  (x86)/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files (x86)
 /MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Program Files (x86)/MiKTe
 X/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Rapport.pdf (58 pages, 660712 bytes).
+Output written on Rapport.pdf (62 pages, 678454 bytes).
 PDF statistics:
- 1010 PDF objects out of 1200 (max. 8388607)
- 491 named destinations out of 1000 (max. 500000)
- 398 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1057 PDF objects out of 1200 (max. 8388607)
+ 501 named destinations out of 1000 (max. 500000)
+ 438 words of extra memory for PDF output out of 10000 (max. 10000000)
 

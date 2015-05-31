@@ -1339,7 +1339,7 @@ void TCP_Analyzer::DeliverPacket(int len, const u_char* data, bool is_orig,
 		ParseTCPOptions(tp, TCPOptionEvent, this, is_orig, 0);
         
         // unlike options, we check all packets (including those with no payload)
-        if ( mptcp || mp_capable )
+        if ( mptcp || mp_capable || mp_join || mp_dss || mp_add_addr || mp_remove_addr || mp_prio || mp_fastclose || mp_fail || mp_error)
             ParseMPTCP(tp, MPTCPEvent, this, is_orig, 0, flags);
 
 	if ( DEBUG_tcp_data_sent )
@@ -1523,7 +1523,6 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
 
             case 1: //MP_JOIN (token & random number on SYN, truncated HMAC & random number on SYN+ACK, HMAC on ACK)
             {
-                // TOFIX: issues with HMAC and getting its length is script.
                 uint32 token = 0;
                 uint32 rand = 0;
                 val_list* vl = new val_list();
@@ -1540,7 +1539,7 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                     vl->append(new Val(rand, TYPE_COUNT));
                     vl->append(new Val(token, TYPE_COUNT));
                     char h[1];
-                    h[0] = 'r';
+                    h[0] = 'e';
                     vl->append(new StringVal(h));
                 } else if (optlen == 16 && flags.SYN() && flags.ACK()) {
                     char h[8];
@@ -1564,6 +1563,15 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                 } else {
                     // bad length for MP_JOIN option
                     // TODO: generate MP_error event
+                    if (mp_error) {                        
+                        val_list* vl2 = new val_list();
+                        vl2->append(analyzer->BuildConnVal());
+                        vl2->append(new Val(optlen, TYPE_COUNT));
+                        vl2->append(new Val(subtype, TYPE_COUNT));
+                        vl2->append(new Val(is_orig, TYPE_BOOL));
+                        analyzer->ConnectionEvent(mp_error, vl2);
+                        return 0;
+                    }
                     printf("got mistake\n");
                     return -1;
                 }
@@ -1635,6 +1643,15 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                 vl->append(new Val(checksum, TYPE_COUNT));
 
                 if (expected_len != optlen) {
+                    if (mp_error) {                        
+                        val_list* vl2 = new val_list();
+                        vl2->append(analyzer->BuildConnVal());
+                        vl2->append(new Val(optlen, TYPE_COUNT));
+                        vl2->append(new Val(subtype, TYPE_COUNT));
+                        vl2->append(new Val(is_orig, TYPE_BOOL));
+                        analyzer->ConnectionEvent(mp_error, vl2);
+                        return 0;
+                    }
                     return -1;
                 }
                 vl->append(new Val(is_orig, TYPE_BOOL));
@@ -1675,6 +1692,15 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                         p = (option[20] << 8) + option[21];
                     }
                 } else {
+                    if (mp_error) {                        
+                        val_list* vl2 = new val_list();
+                        vl2->append(analyzer->BuildConnVal());
+                        vl2->append(new Val(optlen, TYPE_COUNT));
+                        vl2->append(new Val(subtype, TYPE_COUNT));
+                        vl2->append(new Val(is_orig, TYPE_BOOL));
+                        analyzer->ConnectionEvent(mp_error, vl2);
+                        return 0;
+                    }
                     return -1;
                 }
                 vl->append(new PortVal(p));
@@ -1696,6 +1722,15 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                         analyzer->ConnectionEvent(mp_remove_addr, vl);
                     }
                 } else {
+                    if (mp_error) {                        
+                        val_list* vl2 = new val_list();
+                        vl2->append(analyzer->BuildConnVal());
+                        vl2->append(new Val(optlen, TYPE_COUNT));
+                        vl2->append(new Val(subtype, TYPE_COUNT));
+                        vl2->append(new Val(is_orig, TYPE_BOOL));
+                        analyzer->ConnectionEvent(mp_error, vl2);
+                        return 0;
+                    }
                     return -1;
                 }
             }
@@ -1712,6 +1747,15 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                     vl->append(new Val(is_orig, TYPE_BOOL));
                     analyzer->ConnectionEvent(mp_prio, vl);
                 } else {
+                    if (mp_error) {                        
+                        val_list* vl2 = new val_list();
+                        vl2->append(analyzer->BuildConnVal());
+                        vl2->append(new Val(optlen, TYPE_COUNT));
+                        vl2->append(new Val(subtype, TYPE_COUNT));
+                        vl2->append(new Val(is_orig, TYPE_BOOL));
+                        analyzer->ConnectionEvent(mp_error, vl2);
+                        return 0;
+                    }
                     return -1;
                 }
             }
@@ -1731,6 +1775,15 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                     vl->append(new Val(is_orig, TYPE_BOOL));
                     analyzer->ConnectionEvent(mp_fastclose, vl);
                 } else {
+                    if (mp_error) {                        
+                        val_list* vl2 = new val_list();
+                        vl2->append(analyzer->BuildConnVal());
+                        vl2->append(new Val(optlen, TYPE_COUNT));
+                        vl2->append(new Val(subtype, TYPE_COUNT));
+                        vl2->append(new Val(is_orig, TYPE_BOOL));
+                        analyzer->ConnectionEvent(mp_error, vl2);
+                        return 0;
+                    }
                     return -1;
                 }
             }
@@ -1750,6 +1803,15 @@ int TCP_Analyzer::MPTCPEvent(unsigned int optlen,
                     vl->append(new Val(is_orig, TYPE_BOOL));
                     analyzer->ConnectionEvent(mp_fail, vl);
                 } else {
+                    if (mp_error) {                        
+                        val_list* vl2 = new val_list();
+                        vl2->append(analyzer->BuildConnVal());
+                        vl2->append(new Val(optlen, TYPE_COUNT));
+                        vl2->append(new Val(subtype, TYPE_COUNT));
+                        vl2->append(new Val(is_orig, TYPE_BOOL));
+                        analyzer->ConnectionEvent(mp_error, vl2);
+                        return 0;
+                    }
                     return -1;
                 }
 

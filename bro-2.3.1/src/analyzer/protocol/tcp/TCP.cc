@@ -1334,8 +1334,8 @@ void TCP_Analyzer::DeliverPacket(int len, const u_char* data, bool is_orig,
 		GeneratePacketEvent(rel_seq, rel_ack, data, len, caplen, is_orig,
 		                    flags);
 
-	if ( tcp_option )// && tcp_hdr_len > sizeof(*tp) &&
-	     //tcp_hdr_len <= uint32(caplen) )
+	if ( tcp_option  && tcp_hdr_len > sizeof(*tp) &&
+	     tcp_hdr_len <= uint32(caplen) )
 		ParseTCPOptions(tp, TCPOptionEvent, this, is_orig, 0);
         
         // unlike options, we check all packets (including those with no payload)
@@ -1823,29 +1823,15 @@ int TCP_Analyzer::TCPOptionEvent(unsigned int opt,
 	if ( tcp_option )
 		{
 		val_list* vl = new val_list();
-                
-                // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                // TESTING BLOCK
-                uint64 k= 0;
-                
-                if (option[0] == 30) {
-                    //printf(" %x %d %d\n", option[2], option[2] & 15, (option[0]<<24) + (option[1]<<16) + (option[2]<<8) + option[3]);
-                               
-                if (option[2]>>4 == 0) {
-                    for (int i = 0; i<8; i++) {
-                        k += (uint64) option[11-i]<<(i*8);
-                    }
-                }      
-                printf("\n");
+ 
 
                 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 		vl->append(analyzer->BuildConnVal());
 		vl->append(new Val(is_orig, TYPE_BOOL));
 		vl->append(new Val(opt, TYPE_COUNT));
-		vl->append(new Val(k, TYPE_COUNT));
 		analyzer->ConnectionEvent(tcp_option, vl);
-		}} // remove one "}" when done (to get all options)
+		}// remove one "}" when done (to get all options)
 
 	return 0;
 	}

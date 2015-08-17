@@ -1126,6 +1126,22 @@ stdint.h
 modp_numtoa.h
 ../src/modp_numtoa.h
 
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/rpc/events.bif.cc
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/rpc/events.bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/rpc/events.bif.h
+bro-bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/rpc/bro-bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/rpc/events.bif.init.cc
+list
+-
+string
+-
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/rpc/events.bif.h
+
 /home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/rpc/NFS.cc
 algorithm
 -
@@ -1201,6 +1217,16 @@ analyzer/protocol/tcp/TCP.h
 /home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/rpc/analyzer/protocol/tcp/TCP.h
 analyzer/protocol/udp/UDP.h
 /home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/rpc/analyzer/protocol/udp/UDP.h
+
+/home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/rpc/XDR.cc
+algorithm
+-
+config.h
+/home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/rpc/config.h
+XDR.h
+/home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/rpc/XDR.h
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/rpc/events.bif.h
 
 /home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/rpc/XDR.h
 sys/types.h

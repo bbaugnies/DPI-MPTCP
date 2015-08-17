@@ -776,18 +776,6 @@ Tag.h
 ../Timer.h
 ../src/Timer.h
 
-../src/analyzer/Component.h
-Tag.h
-../src/analyzer/Tag.h
-plugin/Component.h
-../src/analyzer/plugin/Component.h
-plugin/TaggedComponent.h
-../src/analyzer/plugin/TaggedComponent.h
-../config.h
-../src/config.h
-../util.h
-../src/util.h
-
 ../src/analyzer/Tag.h
 config.h
 ../src/analyzer/config.h
@@ -928,20 +916,6 @@ cstdio
 
 ../src/cq.h
 
-../src/file_analysis/Component.h
-Tag.h
-../src/file_analysis/Tag.h
-plugin/Component.h
-../src/file_analysis/plugin/Component.h
-plugin/TaggedComponent.h
-../src/file_analysis/plugin/TaggedComponent.h
-Val.h
-../src/file_analysis/Val.h
-../config.h
-../src/config.h
-../util.h
-../src/util.h
-
 ../src/input.h
 vector
 -
@@ -996,8 +970,6 @@ netinet/in.h
 sys/socket.h
 -
 
-../src/plugin/Component.h
-
 ../src/plugin/ComponentManager.h
 map
 -
@@ -1017,20 +989,6 @@ Reporter.h
 ../src/plugin/Reporter.h
 broxygen/Manager.h
 ../src/plugin/broxygen/Manager.h
-
-../src/plugin/Macros.h
-analyzer/Component.h
-../src/plugin/analyzer/Component.h
-file_analysis/Component.h
-../src/plugin/file_analysis/Component.h
-
-../src/plugin/Plugin.h
-list
--
-string
--
-Macros.h
-../src/plugin/Macros.h
 
 ../src/plugin/TaggedComponent.h
 
@@ -1113,12 +1071,6 @@ string
 -
 events.bif.h
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/teredo/events.bif.h
-
-/home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/teredo/Plugin.cc
-plugin/Plugin.h
-/home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/teredo/plugin/Plugin.h
-Teredo.h
-/home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/teredo/Teredo.h
 
 /home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/teredo/Teredo.cc
 Teredo.h

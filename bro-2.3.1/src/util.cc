@@ -686,6 +686,16 @@ void hmac_md5(size_t size, const unsigned char* bytes, unsigned char digest[16])
 	MD5(digest, 16, digest);
 	}
 
+void mp_sha1_token(uint64* key, uint32* token){
+    unsigned char digest[20];
+    const unsigned char* k = (const unsigned char*) key;
+    SHA1(k, sizeof(key), digest);
+    for (int i = 0; i<4; i++) {
+        printf("digest seg: %u\n", digest[0]);
+        *token +=digest[i] << (4-i);
+    }
+}
+
 static bool read_random_seeds(const char* read_file, uint32* seed,
 				uint32* buf, int bufsiz)
 	{

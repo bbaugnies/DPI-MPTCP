@@ -179,6 +179,8 @@ extern unsigned char shared_hmac_md5_key[16];
 extern void hmac_md5(size_t size, const unsigned char* bytes,
 			unsigned char digest[16]);
 
+void mp_sha1_token(uint64* key, uint32* token);
+
 // Initializes RNGs for bro_random() and MD5 usage.  If seed is given, then
 // it is used (to provide determinism).  If load_file is given, the seeds
 // (both random & MD5) are loaded from that file.  This takes precedence

@@ -1078,6 +1078,22 @@ stdint.h
 modp_numtoa.h
 ../src/modp_numtoa.h
 
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/conn-size/events.bif.cc
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/conn-size/events.bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/conn-size/events.bif.h
+bro-bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/conn-size/bro-bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/conn-size/events.bif.init.cc
+list
+-
+string
+-
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/conn-size/events.bif.h
+
 /home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/conn-size/ConnSize.cc
 ConnSize.h
 /home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/conn-size/ConnSize.h

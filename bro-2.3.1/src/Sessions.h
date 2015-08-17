@@ -65,6 +65,8 @@ protected:
 
 class NetSessions {
 public:
+    
+        enum ByteOrder { Host, Network };
 	NetSessions();
 	~NetSessions();
 
@@ -240,12 +242,20 @@ protected:
 	bool CheckHeaderTrunc(int proto, uint32 len, uint32 caplen,
 			      const struct pcap_pkthdr* hdr, const u_char* pkt,
 			      const EncapsulationStack* encap);
+        
+        int ParseTCPOption(unsigned int optlen, const u_char* option);
+        
+        int CheckMPTCP(const tcphdr* tp, uint64* kA, uint64* kB, uint32_t* tA, uint32_t* tB, int* add_mp_data);
+        
+        
 
 	CompositeHash* ch;
 	PDict(Connection) tcp_conns;
 	PDict(Connection) udp_conns;
 	PDict(Connection) icmp_conns;
 	PDict(FragReassembler) fragments;
+        PDict(Connection) mp_conns;
+        PDict(Connection) mp_tokens;
 
 	typedef pair<IPAddr, IPAddr> IPPair;
 	typedef pair<EncapsulatingConn, double> TunnelActivity;

@@ -1308,6 +1308,22 @@ stdint.h
 modp_numtoa.h
 ../src/modp_numtoa.h
 
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/events.bif.cc
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/events.bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/events.bif.h
+bro-bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/bro-bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/events.bif.init.cc
+list
+-
+string
+-
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/events.bif.h
+
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/functions.bif.cc
 functions.bif.h
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/functions.bif.h
@@ -1317,6 +1333,14 @@ protocol/http/HTTP.h
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/functions.bif.h
 bro-bif.h
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/bro-bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/functions.bif.init.cc
+list
+-
+string
+-
+functions.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/http/functions.bif.h
 
 /home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/http/HTTP.cc
 config.h

@@ -1166,9 +1166,21 @@ stdint.h
 modp_numtoa.h
 ../src/modp_numtoa.h
 
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/socks/events.bif.cc
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/socks/events.bif.h
+
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/socks/events.bif.h
 bro-bif.h
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/socks/bro-bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/socks/events.bif.init.cc
+list
+-
+string
+-
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/socks/events.bif.h
 
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/socks/socks_pac.cc
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/socks/socks_pac.h

@@ -15,6 +15,8 @@
 #include "Sessions.h"
 #include "Reporter.h"
 #include "OSFinger.h"
+#include "util.h"
+#include "IPAddr.h"
 
 #include "analyzer/protocol/icmp/ICMP.h"
 #include "analyzer/protocol/udp/UDP.h"
@@ -105,6 +107,8 @@ NetSessions::NetSessions()
 	tcp_conns.SetDeleteFunc(bro_obj_delete_func);
 	udp_conns.SetDeleteFunc(bro_obj_delete_func);
 	fragments.SetDeleteFunc(bro_obj_delete_func);
+        mp_conns.SetDeleteFunc(bro_obj_delete_func);
+        mp_tokens.SetDeleteFunc(bro_obj_delete_func);
 
 	if ( stp_correlate_pair )
 		stp_manager = new analyzer::stepping_stone::SteppingStoneManager();
@@ -519,15 +523,30 @@ void NetSessions::DoNextPacket(double t, const struct pcap_pkthdr* hdr,
 	id.src_addr = ip_hdr->SrcAddr();
 	id.dst_addr = ip_hdr->DstAddr();
 	Dictionary* d = 0;
+        uint64 k1 = 0;
+        uint64* kA = &k1;
+        uint64 k2 = 0;
+        uint64* kB = &k2;
+        uint32_t t1 = 0;
+        uint32_t t2 = 0;
+        uint32_t* tA = &t1;
+        uint32_t* tB = &t2;
+        int mpf = 0;        
+        int* add_mp_data = &mpf;
 
 	switch ( proto ) {
 	case IPPROTO_TCP:
 		{
 		const struct tcphdr* tp = (const struct tcphdr *) data;
+                printf("seq: %x\n", tp->th_flags);
+                cout << (tp->th_flags & TH_SYN) << endl;
+                printf("%d\n", CheckMPTCP(tp, kA, kB, tA, tB, add_mp_data));
+                if (*add_mp_data)
+                    printf("re tA: %u\n", *tA);
 		id.src_port = tp->th_sport;
 		id.dst_port = tp->th_dport;
-		id.is_one_way = 0;
-		d = &tcp_conns;
+		id.is_one_way = 0;                
+		d = &tcp_conns;                
 		break;
 		}
 
@@ -741,10 +760,79 @@ void NetSessions::DoNextPacket(double t, const struct pcap_pkthdr* hdr,
 		reporter->InternalError("hash computation failed");
 
 	Connection* conn = 0;
+        
+        int mp_bypass = 0;
+        
+        
+        // added MPTCP checks in case of TCP
+        if ( proto == IPPROTO_TCP ) {
+            conn = (Connection*) (&mp_conns)->Lookup(h);
+            
+            // if the conn ID is known to belong to an existing mptcp connection
+            // We let everything go to the original Conn, except TCP signaling
+            // (SYN/RST/FIN)
+            if ( conn ) {
+                
+                // Trying to establish a new connection on an existing conn_ID
+                // or sending TCP Signaling that might confuse Endpoint state machines
+                if (*add_mp_data) {
+                    printf("Cannot handle new mptcp on this Conn ID\n");
+                    return;                    
+                }
+                else {
+                    // bypass normal "conn" assignment
+                    // this connection will use the same conn ID and
+                    // analyzer as the parent TCP flow.
+                    mp_bypass = 1;
+                }                
+            }
+            // this is a new TCP flow
+            else {
+                // MP_Capable ACK
+                if (*add_mp_data == 1) {
+                    Connection* mp_conn = NewConn(h, t, &id, data, proto, ip_hdr->FlowLabel(), encapsulation);
+                    (&mp_conns)->Insert(h, mp_conn);
+                    
+                    HashKey hashA = new HashKey(*tA);
+                    if ( ! &hashA )
+                        reporter->InternalError("hash computation failed");
+                    HashKey hashB = new HashKey(*tB);
+                    if ( ! &hashB )
+                        reporter->InternalError("hash computation failed");
+                    
+                    (&mp_tokens)->Insert(&hashA, mp_conn);
+                    (&mp_tokens)->Insert(&hashB, mp_conn);                    
+                }
+                // MP Join SYN
+                if ( *add_mp_data == 2 ) {
+                    HashKey hashA = new HashKey(*tA);
+                    if ( ! &hashA )
+                        reporter->InternalError("hash computation failed");
+                    
+                    conn = (Connection*) (&mp_tokens)->Lookup(&hashA);
+                    if ( ! conn )
+                        printf("Join on unknown token, treating as regular TCP\n");
+                    else {
+                        printf("matched a token\n");
+                        Connection* conn2;
+                        conn2 = (Connection*) (&mp_conns)->Lookup(h);
+                        if ( ! conn2 ) 
+                            (&mp_conns)->Insert(h, conn);
+                        // If conn2 exists already, it means we have a join on a
+                        // known token from a connection that already exists.
+                        // Only scenario I see is a duplicate, so we shouldn't
+                        // let it through anyway (confuses Endpoint state machine)
+                        return;
+                    }
+                }
+            }
+        }
+        printf("mp_conns: %d\nmp_tokens: %d\n", (&mp_conns)->Length(), (&mp_tokens)->Length());
 
 	// FIXME: The following is getting pretty complex. Need to split up
 	// into separate functions.
-	conn = (Connection*) d->Lookup(h);
+        if (mp_bypass == 0) {
+            conn = (Connection*) d->Lookup(h);
 	if ( ! conn )
 		{
 		conn = NewConn(h, t, &id, data, proto, ip_hdr->FlowLabel(), encapsulation);
@@ -777,6 +865,7 @@ void NetSessions::DoNextPacket(double t, const struct pcap_pkthdr* hdr,
 			conn->CheckEncapsulation(encapsulation);
 			}
 		}
+        }
 
 	if ( ! conn )
 		{
@@ -937,6 +1026,111 @@ bool NetSessions::CheckHeaderTrunc(int proto, uint32 len, uint32 caplen,
 
 	return false;
 	}
+
+int NetSessions::ParseTCPOption(unsigned int opt_len, const u_char* option) {
+    unsigned int subtype = option[2] >> 4;
+    unsigned int extra = 0;
+    if (subtype == 0 && opt_len == 20)
+        extra = 1;
+    if (subtype == 1 && opt_len == 12)
+        extra = 2;
+   
+    return (1<<subtype)+(extra<<8);
+}
+
+int NetSessions::CheckMPTCP(const tcphdr* tcp, uint64* kA, uint64* kB, uint32_t* tA, uint32_t* tB, int* add_mp_data) {
+    // Parse TCP options.
+	const u_char* options = (const u_char*) tcp + sizeof(struct tcphdr);
+	const u_char* opt_end = (const u_char*) tcp + tcp->th_off * 4;
+        int res = 0;
+
+        
+	while ( options < opt_end )
+		{
+		unsigned int opt = options[0];
+
+		unsigned int opt_len;
+
+		if ( opt < 2 )
+			opt_len = 1;
+
+		else if ( options + 1 >= opt_end )
+			// We've run off the end, no room for the length.
+			return -1;
+
+		else
+			opt_len = options[1];
+
+		if ( opt_len == 0 )
+			return -1;	// trashed length field
+
+		if ( options + opt_len > opt_end )
+			// No room for rest of option.
+			return -1;
+
+                if (opt == 30 ) {
+                    unsigned int subtype = options[2] >> 4;
+                    if (subtype == 0 && opt_len == 20){
+                        *add_mp_data = 1;
+                        for (int i = 0; i < 8; i++) {
+                            *kA += (uint64) options[11 - i] << (i * 8);
+                            *kB += (uint64) options[19 - i] << (i * 8);
+                        }
+                        
+                        //---------------------------------------------
+                        unsigned char digestA[SHA_DIGEST_LENGTH];
+                        unsigned char digestB[SHA_DIGEST_LENGTH];
+                        
+                        const unsigned char* string = (const unsigned char*) kA;
+                        SHA_CTX ctx;
+                        SHA1_Init(&ctx);
+                        SHA1_Update(&ctx, string, 8);
+                        SHA1_Final(digestA, &ctx);
+                        //tA = (uint32_t*) &digestA;
+                        
+    char mdString[SHA_DIGEST_LENGTH*2+1];
+    for (int i = 0; i < SHA_DIGEST_LENGTH; i++)
+        sprintf(&mdString[i*2], "%02x", (unsigned int)digestA[i]);
+ 
+    printf("SHA1 digest: %s\n", mdString);
+                        
+                        const unsigned char* string2 = (const unsigned char*) kB;
+                        SHA1_Init(&ctx);
+                        SHA1_Update(&ctx, string2, 8);
+                        SHA1_Final(digestB, &ctx);
+                        //tB = (uint32_t*) &digestB;
+                        for (int i = 0; i < 4; i++) {
+                            *tA += (uint32_t) digestA[3-i] << (i * 8);
+                            *tB += (uint32_t) digestB[3-i] << (i * 8);
+                        }
+                        printf("tA: %x\ntB: %x\n", *tA, *tB);
+                        //----------------------------------------------  
+                    }
+                    if ( subtype == 1 && opt_len == 12) {
+                        *add_mp_data = 2;
+                        for (int i = 0; i < 4; i++) {
+                            *tA += (uint64) options[7 - i] << (i * 8);
+                        }
+                        
+                    }
+                }
+
+		options += opt_len;
+
+		if ( opt == TCPOPT_EOL )
+			// All done - could flag if more junk left over ....
+			break;
+		}
+        if ( *add_mp_data == 0 ){
+            // should include RST and FIN when termination is handled
+            if (tcp->th_flags & TH_SYN)
+                *add_mp_data = 3;
+        }
+
+	return res;
+}
+
+
 
 FragReassembler* NetSessions::NextFragment(double t, const IP_Hdr* ip,
 					const u_char* pkt)

@@ -1128,6 +1128,22 @@ stdint.h
 modp_numtoa.h
 ../src/modp_numtoa.h
 
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/events.bif.cc
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/events.bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/events.bif.h
+bro-bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/bro-bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/events.bif.init.cc
+list
+-
+string
+-
+events.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/events.bif.h
+
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/functions.bif.cc
 functions.bif.h
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/functions.bif.h
@@ -1137,6 +1153,14 @@ Login.h
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/functions.bif.h
 bro-bif.h
 /home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/bro-bif.h
+
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/functions.bif.init.cc
+list
+-
+string
+-
+functions.bif.h
+/home/benjamin/Bro/bro-2.3.1/build/src/analyzer/protocol/login/functions.bif.h
 
 /home/benjamin/Bro/bro-2.3.1/src/analyzer/protocol/login/Login.cc
 config.h

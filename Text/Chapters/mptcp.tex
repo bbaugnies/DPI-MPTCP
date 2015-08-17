@@ -6,7 +6,7 @@ Multipath TCP is an extension of the TCP protocol which was published as an Expe
 This section will cover how the MPTCP protocol works by explaining which types of packets are sent, and how the different parts of a connection are performed.
 
 \section{General Operation and Option Types}
-MPTCP initially behaves like a regular, single TCP connection. However, once the use of MPTCP has been successfully negotiated, either one of the hosts can decide to start a new TCP connection that will join the MPTCP connection. Figure \ref{pic:mp setup} shows how two hosts can use the protocol to set up several subflows. The host can then use all the individual TCP connections (called subflows) to spread the data, using the combined bandwidth of each path.\\
+MPTCP initially behaves like a regular, single TCP connection. However, once the use of MPTCP has been successfully negotiated, either one of the hosts can decide to start a new TCP connection that will join the MPTCP connection. The host can then use all the individual TCP connections (called subflows) to spread the data, using the combined bandwidth of each path. Figure \ref{pic:mp setup} shows how two hosts can use the protocol to set up several subflows.\\
 
 \begin{minipage}[c]{\textwidth}
 \centering
@@ -24,11 +24,11 @@ MPTCP's operation is based on the use of TCP options. The protocol uses the opti
 \item Subtype 3, Add\_Addr: used within a subflow to signal the existence of other addresses that can be used to set up additional subflows.
 \item Subtype 4, Remove\_Addr: used like Add\_Addr, but to signal that an address is no longer available.
 \item Subtype 5, MP\_Prio: addresses can be used as either normal subflows or backup. This subtype allows a host to change the status of an address to and from backup.
-\item Subtype 6, MP\_Fail: this option is used to close a subflow which has been opened correctly but for which modifications to the data have been detected. If the data sequence mapping is modified, the data on that subflow cannot be used since the re-assembly will fail. The connection is therefore closed using an MP\_Fail option which allows the host to ``forget'' all the data that was sent on that subflow.
+\item Subtype 6, MP\_Fail: this option is used to close a subflow which has been opened correctly but for which modifications to the data have been detected. If the data sequence mapping is modified, the data on that subflow cannot be used since the reassembly will fail. The connection is therefore closed using an MP\_Fail option which allows the host to ``forget'' all the data that was sent on that subflow.
 \item Subtype 7, MP\_Fastclose: in an MPTCP connection, a TCP rst will only close that particular subflow. This option subtype is equivalent to an rst, but for the whole MPTCP connection.
 \end{itemize}
 
-The format of each MPTCP option as defined in the RFC can be found in appendix \ref{append:mp opt format}. A given packet can contain multiple MPTCP options. Typically, Add\_Addr options can be piggy-backed onto data packets which also contain the DSS option.\\
+The format of each MPTCP option as defined in the RFC can be found in appendix \ref{append:mp opt format}. A given packet can contain multiple MPTCP options.\\
 
 We will now go over how the important steps of an MPTCP connection are performed. For a more detailed explanation, please consult RFC 6824.\\ 
 
@@ -49,14 +49,14 @@ Each host can then compute the tokens that will uniquely identify the connection
 \end{figure}
 
 \section{Advertising New Addresses}
-Once a connection is established, each host may wish to indicate to the other that it has additional addresses available for new subflows. To do this, it will use an existing subflow and send a packet with the Add\_Addr option (as mentioned earlier, this can be piggy-backed onto a data packet). The address is mapped to an Address ID which is unique per host and per connection (the address for the original subflow has the ID 0). The host wishing to advertise a new address will therefore send its address along with the ID so that the other host can know the mapping. MPTCP supports both IPv4 and IPv6 addresses. \\
+Once a connection is established, each host may wish to indicate to the other that it has additional addresses available for new subflows. To do this, it will use an existing subflow and send a packet with the Add\_Addr option. The address is mapped to an Address ID which is unique per host and per connection (the address for the original subflow has the ID 0). The host wishing to advertise a new address will therefore send its address along with the ID so that the other host can know the mapping. MPTCP supports both IPv4 and IPv6 addresses. It is also worth noting that a host can use an address that it has not previously advertised when joining a connection. Once the other host has authenticated the join, the address will be considered implicitly advertised.\\
 
 If an address later becomes unavailable, the host can send a Remove\_Addr option to signal that the other host should no longer attempt to connect to it. Remove\_Addr exclusively uses the Address ID to reference an address. \\
 
 Finally, as mentioned earlier, addresses can be used as regular or backup addresses. If a host wishes to indicate that an address should be used as backup (or that a backup address can now be used regularly), it can send an MP\_Prio option. This option references the address in question by its ID, and contains a single bit which indicates the address' new priority.
 
 \section{Joining an Existing Connection}
-If host A wants to start a new subflow for the MPTCP connection, it will send a SYN packet to one of host B's advertised (as seen in the previous section) addresses. This SYN will contain an MP\_Join option. The MP\_Join option contains the token to identify which MPTCP connection it concerns, as well as the Address ID of the packet's source (in case the actual header is modified). Letting just any other TCP flow join an ongoing connection would allow attackers to join it and disrupt the communication. Therefore, the join procedure uses an authentication method. To this end, the SYN also contains a 32-bit random number. \\
+If host A wants to start a new subflow for the MPTCP connection, it will send a SYN packet to one of host B's advertised (as seen in the previous section) addresses. Note that, as mentioned earlier, it is not strictly necessary for A to have advertised the address it wishes to use. This SYN will contain an MP\_Join option. The MP\_Join option contains the token to identify which MPTCP connection it concerns, as well as the Address ID of the packet's source (in case the actual header is modified). Letting just any other TCP flow join an ongoing connection would allow attackers to join it and disrupt the communication. Therefore, the join procedure uses an authentication method. To this end, the SYN also contains a 32-bit random number. \\
 
 Host B will reply with a SYN+ACK containing its own random number. It will also have to use both keys that were exchanged to compute a HMAC of both random numbers. Due to option space limitations, it can only send a truncated (64 bits) version of this HMAC to host A. Unlike MP\_Capable, if the SYN+ACK does not contain an MP\_Join option, the TCP connection is closed. \\
 
@@ -77,4 +77,4 @@ DSS options also contain the DATA\_FIN flag, which is used to indicate that a ho
 \section{Fastclose and Failure}
 In regular TCP, a host can rapidly close a connection by sending an rst. For MPTCP, a host must close multiple TCP connections to stop a single MPTCP connection. To do this, host A will send an MP\_Fastclose option on one of the subflows, along with host B's key. Host A will also send a TCP rst on each one of the other TCP subflows (leaving only one active subflow on the MPTCP connection). If host B recognizes the key, it will answer by closing down the final subflow with an rst. \\
 
-If a subflow proves unsuitable for MPTCP (for example, if a middle bow is modifying the payload and making the correct data sequence mapping irrecoverable), the subflow will be closed with an MP\_Fail option. This option indicates the Data Sequence Number before any data was sent on that subflow, allowing the receiver to discard any corrupt information the subflow could have sent.
+If a subflow proves unsuitable for MPTCP (for example, if a middle box is modifying the payload and making the correct data sequence mapping irrecoverable), the subflow will be closed with an MP\_Fail option. This option indicates the Data Sequence Number before any data was sent on that subflow, allowing the receiver to discard any corrupt information the subflow could have sent.

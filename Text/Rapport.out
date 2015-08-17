@@ -14,9 +14,9 @@
 \BOOKMARK [2][-]{subsection.3.4.1}{Logging}{section.3.4}% 14
 \BOOKMARK [2][-]{subsection.3.4.2}{Notices}{section.3.4}% 15
 \BOOKMARK [0][-]{chapter.4}{Bro Events}{}% 16
-\BOOKMARK [1][-]{section.4.1}{Protocol analyzers}{chapter.4}% 17
-\BOOKMARK [1][-]{section.4.2}{Adding new events}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.3}{Event description}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.1}{Protocol Analyzers}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.2}{Adding new Events}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.3}{Event Description}{chapter.4}% 19
 \BOOKMARK [0][-]{chapter.5}{Script-level Functionalities}{}% 20
 \BOOKMARK [1][-]{section.5.1}{Logging MPTCP Connections}{chapter.5}% 21
 \BOOKMARK [1][-]{section.5.2}{Detecting Erroneous Address Advertisement}{chapter.5}% 22
@@ -24,16 +24,26 @@
 \BOOKMARK [1][-]{section.5.4}{Unknown Join Detection}{chapter.5}% 24
 \BOOKMARK [1][-]{section.5.5}{Join Flooding}{chapter.5}% 25
 \BOOKMARK [0][-]{chapter.6}{Testing}{}% 26
-\BOOKMARK [1][-]{section.6.1}{Testing the Event Engine modifications}{chapter.6}% 27
+\BOOKMARK [1][-]{section.6.1}{Testing the Event Engine Modifications}{chapter.6}% 27
 \BOOKMARK [1][-]{section.6.2}{Testing the Logging}{chapter.6}% 28
 \BOOKMARK [1][-]{section.6.3}{Testing the Bad Behavior Detection}{chapter.6}% 29
 \BOOKMARK [1][-]{section.6.4}{Performance Testing}{chapter.6}% 30
-\BOOKMARK [0][-]{chapter.7}{Further Considerations}{}% 31
-\BOOKMARK [1][-]{section.7.1}{Adding Bad Behavior Detection}{chapter.7}% 32
-\BOOKMARK [1][-]{section.7.2}{Improving Events}{chapter.7}% 33
-\BOOKMARK [1][-]{section.7.3}{Recomputing Cryptographic Operations}{chapter.7}% 34
-\BOOKMARK [1][-]{section.7.4}{Improving Join Flood Detection}{chapter.7}% 35
-\BOOKMARK [1][-]{section.7.5}{Internal Re-Assembly}{chapter.7}% 36
-\BOOKMARK [0][-]{chapter.8}{Conclusion}{}% 37
-\BOOKMARK [0][-]{appendix.A}{MPTCP Option Formats}{}% 38
-\BOOKMARK [0][-]{appendix.B}{MPTCP Event Definitions}{}% 39
+\BOOKMARK [0][-]{chapter.7}{Section Recap}{}% 31
+\BOOKMARK [0][-]{chapter.8}{A closer look at Bro's Reassemblers}{}% 32
+\BOOKMARK [1][-]{section.8.1}{Identifying Streams}{chapter.8}% 33
+\BOOKMARK [1][-]{section.8.2}{Bro's TCP Endpoints and Reassemblers}{chapter.8}% 34
+\BOOKMARK [0][-]{chapter.9}{Requirements for MPTCP Reassembly}{}% 35
+\BOOKMARK [1][-]{section.9.1}{Maintaining an MPTCP Connection List}{chapter.9}% 36
+\BOOKMARK [1][-]{section.9.2}{Aggregating to a Single Connection}{chapter.9}% 37
+\BOOKMARK [2][-]{subsection.9.2.1}{Using the Proper Sequence Numbers}{section.9.2}% 38
+\BOOKMARK [2][-]{subsection.9.2.2}{Maintaining Proper State on the Endpoints}{section.9.2}% 39
+\BOOKMARK [2][-]{subsection.9.2.3}{On Working with Distinct Conns}{section.9.2}% 40
+\BOOKMARK [1][-]{section.9.3}{Interaction with the Implemented Changes}{chapter.9}% 41
+\BOOKMARK [0][-]{chapter.10}{Further Considerations}{}% 42
+\BOOKMARK [1][-]{section.10.1}{Implementation of the Reassembly Mechanisms}{chapter.10}% 43
+\BOOKMARK [1][-]{section.10.2}{Re-Implementing/Adding Higher-level Events and Redesigning Scripts}{chapter.10}% 44
+\BOOKMARK [1][-]{section.10.3}{Increased Discrimination Between MPTCP Connections}{chapter.10}% 45
+\BOOKMARK [1][-]{section.10.4}{Partial View Reassembly}{chapter.10}% 46
+\BOOKMARK [0][-]{chapter.11}{Conclusion}{}% 47
+\BOOKMARK [0][-]{appendix.A}{MPTCP Option Formats}{}% 48
+\BOOKMARK [0][-]{appendix.B}{MPTCP Event Definitions}{}% 49

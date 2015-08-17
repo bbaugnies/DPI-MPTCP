@@ -11,25 +11,30 @@
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Class Hierarchy of Bro analyzers\relax }}{17}{figure.caption.8}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Header for our MPTCP connection log\relax }}{28}{figure.caption.18}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces A Three-way handshake ACK followed by two Add Addr duplicates\relax }}{33}{figure.caption.19}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Possible Add Addr Attack\relax }}{33}{figure.caption.20}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces The first Add Addr in detail\relax }}{35}{figure.caption.21}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces The second Add Addr in detail\relax }}{36}{figure.caption.22}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Possible Key Change Attack\relax }}{37}{figure.5.6}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Potential Attack on the Join Authentication\relax }}{40}{figure.caption.23}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces A Three-way handshake ACK followed by two Add Addr duplicates\relax }}{34}{figure.caption.19}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Possible Add Addr Attack\relax }}{34}{figure.caption.20}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces The first Add Addr in detail\relax }}{36}{figure.caption.21}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces The second Add Addr in detail\relax }}{37}{figure.caption.22}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Possible Key Change Attack\relax }}{38}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Potential Attack on the Join Authentication\relax }}{41}{figure.caption.23}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Generated Packet Capture for Duplicate Add Addr\relax }}{43}{figure.caption.24}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Generated Packet Capture for Duplicate Add Addr\relax }}{44}{figure.caption.24}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Data Path for reassembling TCP Data\relax }}{51}{figure.caption.26}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {9.1}{\ignorespaces Reassembling from Distinct Conns\relax }}{57}{figure.caption.27}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces MP Capable option format\relax }}{53}{figure.A.1}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces MP Join option format for initial SYN\relax }}{53}{figure.A.2}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces MP Join option format for SYN+ACK\relax }}{54}{figure.A.3}
-\contentsline {figure}{\numberline {A.4}{\ignorespaces MP Join option format for final ACK\relax }}{54}{figure.A.4}
-\contentsline {figure}{\numberline {A.5}{\ignorespaces MP DSS option format\relax }}{54}{figure.A.5}
-\contentsline {figure}{\numberline {A.6}{\ignorespaces MP ADD\_ADDR option format\relax }}{55}{figure.A.6}
-\contentsline {figure}{\numberline {A.7}{\ignorespaces MP REMOVE\_ADDR option format\relax }}{55}{figure.A.7}
-\contentsline {figure}{\numberline {A.8}{\ignorespaces MP PRIO option format\relax }}{55}{figure.A.8}
-\contentsline {figure}{\numberline {A.9}{\ignorespaces MP FASCT\_CLOSE option format\relax }}{55}{figure.A.9}
-\contentsline {figure}{\numberline {A.10}{\ignorespaces MP FAIL option format\relax }}{55}{figure.A.10}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces MP Capable option format\relax }}{65}{figure.A.1}
+\contentsline {figure}{\numberline {A.2}{\ignorespaces MP Join option format for initial SYN\relax }}{65}{figure.A.2}
+\contentsline {figure}{\numberline {A.3}{\ignorespaces MP Join option format for SYN+ACK\relax }}{66}{figure.A.3}
+\contentsline {figure}{\numberline {A.4}{\ignorespaces MP Join option format for final ACK\relax }}{66}{figure.A.4}
+\contentsline {figure}{\numberline {A.5}{\ignorespaces MP DSS option format\relax }}{66}{figure.A.5}
+\contentsline {figure}{\numberline {A.6}{\ignorespaces MP ADD\_ADDR option format\relax }}{67}{figure.A.6}
+\contentsline {figure}{\numberline {A.7}{\ignorespaces MP REMOVE\_ADDR option format\relax }}{67}{figure.A.7}
+\contentsline {figure}{\numberline {A.8}{\ignorespaces MP PRIO option format\relax }}{67}{figure.A.8}
+\contentsline {figure}{\numberline {A.9}{\ignorespaces MP FASCT\_CLOSE option format\relax }}{67}{figure.A.9}
+\contentsline {figure}{\numberline {A.10}{\ignorespaces MP FAIL option format\relax }}{67}{figure.A.10}
 \addvspace {10\p@ }

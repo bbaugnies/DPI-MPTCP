@@ -3,7 +3,7 @@
 \chapter{Testing} \label{chap:test}
 With several types of behavior now being detected, the next step is to validate that the scripts function correctly and without impacting the execution too heavily. This section will describe the different testing methods we employed to make sure the system behaved correctly.
 
-\section{Testing the Event Engine modifications}
+\section{Testing the Event Engine Modifications}
 The first step towards validating the system was verifying that the new events themselves worked as intended. In order to do this, we created a small auxiliary script which would have a very basic functionality: every time an MPTCP event is seen, it prints out the event type and all the values contained in the event to the standard output. Next, we created a short packet capture in which we visited an MPTCP-enabled website: \url {https://amiusingmptcp.com/} \cite{amiusing}. We checked the capture with Wireshark \citep{wireshark} which quickly showed us that the capture contained enough MPTCP behavior to run some tests. The capture contains two MPTCP connection establishments, each one of which advertise several other addresses on which new subflows are created, using both IPv4 and IPv6. \\
 
 We then ran Bro on our new capture, specifying that our script should be loaded. the result was as expected, with the contents of the MPTCP options being printed out to the console. In order to verify that the content was correct, we performed a side-by-side comparison of the values that Bro output, and those visible via Wireshark.
